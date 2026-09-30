@@ -1,0 +1,28 @@
+# systemd unit for a plain Linux server (no Docker).
+#   sudo useradd --system --home /opt/freshnest freshnest
+#   sudo cp -r . /opt/freshnest && sudo chown -R freshnest /opt/freshnest
+#   sudo mkdir -p /var/lib/freshnest && sudo chown freshnest /var/lib/freshnest
+#   sudo cp deploy/freshnest.service /etc/systemd/system/
+#   sudo systemctl enable --now freshnest
+# Put nginx or Caddy in front for HTTPS (deploy/Caddyfile works as-is with a reverse_proxy to localhost:3000).
+[Unit]
+Description=FreshNest website and booking backend
+After=network.target
+
+[Service]
+Type=simple
+User=freshnest
+WorkingDirectory=/opt/freshnest
+EnvironmentFile=/opt/freshnest/.env
+ExecStart=/usr/bin/node server/index.js
+Restart=always
+RestartSec=3
+# Lock the process down: it may only write to its data folder.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/freshnest
+
+[Install]
+WantedBy=multi-user.target

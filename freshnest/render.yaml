@@ -1,0 +1,40 @@
+# Render Blueprint: New > Blueprint > pick this repository.
+# A persistent disk needs a paid instance type; without one, bookings would be erased on every deploy.
+services:
+  - type: web
+    name: freshnest
+    runtime: node
+    plan: starter
+    buildCommand: echo "No build step: FreshNest has no dependencies"
+    startCommand: node server/index.js
+    healthCheckPath: /api/health
+    autoDeploy: true
+    disk:
+      name: freshnest-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /data
+      - key: TRUST_PROXY
+        value: "1"
+      - key: COOKIE_SECURE
+        value: "1"
+      - key: PUBLIC_URL          # your address, e.g. https://freshnest.onrender.com or your own domain
+        sync: false
+      - key: ADMIN_PASSWORD      # choose at least 10 characters
+        sync: false
+      - key: NOTIFY_URL          # optional alert channels, see .env.example
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: NOTIFY_EMAIL
+        sync: false
