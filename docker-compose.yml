@@ -1,0 +1,35 @@
+# One command on any server with Docker:  docker compose up -d
+# Caddy in front gets and renews a free HTTPS certificate automatically.
+# Before starting: copy .env.example to .env, fill it in, and set DOMAIN to your site name
+# (its DNS record must already point at this server).
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+      TRUST_PROXY: "1"
+      COOKIE_SECURE: "1"
+    volumes:
+      - freshnest-data:/data
+    expose:
+      - "3000"
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:?Set DOMAIN in .env, for example www.example.ng}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+volumes:
+  freshnest-data:
+  caddy-data:
+  caddy-config:

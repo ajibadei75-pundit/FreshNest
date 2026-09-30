@@ -1,0 +1,1967 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreshNest Cleaning Services | Home and office cleaning, open every day</title>
+<meta name="description" content="Vetted cleaners for homes and offices, open every day. Choose your rooms, get an instant estimate and send your booking request in minutes. Supplies included, free re-clean within 24 hours.">
+<meta name="theme-color" content="#0E2B35">
+<meta property="og:title" content="FreshNest Cleaning Services">
+<meta property="og:description" content="Home and office cleaning, open every day. Get an instant estimate and book online.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MCA0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiMwQjdFODAiLz48cGF0aCBkPSJNMjAgOGM1IDYgOCA5LjUgOCAxNGE4IDggMCAwIDEtMTYgMGMwLTQuNSAzLTggOC0xNHoiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMTYuNSAyM2E0IDQgMCAwIDAgMy41IDQiIHN0cm9rZT0iIzBCN0U4MCIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMzEgOWwxLjIgMi44TDM1IDEzbC0yLjggMS4yTDMxIDE3bC0xLjItMi44TDI3IDEzbDIuOC0xLjJ6IiBmaWxsPSIjRkZDODNEIi8+PC9zdmc+Cg==">
+<script>
+/* Runs before the page paints so there is no light/dark flash. Shared by site and admin. */
+(function () {
+  try {
+    var t = localStorage.getItem("fn_theme");
+    if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", t);
+  } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+})();
+
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   FreshNest base styles. Loaded by BOTH the public site and the admin page,
+   so type, buttons, fields and colours are identical everywhere.
+   ========================================================================== */
+
+/* ---------- Tokens ---------- */
+:root {
+  /* colour */
+  --bg: #F3F8F7; --surface: #FFFFFF; --surface-2: #EAF3F1; --ink: #0E2B35; --muted: #476068; --line: #D3E3E1;
+  --brand: #0B7E80; --brand-strong: #096467; --on-brand: #FFFFFF; --brand-soft: #DDF0EE;
+  --sun: #FFC83D; --sun-hover: #FFD25E; --sun-ink: #0E2B35;
+  --deep: #0E2B35; --deep-ink: #E9F4F3; --star: #E59F00; --wa: #12803F;
+  --error: #B3261E; --error-soft: #FBE7E5; --ok: #17794D; --ok-soft: #DDF3E8; --warn: #855400; --warn-soft: #FFF1CC;
+  --shadow: 0 24px 50px -28px rgba(14, 43, 53, .45); --shadow-sm: 0 8px 20px -14px rgba(14, 43, 53, .4);
+  color-scheme: light;
+
+  /* type */
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --fs-xs: .8125rem;   /* 13  fine print, tags */
+  --fs-sm: .9375rem;   /* 15  helper text, small buttons */
+  --fs-md: 1rem;       /* 16  body, fields, buttons */
+  --fs-lg: 1.125rem;   /* 18  lead text, large buttons */
+  --fs-xl: 1.375rem;   /* 22  card and step titles */
+  --fs-2xl: 1.75rem;   /* 28  panel titles */
+  --fs-3xl: clamp(1.9rem, 3.8vw, 2.6rem);      /* section titles */
+  --fs-hero: clamp(2.5rem, 5.6vw, 4.25rem);    /* hero title */
+
+  /* controls: one height and one radius so buttons, fields and tiles line up */
+  --ctl: 48px; --ctl-lg: 56px; --ctl-sm: 40px;
+  --r-ctl: 12px; --r-card: 20px; --r-lg: 24px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0A1C22; --surface: #11303A; --surface-2: #0E2831; --ink: #E9F4F3; --muted: #9DB8BE; --line: #21434D;
+    --brand: #4CCFC9; --brand-strong: #7FE3DE; --on-brand: #062328; --brand-soft: #123A42; --deep: #06141A;
+    --error: #FFB4AB; --error-soft: #3A1A18; --ok: #7FE0AE; --ok-soft: #123B2A; --warn: #FFD27A; --warn-soft: #3B2F0F;
+    --shadow: 0 24px 50px -28px rgba(0, 0, 0, .8); --shadow-sm: 0 8px 20px -14px rgba(0, 0, 0, .7); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0A1C22; --surface: #11303A; --surface-2: #0E2831; --ink: #E9F4F3; --muted: #9DB8BE; --line: #21434D;
+  --brand: #4CCFC9; --brand-strong: #7FE3DE; --on-brand: #062328; --brand-soft: #123A42; --deep: #06141A;
+  --error: #FFB4AB; --error-soft: #3A1A18; --ok: #7FE0AE; --ok-soft: #123B2A; --warn: #FFD27A; --warn-soft: #3B2F0F;
+  --shadow: 0 24px 50px -28px rgba(0, 0, 0, .8); --shadow-sm: 0 8px 20px -14px rgba(0, 0, 0, .7); color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink); font: 400 var(--fs-md)/1.6 var(--font-body); -webkit-font-smoothing: antialiased; transition: background-color .3s, color .3s; }
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; letter-spacing: -.02em; margin: 0; font-weight: 700; }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-radius: 6px; }
+.muted { color: var(--muted); }
+.fine { font-size: var(--fs-sm); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--sun); color: var(--sun-ink); padding: 10px 16px; border-radius: var(--r-ctl); z-index: 300; font-weight: 600; }
+.skip:focus { left: 12px; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: var(--ctl); padding: 0 22px; border-radius: var(--r-ctl); border: 1.5px solid transparent;
+  font: 600 var(--fs-md)/1 var(--font-body); text-decoration: none; cursor: pointer; white-space: nowrap;
+  transition: background-color .15s, border-color .15s, color .15s, transform .15s, box-shadow .15s;
+}
+.btn svg { width: 20px; height: 20px; flex: none; }
+.btn:active { transform: scale(.98); }
+.btn[disabled], .btn[aria-disabled="true"] { opacity: .5; cursor: not-allowed; transform: none; }
+.btn-primary { background: var(--sun); color: var(--sun-ink); }
+.btn-primary:hover:not([disabled]) { background: var(--sun-hover); }
+.btn-brand { background: var(--brand); color: var(--on-brand); }
+.btn-brand:hover:not([disabled]) { background: var(--brand-strong); }
+.btn-wa { background: var(--wa); color: #fff; }
+.btn-wa:hover:not([disabled]) { filter: brightness(1.12); }
+.btn-ghost { background: var(--surface); color: var(--ink); border-color: var(--line); }
+.btn-ghost:hover:not([disabled]) { border-color: var(--brand); background: var(--brand-soft); }
+.btn-danger { background: transparent; color: var(--error); border-color: color-mix(in srgb, var(--error) 45%, transparent); }
+.btn-danger:hover:not([disabled]) { background: var(--error-soft); }
+.btn-lg { min-height: var(--ctl-lg); padding: 0 28px; font-size: var(--fs-lg); }
+.btn-sm { min-height: var(--ctl-sm); padding: 0 16px; font-size: var(--fs-sm); }
+.btn-block { width: 100%; }
+.icon-btn {
+  display: inline-grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: var(--r-ctl);
+  border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; transition: border-color .15s, background-color .15s;
+}
+.icon-btn:hover { border-color: var(--brand); background: var(--brand-soft); }
+.icon-btn svg { width: 22px; height: 22px; }
+
+/* ---------- Form fields ---------- */
+.field { display: grid; gap: 6px; align-content: start; }
+.field > label, .field > .lbl { font-weight: 600; font-size: var(--fs-sm); }
+.opt { font-weight: 400; color: var(--muted); }
+.field input[type=text], .field input[type=tel], .field input[type=email], .field input[type=date], .field input[type=time],
+.field input[type=number], .field input[type=password], .field input[type=search], .field select, .field textarea {
+  width: 100%; min-height: var(--ctl); padding: 11px 14px; border-radius: var(--r-ctl); border: 1.5px solid var(--line);
+  background: var(--bg); color: var(--ink); font: inherit; font-size: var(--fs-md); transition: border-color .15s, box-shadow .15s;
+}
+.field select { appearance: none; padding-right: 40px; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23708087' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+.field textarea { min-height: 96px; resize: vertical; }
+.field input:hover, .field select:hover, .field textarea:hover { border-color: color-mix(in srgb, var(--brand) 55%, var(--line)); }
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: none; border-color: var(--brand); box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 22%, transparent); }
+.field [aria-invalid="true"] { border-color: var(--error); }
+.field input:disabled, .field select:disabled, .field textarea:disabled { opacity: .6; cursor: not-allowed; }
+.err { color: var(--error); font-size: var(--fs-sm); font-weight: 500; }
+.err:empty { display: none; }
+.check-line { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-weight: 500; }
+.check-line input { width: 22px; height: 22px; margin: 1px 0 0; accent-color: var(--brand); flex: none; }
+.check-line input:disabled { cursor: not-allowed; }
+.status { padding: 14px 16px; border-radius: var(--r-ctl); background: var(--brand-soft); font-size: var(--fs-sm); }
+.status.is-error { background: var(--error-soft); color: var(--error); }
+.status.is-ok { background: var(--ok-soft); color: var(--ok); }
+
+/* ---------- Small pieces ---------- */
+.tagpill { display: inline-flex; align-items: center; font-size: var(--fs-xs); font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--brand-soft); color: var(--brand); white-space: nowrap; }
+.tagpill.warn { background: var(--warn-soft); color: var(--warn); }
+.tagpill.ok { background: var(--ok-soft); color: var(--ok); }
+.tagpill.bad { background: var(--error-soft); color: var(--error); }
+.tagpill.plain { background: var(--surface-2); color: var(--muted); }
+.brand-mark { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 800 1.2rem/1.05 var(--font-display); letter-spacing: -.02em; }
+.brand-mark svg { width: 38px; height: 38px; flex: none; }
+.brand-mark small { display: block; font: 500 var(--fs-xs)/1 var(--font-body); letter-spacing: 0; color: var(--muted); margin-top: 3px; }
+.toast { position: fixed; left: 50%; bottom: 90px; transform: translate(-50%, 20px); background: var(--deep); color: var(--deep-ink); padding: 12px 20px; border-radius: var(--r-ctl); font-weight: 600; font-size: var(--fs-sm); z-index: 400; opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s var(--ease); box-shadow: var(--shadow); max-width: calc(100% - 32px); text-align: center; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+.theme-toggle { position: relative; overflow: hidden; }
+.theme-toggle svg { position: absolute; transition: transform .4s var(--ease), opacity .3s; }
+.theme-toggle .moon { transform: translateY(120%); opacity: 0; }
+:root[data-theme="dark"] .theme-toggle .sun { transform: translateY(-120%); opacity: 0; }
+:root[data-theme="dark"] .theme-toggle .moon { transform: none; opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ---------- Icons (SVG sprite in each page's <body>) ---------- */
+.i { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.i-fill { fill: currentColor; stroke: none; }
+.i, .i-fill { width: 1.25em; height: 1.25em; flex: none; }
+
+</style>
+<style>
+/* ==========================================================================
+   FreshNest public site. Builds on base.css.
+   Alignment rules used throughout:
+   - one content width (.wrap), one section rhythm (.section)
+   - all text is left-aligned; centred text is used only for the success message
+   - controls are 48px tall with 12px corners; cards are 20px; tiles are 16px
+   ========================================================================== */
+:root { --r-md: 16px; --header-h: 72px; }
+html { scroll-padding-top: calc(var(--header-h) + 16px); }
+.wrap { width: min(1140px, 100% - 40px); margin-inline: auto; }
+.section { padding-block: clamp(56px, 8vw, 104px); }
+.section:not(.tint) + .section:not(.tint) { padding-top: 0; }   /* two plain sections share one gap; tinted bands keep their own */
+.section.tint { background: var(--surface-2); border-block: 1px solid var(--line); padding-block: clamp(56px, 8vw, 104px); }
+.section-head { max-width: 640px; margin-bottom: clamp(28px, 4vw, 48px); }
+.section-head h2 { font-size: var(--fs-3xl); font-weight: 800; }
+.section-head p { margin-top: 12px; color: var(--muted); font-size: var(--fs-lg); }
+
+/* ---------- Announcement and header ---------- */
+.announce { background: var(--sun); color: var(--sun-ink); text-align: center; padding: 10px 20px; font-weight: 600; font-size: var(--fs-sm); }
+.site-header { position: sticky; top: 0; z-index: 60; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--line); padding-top: env(safe-area-inset-top, 0px); }
+.site-header.scrolled { box-shadow: 0 10px 26px -20px rgba(14, 43, 53, .6); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: var(--header-h); }
+.nav { display: flex; align-items: center; gap: 22px; }
+.nav a { text-decoration: none; font-weight: 500; font-size: var(--fs-sm); padding: 8px 2px; border-bottom: 2px solid transparent; transition: border-color .15s, color .15s; }
+.nav a:hover { border-color: var(--brand); color: var(--brand); }
+.actions { display: flex; align-items: center; gap: 10px; }
+.call-link { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none; font-size: var(--fs-sm); padding: 0 6px; min-height: 44px; }
+.call-link svg { width: 18px; height: 18px; color: var(--brand); }
+.nav-toggle { display: none; }
+@media (max-width: 1040px) { .call-link span { display: none; } }
+@media (max-width: 920px) {
+  .nav-toggle { display: inline-grid; }
+  .nav { position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line); padding: 4px 20px 20px; display: none; box-shadow: var(--shadow); }
+  .nav[data-open="true"] { display: flex; }
+  .nav a { padding: 15px 2px; border-bottom: 1px solid var(--line); font-size: var(--fs-md); min-height: 52px; display: flex; align-items: center; }
+  .actions .btn { display: none; }
+}
+
+/* ---------- Hero ---------- */
+.hero { padding-block: clamp(36px, 6vw, 80px) clamp(52px, 7vw, 96px); background: radial-gradient(880px 480px at 90% -10%, color-mix(in srgb, var(--brand) 16%, transparent), transparent 70%); }
+.hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+@media (max-width: 920px) { .hero-grid { grid-template-columns: 1fr; } }
+.badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-weight: 600; font-size: var(--fs-sm); margin-bottom: 22px; }
+.badge i { width: 10px; height: 10px; border-radius: 50%; background: #C98A00; flex: none; }
+.badge[data-open="true"] i { background: #1FA855; animation: ping 2.4s infinite; }
+.badge span { color: var(--muted); font-weight: 500; }
+@keyframes ping { 70% { box-shadow: 0 0 0 9px rgba(31, 168, 85, 0); } 0% { box-shadow: 0 0 0 0 rgba(31, 168, 85, .55); } 100% { box-shadow: 0 0 0 0 rgba(31, 168, 85, 0); } }
+.hero h1 { font-size: var(--fs-hero); font-weight: 800; letter-spacing: -.035em; line-height: 1.02; max-width: 12ch; }
+.hero .lead { margin-top: 20px; font-size: var(--fs-lg); max-width: 48ch; color: var(--muted); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.assure { margin-top: 34px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; max-width: 540px; }
+@media (max-width: 560px) { .assure { grid-template-columns: 1fr; } }
+.assure li { display: flex; gap: 10px; align-items: flex-start; font-weight: 500; font-size: var(--fs-sm); }
+.assure svg { flex: none; width: 22px; height: 22px; color: var(--brand); }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-in { opacity: 0; animation: heroIn .7s var(--ease) forwards; animation-delay: calc(var(--i, 0) * 90ms + 80ms); }
+}
+@keyframes heroIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+.compare { --v: 92%; position: relative; aspect-ratio: 600/460; border-radius: var(--r-lg); overflow: hidden; background: #dfeeea; box-shadow: var(--shadow); touch-action: pan-y; user-select: none; -webkit-user-select: none; border: 6px solid var(--surface); }
+.compare .scene { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.compare img.scene { object-fit: cover; }
+.compare .dirty { clip-path: inset(0 calc(100% - var(--v)) 0 0); }
+.compare .handle { position: absolute; top: 0; bottom: 0; left: var(--v); width: 3px; background: var(--sun); transform: translateX(-50%); pointer-events: none; }
+.compare .knob { position: absolute; top: 50%; left: 50%; width: 48px; height: 48px; transform: translate(-50%, -50%); border-radius: 50%; background: var(--sun); color: var(--sun-ink); display: grid; place-items: center; box-shadow: 0 6px 18px rgba(0, 0, 0, .3); }
+.compare .knob svg { width: 22px; height: 22px; }
+.compare input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+.compare:has(input:focus-visible) .knob { outline: 3px solid var(--ink); outline-offset: 3px; }
+.compare .tag { position: absolute; top: 14px; padding: 6px 12px; border-radius: 8px; font: 600 var(--fs-xs)/1 var(--font-body); background: rgba(14, 43, 53, .85); color: #fff; pointer-events: none; }
+.compare .tag.l { left: 14px; } .compare .tag.r { right: 14px; }
+.hint { margin-top: 14px; font-size: var(--fs-sm); color: var(--muted); }
+.sp { transform-box: fill-box; transform-origin: center; animation: twinkle 2.8s ease-in-out infinite; animation-delay: var(--d, 0s); }
+@keyframes twinkle { 0%, 100% { transform: scale(.3); opacity: .2; } 50% { transform: scale(1.1); opacity: 1; } }
+.glint { animation: glint 7s ease-in-out 2.6s infinite; }
+@keyframes glint { 0% { transform: translateX(0); } 45%, 100% { transform: translateX(950px); } }
+
+/* ---------- Services ---------- */
+.services-grid { display: grid; grid-template-columns: .8fr 1.4fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+.services-grid .section-head { margin-bottom: 0; position: sticky; top: calc(var(--header-h) + 24px); }
+@media (max-width: 920px) { .services-grid { grid-template-columns: 1fr; } .services-grid .section-head { position: static; margin-bottom: 4px; } }
+.svc { border-top: 1px solid var(--line); }
+.svc:last-child { border-bottom: 1px solid var(--line); }
+.svc summary { list-style: none; display: flex; align-items: center; gap: 16px; padding: 18px 4px; cursor: pointer; min-height: 72px; }
+.svc summary::-webkit-details-marker { display: none; }
+.svc summary::after { content: ""; flex: none; width: 10px; height: 10px; margin: 0 6px 4px 4px; border-right: 2.5px solid var(--brand); border-bottom: 2.5px solid var(--brand); transform: rotate(45deg); transition: transform .25s var(--ease); }
+.svc[open] summary::after { transform: rotate(-135deg); margin-bottom: -2px; }
+.svc summary:hover h3 { color: var(--brand); }
+.svc .ico { flex: none; width: 44px; height: 44px; border-radius: var(--r-ctl); background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; transition: background-color .2s, color .2s; }
+.svc[open] .ico { background: var(--brand); color: var(--on-brand); }
+.svc .ico svg { width: 24px; height: 24px; }
+.svc h3 { font-size: var(--fs-xl); }
+.svc .when { margin-left: auto; font-size: var(--fs-sm); color: var(--muted); white-space: nowrap; }
+.svc-body { padding: 0 4px 28px 60px; display: grid; gap: 16px; }
+.svc[open] .svc-body { animation: fadeIn .3s var(--ease); }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+@media (max-width: 640px) { .cols { grid-template-columns: 1fr; } .svc .when { display: none; } .svc-body { padding-left: 4px; } }
+.svc-body h4 { margin: 0 0 6px; font: 700 var(--fs-sm) var(--font-body); letter-spacing: 0; }
+.svc-body li { padding: 4px 0 4px 26px; position: relative; font-size: var(--fs-md); }
+.inc li::before { content: ""; position: absolute; left: 1px; top: .82em; width: 13px; height: 7px; border-left: 2.5px solid var(--brand); border-bottom: 2.5px solid var(--brand); transform: translateY(-70%) rotate(-45deg); }
+.add li::before { content: "+"; position: absolute; left: 3px; top: 4px; font-weight: 700; color: var(--muted); }
+
+/* ---------- Estimator ---------- */
+.quote-grid { display: grid; grid-template-columns: 1.45fr 1fr; gap: clamp(24px, 4vw, 48px); align-items: start; }
+@media (max-width: 960px) { .quote-grid { grid-template-columns: 1fr; } }
+.form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(20px, 3.4vw, 36px); box-shadow: var(--shadow-sm); min-width: 0; }
+.wiz { display: flex; gap: 6px; margin: 0 0 12px; }
+.wiz li { flex: 1; display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: var(--fs-xs); color: var(--muted); min-width: 0; }
+.wiz li b { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wiz li span { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); font-size: var(--fs-sm); transition: background-color .2s, color .2s; }
+.wiz li.on { color: var(--ink); }
+.wiz li.on span, .wiz li.done span { background: var(--brand); color: var(--on-brand); }
+.wiz li.done { cursor: pointer; }
+@media (max-width: 760px) { .wiz li:not(.on) b { display: none; } .wiz li:not(.on) { flex: 0 0 auto; } }
+.wbar { height: 5px; background: var(--line); border-radius: 5px; overflow: hidden; margin-bottom: 28px; }
+.wbar i { display: block; height: 100%; width: 0; background: var(--brand); border-radius: 5px; transition: width .4s var(--ease); }
+.step { display: grid; gap: 24px; }
+.step.enter { animation: stepIn .35s var(--ease); }
+@keyframes stepIn { from { opacity: 0; transform: translateX(var(--dx, 24px)); } to { opacity: 1; transform: none; } }
+.step h3 { font-size: var(--fs-2xl); font-weight: 800; } .step h3:focus { outline: none; }
+.step .sub { color: var(--muted); margin-top: 6px; }
+.group { display: grid; gap: 12px; }
+.group-title { font: 700 var(--fs-md) var(--font-body); letter-spacing: 0; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.group-title small { font-weight: 500; color: var(--muted); font-size: var(--fs-sm); }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; } @media (max-width: 600px) { .row { grid-template-columns: 1fr; } }
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; } @media (max-width: 600px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+.tile { position: relative; display: block; }
+.tile input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.tcard { display: grid; gap: 4px; justify-items: start; align-content: start; padding: 16px; border: 2px solid var(--line); border-radius: var(--r-md); background: var(--bg); transition: border-color .15s, background-color .15s; height: 100%; }
+.tcard svg { width: 28px; height: 28px; color: var(--brand); margin-bottom: 4px; }
+.tcard b { font: 700 var(--fs-md) var(--font-display); } .tcard small { color: var(--muted); font-size: var(--fs-xs); line-height: 1.3; }
+.tile:hover .tcard { border-color: color-mix(in srgb, var(--brand) 55%, var(--line)); }
+.tile input:checked + .tcard { border-color: var(--brand); background: var(--brand-soft); }
+.tile input:focus-visible + .tcard { outline: 3px solid var(--brand); outline-offset: 2px; }
+.num { display: flex; align-items: center; border: 1.5px solid var(--line); border-radius: var(--r-ctl); background: var(--bg); overflow: hidden; flex: none; }
+.num button { flex: none; width: 46px; height: 46px; border: 0; background: transparent; color: var(--ink); font-size: 1.4rem; cursor: pointer; transition: background-color .15s, color .15s; }
+.num button:hover { background: var(--brand-soft); } .num button:active { background: var(--brand); color: var(--on-brand); }
+.field .num input, .num input { border: 0 !important; text-align: center; width: 46px; min-height: 46px !important; background: transparent !important; padding: 0 !important; -moz-appearance: textfield; font: 700 var(--fs-md) var(--font-body); box-shadow: none !important; color: var(--ink); }
+.num input::-webkit-outer-spin-button, .num input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.room { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 12px 10px 14px; border: 1.5px solid var(--line); border-radius: var(--r-ctl); background: var(--bg); transition: border-color .15s, background-color .15s; }
+.room.has { border-color: var(--brand); background: var(--brand-soft); }
+.room .t { font-weight: 600; line-height: 1.25; font-size: var(--fs-sm); } .room .t small { display: block; font-weight: 400; color: var(--muted); font-size: var(--fs-xs); margin-top: 2px; }
+.rooms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; } @media (max-width: 640px) { .rooms-grid { grid-template-columns: 1fr; } }
+.seg { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px; background: var(--bg); border: 1.5px solid var(--line); border-radius: 14px; padding: 4px; }
+.seg label { position: relative; }
+.seg input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.seg span { display: grid; place-items: center; text-align: center; min-height: 52px; padding: 6px 8px; border-radius: 10px; font-weight: 600; font-size: var(--fs-sm); line-height: 1.2; transition: background-color .15s, color .15s; }
+.seg small { display: block; font-weight: 500; color: var(--muted); font-size: var(--fs-xs); margin-top: 2px; }
+.seg label:hover input:not(:checked) + span { background: var(--brand-soft); }
+.seg input:checked + span { background: var(--brand); color: var(--on-brand); } .seg input:checked + span small { color: inherit; opacity: .9; }
+.seg input:focus-visible + span { outline: 3px solid var(--ink); outline-offset: 2px; }
+@media (max-width: 600px) { .seg.wrap-m { grid-auto-flow: row; grid-template-columns: 1fr 1fr; } }
+.chips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; } @media (max-width: 600px) { .chips { grid-template-columns: 1fr; } }
+.chk { position: relative; display: flex; align-items: center; gap: 12px; padding: 10px 14px; min-height: var(--ctl); border: 1.5px solid var(--line); border-radius: var(--r-ctl); background: var(--bg); cursor: pointer; transition: border-color .15s, background-color .15s; }
+.chk:hover { border-color: color-mix(in srgb, var(--brand) 55%, var(--line)); }
+.chk input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.chk .box { flex: none; width: 22px; height: 22px; border: 2px solid var(--line); border-radius: 7px; display: grid; place-items: center; transition: background-color .15s, border-color .15s; }
+.chk .box svg { width: 14px; height: 14px; stroke: var(--on-brand); fill: none; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
+.chk input:checked ~ .box { background: var(--brand); border-color: var(--brand); } .chk input:checked ~ .box svg { opacity: 1; }
+.chk:has(input:checked) { border-color: var(--brand); background: var(--brand-soft); }
+.chk:has(input:focus-visible) { outline: 3px solid var(--brand); outline-offset: 2px; }
+.chk .t { flex: 1; font-weight: 500; line-height: 1.25; font-size: var(--fs-sm); } .chk .p { font-size: var(--fs-xs); color: var(--muted); font-weight: 600; white-space: nowrap; }
+.slots { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; } @media (max-width: 760px) { .slots { grid-template-columns: repeat(3, 1fr); } } @media (max-width: 480px) { .slots { grid-template-columns: 1fr 1fr; } }
+.slot { position: relative; }
+.slot input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.slot span { display: grid; gap: 2px; justify-items: center; text-align: center; padding: 10px 6px; min-height: 56px; align-content: center; border: 1.5px solid var(--line); border-radius: var(--r-ctl); background: var(--bg); font-weight: 600; font-size: var(--fs-sm); transition: background-color .15s, border-color .15s, color .15s; }
+.slot small { font-weight: 500; color: var(--muted); font-size: var(--fs-xs); }
+.slot:hover input:not(:checked) + span { border-color: color-mix(in srgb, var(--brand) 55%, var(--line)); }
+.slot input:checked + span { border-color: var(--brand); background: var(--brand); color: var(--on-brand); } .slot input:checked + span small { color: inherit; opacity: .9; }
+.slot input:focus-visible + span { outline: 3px solid var(--ink); outline-offset: 2px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tags label { position: relative; } .tags input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.tags span { display: inline-flex; align-items: center; min-height: var(--ctl-sm); padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--bg); font-weight: 500; font-size: var(--fs-sm); transition: background-color .15s, border-color .15s, color .15s; }
+.tags label:hover input:not(:checked) + span { border-color: color-mix(in srgb, var(--brand) 55%, var(--line)); }
+.tags input:checked + span { background: var(--brand); border-color: var(--brand); color: var(--on-brand); }
+.tags input:focus-visible + span { outline: 3px solid var(--ink); outline-offset: 2px; }
+.nav-row { display: flex; justify-content: space-between; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+.nav-row .spacer { flex: 1; }
+.summary { display: grid; border: 1.5px solid var(--line); border-radius: var(--r-md); overflow: hidden; margin: 0; }
+.srow { display: grid; grid-template-columns: 130px 1fr auto; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); align-items: start; font-size: var(--fs-sm); }
+.srow:last-child { border-bottom: 0; } .srow dt { color: var(--muted); font-weight: 500; } .srow dd { margin: 0; font-weight: 500; word-break: break-word; }
+.srow button { border: 0; background: transparent; color: var(--brand); font: 600 var(--fs-sm) var(--font-body); cursor: pointer; padding: 4px 6px; min-height: 32px; text-decoration: underline; }
+@media (max-width: 560px) { .srow { grid-template-columns: 1fr auto; } .srow dt { grid-column: 1/-1; font-size: var(--fs-xs); } }
+.preview { border: 1.5px dashed var(--line); border-radius: var(--r-md); padding: 4px 16px; }
+.preview summary { cursor: pointer; font-weight: 600; font-size: var(--fs-sm); min-height: 44px; display: flex; align-items: center; }
+.preview pre { white-space: pre-wrap; word-break: break-word; font: 400 var(--fs-xs)/1.6 ui-monospace, Menlo, Consolas, monospace; color: var(--muted); margin: 0 0 14px; }
+.send { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; } @media (max-width: 560px) { .send { grid-template-columns: 1fr; } }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Consent: the tick box unlocks once the terms have been read to the end */
+.consent { display: grid; gap: 12px; border: 1.5px solid var(--line); border-radius: var(--r-md); padding: 18px; background: var(--surface-2); }
+.consent h4 { font-size: var(--fs-lg); }
+.terms { max-height: 230px; overflow: auto; overscroll-behavior: contain; padding: 14px 16px; background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--r-ctl); font-size: var(--fs-sm); line-height: 1.65; display: grid; gap: 14px; }
+.terms:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+.terms h5, .terms-doc h5 { margin: 0 0 2px; font: 700 var(--fs-sm) var(--font-body); }
+.terms p, .terms-doc p { color: var(--muted); }
+.terms-doc { display: grid; gap: 16px; font-size: var(--fs-sm); line-height: 1.65; }
+.read-state { display: flex; align-items: center; gap: 12px; font-size: var(--fs-sm); font-weight: 600; color: var(--muted); }
+.read-track { flex: 1; height: 6px; background: var(--line); border-radius: 6px; overflow: hidden; } .read-track i { display: block; height: 100%; width: 0; background: var(--brand); transition: width .12s linear; }
+.consent.is-read .read-state { color: var(--ok); } .consent.is-read .read-track i { background: var(--ok); }
+.consent .check-line { padding: 12px 14px; min-height: var(--ctl); border: 1.5px solid var(--line); border-radius: var(--r-ctl); background: var(--surface); }
+.consent .check-line.locked { opacity: .55; cursor: not-allowed; }
+
+.success { text-align: center; padding: clamp(10px, 3vw, 28px) 0; display: grid; gap: 16px; justify-items: center; }
+.success h3 { font-size: var(--fs-3xl); font-weight: 800; }
+.ref { display: inline-flex; gap: 8px; align-items: baseline; padding: 8px 16px; border-radius: var(--r-ctl); background: var(--brand-soft); font-weight: 600; } .ref b { font: 800 var(--fs-lg) var(--font-display); letter-spacing: .02em; }
+.check-anim { width: 88px; height: 88px; }
+.check-anim circle { fill: var(--brand-soft); stroke: var(--brand); stroke-width: 3; }
+.check-anim path { fill: none; stroke: var(--brand); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+@media (prefers-reduced-motion: no-preference) {
+  .check-anim circle { stroke-dasharray: 300; stroke-dashoffset: 300; animation: draw .7s var(--ease) forwards; }
+  .check-anim path { stroke-dasharray: 60; stroke-dashoffset: 60; animation: draw .45s var(--ease) .5s forwards; }
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.next-steps { text-align: left; display: grid; gap: 10px; max-width: 460px; margin: 6px auto 0; }
+.next-steps li { display: flex; gap: 12px; align-items: flex-start; } .next-steps b { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--brand); color: var(--on-brand); font-size: var(--fs-sm); }
+
+/* Estimate panel */
+.estimate { background: var(--deep); color: var(--deep-ink); border-radius: var(--r-lg); padding: clamp(22px, 3.4vw, 32px); position: sticky; top: calc(var(--header-h) + 24px); box-shadow: var(--shadow); }
+.elabel { font-weight: 600; opacity: .8; font-size: var(--fs-sm); }
+.price { font: 800 clamp(1.9rem, 4vw, 2.6rem)/1.1 var(--font-display); letter-spacing: -.03em; margin: 8px 0 4px; font-variant-numeric: tabular-nums; display: block; }
+.estimate .sub { opacity: .85; font-size: var(--fs-sm); }
+.pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.pill { display: inline-flex; padding: 5px 12px; border-radius: 999px; background: rgba(255, 255, 255, .1); font-size: var(--fs-xs); font-weight: 600; }
+.brk { margin-top: 18px; border-top: 1px solid rgba(255, 255, 255, .18); padding-top: 12px; }
+.brk summary { cursor: pointer; font-weight: 600; font-size: var(--fs-sm); list-style: none; display: flex; justify-content: space-between; min-height: 36px; align-items: center; }
+.brk summary::-webkit-details-marker { display: none; } .brk summary::after { content: "+"; font-size: 1.3rem; } .brk[open] summary::after { content: "\2212"; }
+.brk ul { display: grid; gap: 8px; font-size: var(--fs-sm); margin-top: 10px; max-height: 44vh; overflow: auto; }
+.brk li { display: flex; justify-content: space-between; gap: 12px; }
+.brk li span:last-child { font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+.brk li.neg span:last-child { color: #8CE9C9; } .brk li.tot { border-top: 1px solid rgba(255, 255, 255, .18); padding-top: 9px; font-weight: 700; }
+.brk li.head { opacity: .7; font-size: var(--fs-xs); margin-top: 6px; }
+.estimate .fine { opacity: .75; margin-top: 16px; font-size: var(--fs-xs); }
+@media (max-width: 960px) {
+  .estimate { top: calc(var(--header-h) + 8px); z-index: 20; order: -1; padding: 14px 18px; border-radius: var(--r-card, 20px); }
+  .price { font-size: 1.6rem; margin: 2px 0 0; } .estimate .fine { display: none; } .pill-row { margin-top: 8px; } .brk { margin-top: 10px; padding-top: 6px; }
+}
+
+/* ---------- How it works ---------- */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; counter-reset: s; }
+.steps li { counter-increment: s; }
+.steps li::before { content: counter(s); display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--brand); color: var(--on-brand); font: 800 var(--fs-lg) var(--font-display); margin-bottom: 14px; }
+.steps h3 { font-size: var(--fs-xl); margin-bottom: 6px; } .steps p { color: var(--muted); }
+@media (max-width: 920px) { .steps { grid-template-columns: 1fr 1fr; } } @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+
+/* ---------- Work and tips ---------- */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.filters button { min-height: var(--ctl-sm); padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); font: 600 var(--fs-sm) var(--font-body); cursor: pointer; transition: background-color .15s, border-color .15s, color .15s; }
+.filters button:hover { border-color: var(--brand); } .filters button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: var(--on-brand); }
+.posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; } @media (max-width: 960px) { .posts { grid-template-columns: 1fr 1fr; } } @media (max-width: 600px) { .posts { grid-template-columns: 1fr; } }
+.post { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card, 20px); overflow: hidden; cursor: pointer; display: flex; flex-direction: column; text-align: left; padding: 0; font: inherit; color: inherit; transition: box-shadow .2s, border-color .2s; }
+.post:hover { box-shadow: var(--shadow-sm); border-color: color-mix(in srgb, var(--brand) 50%, var(--line)); }
+.post .cover { aspect-ratio: 16/10; display: grid; place-items: center; position: relative; overflow: hidden; background: linear-gradient(135deg, var(--a), var(--b)); color: #fff; }
+.post .cover > svg { width: 56px; height: 56px; opacity: .95; }
+.post .cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.post .kind { position: absolute; left: 12px; top: 12px; padding: 5px 10px; border-radius: 8px; background: rgba(14, 43, 53, .85); color: #fff; font: 600 var(--fs-xs) var(--font-body); }
+.post .info { padding: 18px 20px 20px; display: grid; gap: 8px; flex: 1; align-content: start; }
+.post h3 { font-size: var(--fs-xl); } .post p { color: var(--muted); font-size: var(--fs-sm); }
+.post .meta { font-size: var(--fs-xs); color: var(--muted); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: auto; padding-top: 6px; }
+dialog.reader { width: min(760px, calc(100% - 24px)); max-height: calc(100dvh - 32px); border: 0; border-radius: var(--r-lg); padding: 0; background: var(--surface); color: var(--ink); box-shadow: 0 40px 80px -20px rgba(0, 0, 0, .6); overflow: auto; }
+dialog.reader[open] { animation: fadeIn .25s var(--ease); }
+dialog.reader::backdrop { background: rgba(6, 20, 26, .65); backdrop-filter: blur(4px); }
+.reader .hd { aspect-ratio: 16/7; display: grid; place-items: center; background: linear-gradient(135deg, var(--a), var(--b)); position: relative; color: #fff; overflow: hidden; }
+.reader .hd > svg { width: 72px; height: 72px; }
+.reader .hd img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.reader .close { position: absolute; right: 14px; top: 14px; background: rgba(14, 43, 53, .85); color: #fff; border-color: transparent; z-index: 2; }
+.reader .close:hover { background: rgba(14, 43, 53, 1); }
+.reader .bd { padding: clamp(20px, 4vw, 36px); display: grid; gap: 16px; }
+.reader h2 { font-size: var(--fs-3xl); font-weight: 800; }
+.reader .bd p, .reader .bd li { color: var(--muted); } .reader .bd h4 { font-size: var(--fs-lg); margin-top: 8px; }
+.reader .bd ul { display: grid; gap: 6px; } .reader .bd li { padding-left: 22px; position: relative; }
+.reader .bd li::before { content: ""; position: absolute; left: 0; top: .7em; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); }
+.reader .compare { border-radius: 0; border: 0; box-shadow: none; aspect-ratio: 16/9; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.facts div { background: var(--surface-2); border-radius: var(--r-ctl); padding: 12px 14px; } .facts small { display: block; color: var(--muted); font-size: var(--fs-xs); } .facts b { font-weight: 600; }
+.reader-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+
+/* ---------- Reviews ---------- */
+.fb-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px, 4vw, 48px); align-items: start; } @media (max-width: 960px) { .fb-grid { grid-template-columns: 1fr; } }
+.reviews { display: grid; gap: 14px; }
+.rev-summary { display: flex; align-items: center; gap: 16px; padding: 18px 22px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card, 20px); }
+.rev-summary b { font: 800 2.2rem/1 var(--font-display); }
+.rev { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card, 20px); padding: 22px; }
+.rev .who { display: flex; gap: 12px; align-items: center; margin-bottom: 10px; }
+.av { flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; font: 800 var(--fs-lg) var(--font-display); }
+.rev .nm { font-weight: 600; line-height: 1.2; } .rev .mt { font-size: var(--fs-sm); color: var(--muted); }
+.rstars { display: flex; gap: 2px; margin-bottom: 8px; } .rstars svg { width: 18px; height: 18px; fill: var(--line); } .rstars svg.on { fill: var(--star); }
+.empty { padding: 28px; border: 1.5px dashed var(--line); border-radius: var(--r-card, 20px); background: var(--surface); display: grid; gap: 8px; }
+.empty h3 { font-size: var(--fs-xl); } .empty p { color: var(--muted); }
+.fb-form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(20px, 3.4vw, 32px); display: grid; gap: 18px; box-shadow: var(--shadow-sm); }
+.fb-form h3 { font-size: var(--fs-2xl); font-weight: 800; }
+.stars { display: inline-flex; flex-direction: row-reverse; justify-content: flex-end; gap: 4px; position: relative; }
+.stars input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.stars label { cursor: pointer; padding: 2px; line-height: 0; }
+.stars svg { width: 38px; height: 38px; fill: none; stroke: var(--star); stroke-width: 1.8; stroke-linejoin: round; transition: fill .15s; }
+.stars label:hover svg, .stars label:hover ~ label svg, .stars input:checked ~ label svg { fill: var(--star); }
+.stars input:focus-visible + label { outline: 3px solid var(--brand); outline-offset: 2px; border-radius: 8px; }
+
+/* ---------- FAQ ---------- */
+.faq-cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; } @media (max-width: 920px) { .faq-cols { grid-template-columns: 1fr; } }
+.faq-group + .faq-group { margin-top: 32px; }
+.faq-group h3 { font-size: var(--fs-xl); margin-bottom: 8px; }
+.faq details { border-top: 1px solid var(--line); } .faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 16px 4px; font: 600 var(--fs-md)/1.35 var(--font-body); min-height: 56px; }
+.faq summary:hover { color: var(--brand); } .faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font: 400 1.6rem/1 var(--font-body); color: var(--brand); flex: none; transition: transform .2s var(--ease); }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details[open] p { animation: fadeIn .25s var(--ease); }
+.faq p { padding: 0 4px 20px; color: var(--muted); max-width: 62ch; }
+.faq p a { color: var(--brand); font-weight: 600; }
+
+/* ---------- Contact and footer ---------- */
+.contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; } @media (max-width: 960px) { .contact-grid { grid-template-columns: 1fr 1fr; } } @media (max-width: 520px) { .contact-grid { grid-template-columns: 1fr; } }
+.c-card { display: grid; gap: 6px; align-content: start; padding: 22px; border-radius: var(--r-card, 20px); background: var(--surface); border: 1px solid var(--line); text-decoration: none; transition: border-color .15s, box-shadow .15s; }
+a.c-card:hover { box-shadow: var(--shadow-sm); border-color: var(--brand); }
+.c-card svg { width: 30px; height: 30px; color: var(--brand); margin-bottom: 6px; }
+.c-card b { font: 700 var(--fs-lg) var(--font-display); } .c-card span { color: var(--muted); word-break: break-word; font-size: var(--fs-sm); }
+.c-card .open-now { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; font-weight: 600; color: var(--ink); }
+.c-card .open-now i { width: 9px; height: 9px; border-radius: 50%; background: #C98A00; } .c-card .open-now[data-open="true"] i { background: #1FA855; }
+.site-footer { background: var(--deep); color: var(--deep-ink); padding-block: 56px 40px; }
+.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; } @media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr; } }
+.site-footer h3 { font: 600 var(--fs-sm) var(--font-body); letter-spacing: 0; margin-bottom: 10px; opacity: .7; }
+.site-footer li { padding: 4px 0; font-size: var(--fs-sm); }
+.site-footer a { text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, .3); } .site-footer a:hover { border-color: var(--sun); }
+.site-footer .link-btn { background: none; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .3); color: inherit; font: inherit; padding: 0; cursor: pointer; } .site-footer .link-btn:hover { border-color: var(--sun); }
+.legal { margin-top: 36px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .15); font-size: var(--fs-sm); opacity: .75; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* ---------- Floating actions ---------- */
+.fab { position: fixed; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 70; width: 58px; height: 58px; border-radius: 50%; background: var(--wa); color: #fff; display: grid; place-items: center; box-shadow: 0 12px 26px -10px rgba(18, 128, 63, .8); text-decoration: none; transform: scale(0); transition: transform .3s var(--ease); }
+.fab.show { transform: scale(1); } .fab:hover { filter: brightness(1.1); } .fab svg { width: 28px; height: 28px; }
+.mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; display: none; grid-template-columns: 1fr 1fr 1.3fr; gap: 8px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px)); background: color-mix(in srgb, var(--bg) 94%, transparent); backdrop-filter: blur(12px); border-top: 1px solid var(--line); transform: translateY(110%); transition: transform .3s var(--ease); }
+.mbar.show { transform: none; } .mbar .btn { padding: 0 10px; }
+@media (max-width: 760px) { .mbar { display: grid; } .fab { display: none; } .site-footer { padding-bottom: 110px; } }
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"FreshNest Cleaning Services","description":"Home, office, deep, move-out and post-construction cleaning.","telephone":"+2347087596696","email":"freshnestcleaningservices@proton.me","openingHours":"Mo-Su 07:00-19:00","areaServed":"Nigeria"}
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.2c-.2.7-1.3 1.3-1.8 1.3-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.6.8 2 .9 2.1.1.1.1.3 0 .5-.1.2-.2.3-.3.5-.2.2-.3.3-.1.6.2.3.7 1.1 1.5 1.8 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.3.1 1.7.8 2 1 .3.1.5.2.5.3.1.2.1.8-.1 1.5z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-5h4v5"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M5 20V5h9v15M14 9h5v11M8 8h3M8 12h3M8 16h3"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="M19 16l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M4 8l8-4 8 4v8l-8 4-8-4z"/><path d="M4 8l8 4 8-4M12 12v8"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M3 6h18v4H3zM3 14h18v4H3zM9 6v4M15 14v4"/></symbol>
+    <symbol id="i-window" viewBox="0 0 24 24"><path d="M5 4h14v16H5zM12 4v16M5 12h14"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/></symbol>
+    <symbol id="i-arrows" viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></symbol>
+    <symbol id="i-tick" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="announce" id="announce" hidden></div>
+
+<header class="site-header" id="header">
+  <div class="wrap bar">
+    <a class="brand-mark" href="#top" aria-label="FreshNest Cleaning Services, home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#0B7E80"/><path d="M20 8c5 6 8 9.5 8 14a8 8 0 0 1-16 0c0-4.5 3-8 8-14z" fill="#fff"/><path d="M16.5 23a4 4 0 0 0 3.5 4" stroke="#0B7E80" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M31 9l1.2 2.8L35 13l-2.8 1.2L31 17l-1.2-2.8L27 13l2.8-1.2z" fill="#FFC83D"/></svg>
+      <span>FreshNest<small>Cleaning Services</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#estimate">Estimate</a>
+      <a href="#how">How it works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="actions">
+      <a class="call-link" href="tel:+2347087596696" data-act="call"><svg class="i" width="18" height="18" aria-hidden="true"><use href="#i-phone"/></svg><span data-s="phoneDisplay">+234 708 759 6696</span></a>
+      <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Day and night mode">
+        <svg class="i sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        <svg class="i moon" aria-hidden="true"><use href="#i-moon"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm" href="#estimate">Get estimate</a>
+      <button class="icon-btn nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="badge hero-in" style="--i:0" id="heroStatus" data-open="false"><i></i><b id="statusText">Open every day</b><span id="statusDetail"></span></div>
+        <h1 class="hero-in" style="--i:1">A clean you can see.</h1>
+        <p class="lead hero-in" style="--i:2">Vetted cleaners for homes and offices. Choose your rooms, see your estimate instantly and send your booking request in minutes.</p>
+        <div class="hero-actions hero-in" style="--i:3">
+          <a class="btn btn-primary btn-lg" href="#estimate">Get my estimate</a>
+          <a class="btn btn-wa btn-lg" href="https://wa.me/2347087596696" data-act="wa" target="_blank" rel="noopener"><svg class="i-fill" aria-hidden="true"><use href="#i-wa"/></svg>Chat on WhatsApp</a>
+        </div>
+        <ul class="assure hero-in" style="--i:4">
+          <li><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg>Background-checked, trained cleaners</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-home"/></svg>Supplies and equipment included</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Free re-clean within 24 hours</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg>We confirm the price before we come</li>
+        </ul>
+      </div>
+
+      <div class="hero-in" style="--i:2">
+        <div class="compare" id="compare">
+          <svg class="scene clean" viewBox="0 0 600 460" role="img" aria-label="A bright, clean window with a sunny view and a plant on the sill">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7CCBF2"/><stop offset="1" stop-color="#E3F5FC"/></linearGradient>
+              <linearGradient id="glintG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+              <filter id="grime" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".012 .035" numOctaves="3" seed="7"/><feColorMatrix values="0 0 0 0 .42  0 0 0 0 .35  0 0 0 0 .22  0 0 0 1.6 -.42"/></filter>
+              <g id="scene">
+                <rect width="600" height="460" fill="#E8F2EF"/>
+                <rect x="80" y="36" width="440" height="340" rx="8" fill="#fff"/>
+                <rect x="96" y="52" width="408" height="308" rx="4" fill="url(#sky)"/>
+                <circle cx="410" cy="128" r="36" fill="#FFD766"/><circle cx="410" cy="128" r="54" fill="#FFD766" opacity=".25"/>
+                <ellipse cx="200" cy="120" rx="46" ry="14" fill="#fff"/><ellipse cx="228" cy="108" rx="30" ry="13" fill="#fff"/>
+                <ellipse cx="330" cy="190" rx="38" ry="11" fill="#fff" opacity=".9"/>
+                <path d="M96 300c60-46 120-50 180-22s120 24 228-22v104H96z" fill="#8CCB7E"/>
+                <path d="M96 328c80-30 150-18 220 4s130 6 188-14v42H96z" fill="#6DB86A"/>
+                <rect x="296" y="52" width="10" height="308" fill="#fff"/><rect x="96" y="200" width="408" height="10" fill="#fff"/>
+                <rect x="60" y="376" width="480" height="24" rx="4" fill="#fff"/><rect x="60" y="398" width="480" height="6" fill="#C9DDD9"/>
+                <path d="M118 376h46l-6 -34h-34z" fill="#E8834A"/>
+                <path d="M141 342c-18-22-30-30-34-56 20 6 34 22 34 56zM141 342c4-30 20-50 44-58-2 26-18 46-44 58zM141 342c-2-26 4-44 18-62 8 22 2 44-18 62z" fill="#3E9B5B"/>
+              </g>
+            </defs>
+            <use href="#scene"/>
+            <g class="glint"><rect x="-200" y="40" width="90" height="330" fill="url(#glintG)" transform="skewX(-18)"/></g>
+            <g fill="#fff">
+              <path class="sp" style="--d:0s" d="M180 250l5 14 14 5-14 5-5 14-5-14-14-5 14-5z"/>
+              <path class="sp" style="--d:.8s" d="M446 300l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/>
+              <path class="sp" style="--d:1.5s" d="M360 84l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+              <path class="sp" style="--d:2s" d="M250 330l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+            </g>
+          </svg>
+          <svg class="scene dirty" viewBox="0 0 600 460" aria-hidden="true">
+            <use href="#scene"/>
+            <rect x="96" y="52" width="408" height="308" filter="url(#grime)"/>
+            <rect x="96" y="52" width="408" height="308" fill="#7d6f52" opacity=".22"/>
+            <g stroke="#6b5c40" stroke-linecap="round" fill="none" opacity=".4"><path d="M140 60v120" stroke-width="3"/><path d="M212 60v76" stroke-width="2"/><path d="M262 60v168" stroke-width="4"/><path d="M352 60v96" stroke-width="3"/><path d="M420 60v144" stroke-width="2.5"/><path d="M470 60v70" stroke-width="3"/></g>
+            <g fill="#5e5038" opacity=".22"><ellipse cx="180" cy="270" rx="34" ry="24"/><ellipse cx="212" cy="286" rx="18" ry="14"/><ellipse cx="420" cy="250" rx="40" ry="20"/><ellipse cx="380" cy="300" rx="22" ry="16"/></g>
+            <rect x="60" y="376" width="480" height="24" fill="#8f8266" opacity=".55"/><rect width="600" height="460" fill="#6b6250" opacity=".14"/>
+          </svg>
+          <div class="handle" aria-hidden="true"><div class="knob"><svg class="i" style="stroke-width:2.6" aria-hidden="true"><use href="#i-arrows"/></svg></div></div>
+          <span class="tag l" aria-hidden="true">Before</span><span class="tag r" aria-hidden="true">After</span>
+          <input id="cmp" type="range" min="0" max="100" value="92" aria-label="Drag to compare before and after cleaning">
+        </div>
+        <p class="hint">Drag the slider to wipe the window clean.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="wrap services-grid">
+      <div class="section-head">
+        <h2>What we clean, and what's included</h2>
+        <p>Every visit follows a written checklist, so you know exactly what you're getting. Add extras any time.</p>
+        <p style="margin-top:24px"><a class="btn btn-brand" href="#estimate">Get my estimate</a></p>
+      </div>
+      <div>
+        <details class="svc" name="svc" open>
+          <summary><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg></span><h3>Home cleaning</h3><span class="when">Usually 2 to 4 hours</span></summary>
+          <div class="svc-body"><p class="muted">Regular upkeep for flats and houses, weekly, fortnightly or one-off.</p>
+            <div class="cols"><div class="inc"><h4>Included</h4><ul><li>Dusting of all reachable surfaces</li><li>Kitchen counters, sink and hob</li><li>Bathrooms scrubbed and disinfected</li><li>Floors swept and mopped</li><li>Beds made, bins emptied</li></ul></div>
+            <div class="add"><h4>Optional extras</h4><ul><li>Inside the oven, fridge and cabinets</li><li>Inside wardrobes and cupboards</li><li>Carpet, rugs and sofas</li></ul></div></div></div>
+        </details>
+        <details class="svc" name="svc">
+          <summary><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-building"/></svg></span><h3>Office cleaning</h3><span class="when">Evenings or weekends</span></summary>
+          <div class="svc-body"><p class="muted">Cleaning done outside working hours so your team starts the day in a fresh space.</p>
+            <div class="cols"><div class="inc"><h4>Included</h4><ul><li>Desks and shared surfaces wiped</li><li>Kitchenette and toilets</li><li>Floors vacuumed and mopped</li><li>Bins emptied and relined</li><li>Reception and meeting rooms</li></ul></div>
+            <div class="add"><h4>Optional extras</h4><ul><li>Carpet shampooing</li><li>Upholstery cleaning</li><li>Tile and grout scrub</li></ul></div></div></div>
+        </details>
+        <details class="svc" name="svc">
+          <summary><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-sparkle"/></svg></span><h3>Deep cleaning</h3><span class="when">Usually 4 to 8 hours</span></summary>
+          <div class="svc-body"><p class="muted">A top-to-bottom reset for a first visit, a season change, or before hosting guests.</p>
+            <div class="cols"><div class="inc"><h4>Included</h4><ul><li>Everything in home cleaning</li><li>Behind and under movable furniture</li><li>Grout, tiles and limescale</li><li>Skirting boards, doors and switches</li><li>Inside of cupboards</li></ul></div>
+            <div class="add"><h4>Optional extras</h4><ul><li>Upholstery and mattress refresh</li><li>Carpet cleaning</li><li>Inside oven and fridge</li></ul></div></div></div>
+        </details>
+        <details class="svc" name="svc">
+          <summary><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-box"/></svg></span><h3>Move in or move out</h3><span class="when">Same-week slots</span></summary>
+          <div class="svc-body"><p class="muted">Get your deposit back, or start in a place that feels like yours from day one.</p>
+            <div class="cols"><div class="inc"><h4>Included</h4><ul><li>Empty-home clean, top to bottom</li><li>Inside cupboards, drawers and wardrobes</li><li>Appliances inside and out</li><li>Kitchen and bathrooms descaled</li><li>Marks spot-cleaned from walls</li></ul></div>
+            <div class="add"><h4>Optional extras</h4><ul><li>Carpet cleaning</li><li>Tile and grout scrub</li></ul></div></div></div>
+        </details>
+        <details class="svc" name="svc">
+          <summary><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg></span><h3>Post-construction</h3><span class="when">Site visit may be needed</span></summary>
+          <div class="svc-body"><p class="muted">Dust, paint and plaster cleared after building or renovation work, so you can move in.</p>
+            <div class="cols"><div class="inc"><h4>Included</h4><ul><li>Dust and debris removal</li><li>Paint and plaster splatter</li><li>Fixtures and tiles polished</li><li>Windows and frames</li><li>Floors deep-cleaned</li></ul></div>
+            <div class="add"><h4>Optional extras</h4><ul><li>Tile and grout scrub</li><li>Carpet cleaning</li><li>A follow-up visit</li></ul></div></div></div>
+        </details>
+        <details class="svc" name="svc">
+          <summary><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-window"/></svg></span><h3>Windows and glass</h3><span class="when">Priced per window</span></summary>
+          <div class="svc-body"><p class="muted">Streak-free glass, inside and out, for homes, shops and offices.</p>
+            <div class="cols"><div class="inc"><h4>Included</h4><ul><li>Inside and outside glass</li><li>Frames and sills</li><li>Mirrors and glass doors</li></ul></div>
+            <div class="add"><h4>Good to know</h4><ul><li>Tell us about hard-to-reach windows</li><li>High-reach work is quoted separately</li></ul></div></div></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTIMATE + BOOKING -->
+  <section class="section tint" id="estimate">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Get an estimate and request your booking</h2>
+        <p>Walk through your rooms so the estimate is accurate. When you're happy, send the request. We'll contact you to confirm the final price and time.</p>
+      </div>
+      <div class="quote-grid">
+        <form class="form" id="quoteForm" novalidate autocomplete="on">
+          <div class="status is-error" id="closedNotice" role="status" hidden style="margin-bottom:20px">We aren't taking online bookings right now. Please call or message us on WhatsApp.</div>
+          <ol class="wiz" id="wiz" aria-label="Booking steps">
+            <li class="on" data-s="1"><span>1</span><b>Service</b></li>
+            <li data-s="2"><span>2</span><b>Rooms</b></li>
+            <li data-s="3"><span>3</span><b>Extras</b></li>
+            <li data-s="4"><span>4</span><b>When and where</b></li>
+            <li data-s="5"><span>5</span><b>Send</b></li>
+          </ol>
+          <div class="wbar" aria-hidden="true"><i id="wizFill"></i></div>
+          <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" id="website" tabindex="-1" autocomplete="off"></label></div>
+
+          <div id="formBody">
+            <!-- Step 1 -->
+            <div class="step" data-step="1">
+              <div><h3 tabindex="-1">What do you need cleaned?</h3><p class="sub">Choose a service to start.</p></div>
+              <div class="tiles" role="radiogroup" aria-label="Type of cleaning" id="tiles"></div>
+              <div class="row only-home">
+                <div class="field"><label for="propType">Type of property</label>
+                  <select id="propType" name="propType"><option>Flat or apartment</option><option>Duplex or terrace</option><option>Bungalow</option><option>Detached house</option><option>Shared house or hostel</option></select></div>
+                <div class="field"><span class="lbl" id="sizeLbl">Overall size</span>
+                  <div class="seg" role="radiogroup" aria-labelledby="sizeLbl">
+                    <label><input type="radio" name="size" value="compact"><span>Compact<small>Smaller rooms</small></span></label>
+                    <label><input type="radio" name="size" value="average" checked><span>Average<small>Typical</small></span></label>
+                    <label><input type="radio" name="size" value="large"><span>Large<small>Roomy</small></span></label>
+                  </div></div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step" data-step="2" hidden>
+              <div><h3 tabindex="-1" id="roomsTitle">Which rooms need cleaning?</h3><p class="sub" id="roomsSub">Set a room to 0 if you don't have one. Anything we've missed, tell us below.</p></div>
+              <div class="group grp-home">
+                <div class="group-title">Does it have a kitchen?</div>
+                <div class="seg wrap-m" role="radiogroup" aria-label="Kitchen" id="kitchenSeg"></div>
+              </div>
+              <div class="group grp-office" hidden>
+                <div class="group-title">Open-plan work area? <small>Where staff sit together</small></div>
+                <div class="seg wrap-m" role="radiogroup" aria-label="Open-plan area" id="openSeg"></div>
+              </div>
+              <div class="group grp-home"><div class="group-title">Rooms and areas</div><div class="rooms-grid" id="roomsHome"></div></div>
+              <div class="group grp-office" hidden><div class="group-title">Rooms and areas</div><div class="rooms-grid" id="roomsOffice"></div></div>
+              <div class="group grp-win" hidden>
+                <div class="room"><div class="t">Number of windows<small>Count each glass panel or window frame</small></div>
+                  <div class="num"><button type="button" data-d="-1" data-for="windows" aria-label="Fewer windows">&minus;</button><input id="windows" name="windows" type="number" min="1" max="80" value="6" inputmode="numeric" aria-label="Number of windows"><button type="button" data-d="1" data-for="windows" aria-label="More windows">+</button></div></div>
+                <label class="check-line"><input type="checkbox" name="hardWindows" id="hardWindows"><span>Some windows are above the second floor or hard to reach</span></label>
+              </div>
+              <div class="field grp-nonwin"><label for="otherRooms">Other rooms or areas <span class="opt">(optional)</span></label>
+                <textarea id="otherRooms" name="otherRooms" placeholder="For example: boys' quarters, garage, gatehouse, rooftop, compound"></textarea>
+                <p class="fine muted">We'll include these when we confirm your final price.</p></div>
+              <div class="field"><span class="lbl" id="condLbl">How dirty is the space?</span>
+                <div class="seg" role="radiogroup" aria-labelledby="condLbl">
+                  <label><input type="radio" name="cond" value="light"><span>Lightly used<small>10% less</small></span></label>
+                  <label><input type="radio" name="cond" value="normal" checked><span>Normal<small>Standard</small></span></label>
+                  <label><input type="radio" name="cond" value="heavy"><span>Very dirty<small>25% more</small></span></label>
+                </div></div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step" data-step="3" hidden>
+              <div><h3 tabindex="-1">Extras and how often</h3><p class="sub">Add anything special and choose a plan. Regular plans cost less per visit.</p></div>
+              <div class="group grp-extras"><div class="group-title">Extras <small id="extrasNote"></small></div><div class="chips" id="extras" role="group" aria-label="Extras"></div>
+                <div class="room only-home" id="extraWinRow"><div class="t">Add window cleaning, inside<small id="extraWinHint"></small></div>
+                  <div class="num"><button type="button" data-d="-1" data-for="extraWindows" aria-label="Fewer windows">&minus;</button><input id="extraWindows" name="extraWindows" type="number" min="0" max="40" value="0" inputmode="numeric" aria-label="Windows to add"><button type="button" data-d="1" data-for="extraWindows" aria-label="More windows">+</button></div></div>
+              </div>
+              <div class="field"><span class="lbl" id="freqLbl">How often?</span>
+                <div class="seg wrap-m" role="radiogroup" aria-labelledby="freqLbl" id="freqSeg"></div></div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step" data-step="4" hidden>
+              <div><h3 tabindex="-1">When and where?</h3><p class="sub">These details help our team arrive prepared. Online bookings start from tomorrow. For a same-day visit, call or WhatsApp us.</p></div>
+              <div class="group">
+                <div class="row">
+                  <div class="field"><label for="date">Preferred date</label><input id="date" name="date" type="date" required><div class="err" id="dateErr"></div></div>
+                  <div class="field" style="align-content:end"><label class="check-line" style="min-height:var(--ctl);align-items:center"><input type="checkbox" id="flex" name="flex"><span>My date is flexible <span class="opt">(we'll fit you in sooner)</span></span></label></div>
+                </div>
+                <div class="field"><span class="lbl" id="slotLbl">Preferred time</span>
+                  <div class="slots" role="radiogroup" aria-labelledby="slotLbl" id="slots"></div></div>
+              </div>
+              <div class="group">
+                <div class="field"><label for="street">Street address</label><input id="street" name="street" type="text" autocomplete="street-address" placeholder="House number and street" required><div class="err" id="streetErr"></div></div>
+                <div class="row">
+                  <div class="field"><label for="cityState">City and state</label><input id="cityState" name="cityState" type="text" autocomplete="address-level2" placeholder="e.g. Ibadan, Oyo" required><div class="err" id="cityStateErr"></div></div>
+                  <div class="field"><label for="landmark">Landmark <span class="opt">(optional)</span></label><input id="landmark" name="landmark" type="text" placeholder="Nearest bus stop, school, church"></div>
+                </div>
+              </div>
+              <div class="group">
+                <div class="row">
+                  <div class="field"><label for="access">How will we get in?</label>
+                    <select id="access" name="access"><option>I will be at home</option><option>Someone else will let us in</option><option>Security or gateman has the key</option><option>Key or code will be shared</option></select></div>
+                  <div class="field"><label for="floor">Floor and access</label>
+                    <select id="floor" name="floor"><option>Ground floor</option><option>Upper floor with lift</option><option>Upper floor, stairs only</option></select></div>
+                </div>
+                <div class="chips">
+                  <label class="chk"><input type="checkbox" name="water" checked><span class="box"><svg class="i" aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t">Running water available</span></label>
+                  <label class="chk"><input type="checkbox" name="power" checked><span class="box"><svg class="i" aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t">Electricity for equipment</span></label>
+                  <label class="chk"><input type="checkbox" name="parking"><span class="box"><svg class="i" aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t">Parking for our team</span></label>
+                  <label class="chk"><input type="checkbox" name="gate"><span class="box"><svg class="i" aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t">Gate pass or ID needed</span></label>
+                  <label class="chk"><input type="checkbox" name="pets" id="pets"><span class="box"><svg class="i" aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t">Pets at home</span></label>
+                </div>
+                <div class="field" id="petRow" hidden><label for="petType">What pets, and should they be kept away?</label><input id="petType" name="petType" type="text" placeholder="e.g. one friendly dog, will be in the compound"></div>
+              </div>
+              <div class="group"><div class="group-title">Where should we focus? <small>Optional</small></div><div class="tags" id="focus" role="group" aria-label="Focus areas"></div></div>
+              <div class="row">
+                <div class="field"><label for="instructions">Special instructions <span class="opt">(optional)</span></label><textarea id="instructions" name="instructions" placeholder="Delicate surfaces, products to avoid, areas to skip"></textarea></div>
+                <div class="field"><label for="budget">Your budget in naira <span class="opt">(optional)</span></label><input id="budget" name="budget" type="text" inputmode="numeric" placeholder="e.g. 30,000"><p class="fine muted">Tell us what you had in mind and we'll see what we can do.</p></div>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step" data-step="5" hidden>
+              <div><h3 tabindex="-1">Your details and review</h3><p class="sub">Check everything, read the terms, then send your request.</p></div>
+              <div class="row">
+                <div class="field"><label for="name">Full name</label><input id="name" name="name" type="text" autocomplete="name" required><div class="err" id="nameErr"></div></div>
+                <div class="field"><label for="phone">Phone or WhatsApp number</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="e.g. 0801 234 5678" required><div class="err" id="phoneErr"></div></div>
+              </div>
+              <div class="row">
+                <div class="field"><label for="email">Email <span class="opt">(so we can reply)</span></label><input id="email" name="email" type="email" autocomplete="email"><div class="err" id="emailErr"></div></div>
+                <div class="field"><span class="lbl" id="prefLbl">Best way to reach you</span>
+                  <div class="seg" role="radiogroup" aria-labelledby="prefLbl">
+                    <label><input type="radio" name="pref" value="WhatsApp" checked><span>WhatsApp</span></label>
+                    <label><input type="radio" name="pref" value="Phone call"><span>Call</span></label>
+                    <label><input type="radio" name="pref" value="Email"><span>Email</span></label>
+                  </div></div>
+              </div>
+              <div class="group"><div class="group-title">Booking summary</div><dl class="summary" id="summary"></dl></div>
+              <details class="preview"><summary>Preview the message we'll receive</summary><pre id="preview"></pre></details>
+
+              <section class="consent" id="consentBox" aria-labelledby="consentTitle">
+                <div><h4 id="consentTitle">Booking terms and privacy</h4><p class="fine muted" style="margin-top:4px">Please read to the end. The tick box unlocks when you reach the bottom.</p></div>
+                <div class="terms" id="terms" tabindex="0" role="region" aria-label="Booking terms and privacy notice. Scroll to read all of it.">
+                  <div><h5>Estimate and final price</h5><p>The estimate on this page is a guide. We confirm the final price with you by WhatsApp, call or email before your visit. You pay nothing until you have agreed the price.</p></div>
+                  <div><h5>Sending a request</h5><p>Sending this form is a request, not a confirmed booking. Your booking is confirmed when we reply to confirm the date, time and price.</p></div>
+                  <div><h5>Access and safety</h5><p>Someone must let our team in, or you must share access details. Please make sure water and electricity are available, or tell us if they are not. Our team may decline or stop any task that is unsafe.</p></div>
+                  <div><h5>Your belongings</h5><p>Please put away cash, jewellery, documents and fragile items before we arrive. Tell us about delicate surfaces or items to avoid.</p></div>
+                  <div><h5>Damage</h5><p>If something is damaged during the visit, tell us within 24 hours, with photos if you can, so we can look into it.</p></div>
+                  <div><h5>Our 24-hour promise</h5><p>If we miss an area on the agreed checklist, tell us within 24 hours and we will return to fix it at no extra cost.</p></div>
+                  <div><h5>Changes and cancellations</h5><p>Tell us at least 24 hours before your visit if you need to move or cancel. Later notice may mean we cannot keep your slot.</p></div>
+                  <div><h5>Payment</h5><p>We agree the amount and how you will pay when we confirm your booking.</p></div>
+                  <div><h5>What we do with your information</h5><p>We collect your name, phone number, email, address and booking details only to arrange and carry out your cleaning, to contact you about it, and to look into any concern afterwards. We do not sell your details or share them with anyone who is not part of delivering your service. We keep booking records for as long as we need them for those purposes. You can ask us to correct or delete your information at any time by emailing <span data-s="email">freshnestcleaningservices@proton.me</span>.</p></div>
+                  <div><h5>Reviews</h5><p>If you send feedback and tick the box that allows it, we may show your review on our website with the name you give.</p></div>
+                </div>
+                <div class="read-state" aria-live="polite"><div class="read-track" aria-hidden="true"><i id="readFill"></i></div><span id="readText">Scroll to read the terms</span></div>
+                <label class="check-line locked" id="consentLine"><input type="checkbox" name="consent" id="consent" disabled><span>I have read and agree to the booking terms and privacy notice.</span></label>
+                <div class="err" id="consentErr" role="alert"></div>
+              </section>
+
+              <div class="send">
+                <button class="btn btn-brand btn-lg" type="button" id="sendEmail"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>Send booking request</button>
+                <button class="btn btn-wa btn-lg" type="button" id="sendWa"><svg class="i-fill" aria-hidden="true"><use href="#i-wa"/></svg>Send on WhatsApp</button>
+              </div>
+              <div class="status" id="status" role="status" aria-live="polite" hidden></div>
+            </div>
+
+            <div class="nav-row" id="navRow">
+              <button type="button" class="btn btn-ghost" id="backBtn" hidden>Back</button>
+              <span class="spacer"></span>
+              <button type="button" class="btn btn-brand" id="nextBtn">Continue</button>
+            </div>
+          </div>
+
+          <div class="success" id="success" hidden>
+            <svg class="check-anim" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/><path d="M30 52l14 14 27-30"/></svg>
+            <h3 id="successTitle" tabindex="-1">Request sent</h3>
+            <p class="ref" id="successRef" hidden>Your reference <b id="refCode"></b></p>
+            <p class="muted" id="successText" style="max-width:46ch"></p>
+            <ol class="next-steps"><li><b>1</b><span>We review your rooms, date and address.</span></li><li><b>2</b><span>We contact you to confirm the final price and time.</span></li><li><b>3</b><span>Your cleaners arrive with everything needed.</span></li></ol>
+            <div class="hero-actions" style="justify-content:center"><a class="btn btn-wa" id="successWa" href="https://wa.me/2347087596696" target="_blank" rel="noopener">Message us on WhatsApp</a><button class="btn btn-ghost" type="button" id="again">Start another request</button></div>
+          </div>
+        </form>
+
+        <aside class="estimate" aria-label="Your estimate">
+          <p class="elabel">Estimated price per visit</p>
+          <strong class="price" id="priceNum" aria-hidden="true">&#8358;0</strong>
+          <span class="sr-only" id="priceSr" role="status"></span>
+          <p class="sub" id="priceNote"></p>
+          <div class="pill-row" id="pills"></div>
+          <details class="brk" id="brk" open><summary>How it's calculated</summary><ul id="brkList"></ul></details>
+          <p class="fine">A guide based on 2026 Nigerian cleaning prices, the same in every city and state. We confirm your final price before the visit, and supplies are included.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="section-head"><h2>From estimate to spotless in four steps</h2></div>
+      <ol class="steps">
+        <li><h3>Get your estimate</h3><p>Tell us your rooms, kitchen and extras. The estimate updates as you go.</p></li>
+        <li><h3>Send your request</h3><p>Review the summary, read the terms and send it to us in one tap.</p></li>
+        <li><h3>We confirm with you</h3><p>We check the details, agree the final price and lock in your time.</p></li>
+        <li><h3>We clean, you check</h3><p>Missed a spot? Tell us within 24 hours and we return to fix it free.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- WORK AND TIPS -->
+  <section class="section tint" id="work">
+    <div class="wrap">
+      <div class="section-head"><h2 id="workTitle">Cleaning tips</h2><p id="workSub">Practical advice for keeping your space fresh between visits.</p></div>
+      <div class="filters" id="filters" role="group" aria-label="Filter posts" hidden>
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="work" aria-pressed="false">Our work</button>
+        <button type="button" data-f="tip" aria-pressed="false">Cleaning tips</button>
+      </div>
+      <div class="posts" id="posts"></div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <div class="section-head"><h2>What customers say, and your turn</h2><p>We read every message. Tell us how your visit went and we'll use it to get better.</p></div>
+      <div class="fb-grid">
+        <div class="reviews" id="reviewList" aria-live="polite"></div>
+        <form class="fb-form" id="fbForm" novalidate>
+          <h3>Share your feedback</h3>
+          <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" id="fbWebsite" tabindex="-1" autocomplete="off"></label></div>
+          <div class="field"><span class="lbl" id="rateLbl">How was your clean?</span>
+            <div class="stars" role="radiogroup" aria-labelledby="rateLbl" id="stars"></div>
+            <div class="err" id="rateErr" role="alert"></div></div>
+          <div class="field"><span class="lbl" id="tagLbl">What went well? <span class="opt">(optional)</span></span>
+            <div class="tags" role="group" aria-labelledby="tagLbl" id="fbTags"></div></div>
+          <div class="field"><label for="fbText">Your comments <span class="opt">(optional)</span></label><textarea id="fbText" placeholder="What should we keep doing? What could be better?"></textarea></div>
+          <div class="row">
+            <div class="field"><label for="fbName">Your name <span class="opt">(optional)</span></label><input id="fbName" type="text" autocomplete="name"></div>
+            <div class="field"><label for="fbService">Service <span class="opt">(optional)</span></label><select id="fbService"><option value="">Choose one</option></select></div>
+          </div>
+          <label class="check-line"><input type="checkbox" id="fbPublic"><span>You may show my review on the website with the name I gave. <span class="opt">We check every review first.</span></span></label>
+          <div class="send">
+            <button class="btn btn-brand" type="button" id="fbEmail">Send feedback</button>
+            <button class="btn btn-wa" type="button" id="fbWa">Send on WhatsApp</button>
+          </div>
+          <div class="status" id="fbStatus" role="status" aria-live="polite" hidden></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head"><h2>Questions we hear often</h2><p>Can't find your answer? Call or message us and we'll help.</p></div>
+      <div class="faq faq-cols">
+        <div>
+          <div class="faq-group">
+            <h3>Booking and hours</h3>
+            <details><summary>Are you open today?</summary><p>We're open <span data-s="hoursText">every day, 7am to 7pm</span>. You can send a booking request at any time, and we reply during opening hours.</p></details>
+            <details><summary>How do I book?</summary><p>Complete the estimate form and press "Send booking request". Your details reach us straight away and we contact you to confirm the final price and time. Your booking is confirmed when we reply.</p></details>
+            <details><summary>How far ahead should I book?</summary><p>Online bookings start from tomorrow. For a same-day visit, call or WhatsApp us and we'll tell you what's possible.</p></details>
+            <details><summary>Where do you work?</summary><p>Enter your city and state when you book and we'll confirm we can reach you. Prices are the same in every city and state.</p></details>
+            <details><summary>Can I reschedule or cancel?</summary><p>Yes. Message us as early as you can, ideally at least 24 hours before your visit, and we'll move it or cancel it.</p></details>
+            <details><summary>Do you clean offices, shops and building sites?</summary><p>Yes. Office cleaning is usually done in the evening or at weekends so it doesn't disturb your team. After-building cleans may need a site visit before we confirm the price.</p></details>
+          </div>
+          <div class="faq-group">
+            <h3>Prices and payment</h3>
+            <details><summary>How is my estimate worked out?</summary><p>It's built room by room: bedrooms, bathrooms, living areas, kitchen and any extras. It's adjusted for the type of clean, the size of your home and how dirty it is.</p></details>
+            <details><summary>Is the estimate the final price?</summary><p>It's a close guide, shown as a range. We confirm the final price with you before the visit, especially if you've told us about extra rooms or unusual conditions.</p></details>
+            <details><summary>Do regular cleans cost less?</summary><p>Yes. Regular plans are cheaper per visit: 5% off monthly, 10% off every two weeks and 15% off weekly.</p></details>
+            <details><summary>How does payment work?</summary><p>We agree the payment method and amount with you when we confirm your booking.</p></details>
+          </div>
+        </div>
+        <div>
+          <div class="faq-group">
+            <h3>On the day</h3>
+            <details><summary>Do I need to be home during the clean?</summary><p>No. Many clients give us access details and go about their day. If you'd rather be there, that's fine too.</p></details>
+            <details><summary>Do you bring your own supplies and equipment?</summary><p>Yes. Products and equipment are included in the price. If you prefer specific products, tell us in the special instructions.</p></details>
+            <details><summary>What should I prepare before you arrive?</summary><p>Put away valuables and cash, clear loose items from floors and worktops, tell us about pets, make sure water and electricity are available, and share any gate or estate entry instructions.</p></details>
+            <details><summary>Are your cleaners vetted?</summary><p>Yes. Our cleaners are background-checked and trained before they join a team.</p></details>
+            <details><summary>What if I have pets?</summary><p>Tell us in the booking form. We may ask you to keep pets in another room or outside while we work.</p></details>
+            <details><summary>What isn't included in a standard clean?</summary><p>Anything outside the checklist for your service is an optional extra, such as inside the oven and fridge, carpets, upholstery, tile and grout, and inside windows. High-reach windows are quoted separately.</p></details>
+          </div>
+          <div class="faq-group">
+            <h3>After the clean</h3>
+            <details><summary>What if I'm not happy with the result?</summary><p>Contact us within 24 hours and we'll send a cleaner back to fix the issue at no extra cost.</p></details>
+            <details><summary>What if something is damaged?</summary><p>Tell us within 24 hours, with photos if you can, and we'll look into it and get back to you.</p></details>
+            <details><summary>How do I leave feedback?</summary><p>Use the form in the Reviews section. We read every message. Reviews appear on the website only if you allow it, and only after we've checked them.</p></details>
+          </div>
+          <div class="faq-group">
+            <h3>Your information</h3>
+            <details><summary>What do you do with my details?</summary><p>We use them only to arrange and carry out your cleaning and to contact you about it. We don't sell them. Read the full <button type="button" class="link-inline" data-open-terms style="background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--brand);text-decoration:underline;cursor:pointer">booking terms and privacy notice</button>.</p></details>
+            <details><summary>Can you delete my details?</summary><p>Yes. Email us at <a data-act="mail" href="mailto:freshnestcleaningservices@proton.me" data-s="email">freshnestcleaningservices@proton.me</a> and we'll correct or delete them.</p></details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="section-head"><h2>Prefer to talk? We're one tap away</h2><p data-s="replyNote">We reply as soon as we can during opening hours.</p></div>
+      <div class="contact-grid">
+        <a class="c-card" href="tel:+2347087596696" data-act="call"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><b>Call us</b><span data-s="phoneDisplay">+234 708 759 6696</span></a>
+        <a class="c-card" href="https://wa.me/2347087596696" data-act="wa" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg><b>WhatsApp</b><span data-s="phoneDisplay">+234 708 759 6696</span></a>
+        <a class="c-card" href="mailto:freshnestcleaningservices@proton.me" data-act="mail"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><b>Email</b><span data-s="email">freshnestcleaningservices@proton.me</span></a>
+        <div class="c-card"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg><b>Opening hours</b><span data-s="hoursText">Every day, 7am to 7pm</span><span class="open-now" id="contactStatus" data-open="false"><i></i><em style="font-style:normal" id="contactStatusText"></em></span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="brand-mark" style="margin-bottom:12px"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#0B7E80"/><path d="M20 8c5 6 8 9.5 8 14a8 8 0 0 1-16 0c0-4.5 3-8 8-14z" fill="#fff"/></svg><span>FreshNest<small style="color:#9DB8BE">Cleaning Services</small></span></div>
+        <p style="opacity:.8;max-width:36ch">Reliable home and office cleaning with vetted teams and a 24-hour re-clean promise.</p></div>
+      <div><h3>Contact</h3><ul>
+        <li><a href="tel:+2347087596696" data-act="call" data-s="phoneDisplay">+234 708 759 6696</a></li>
+        <li><a href="mailto:freshnestcleaningservices@proton.me" data-act="mail" data-s="email">freshnestcleaningservices@proton.me</a></li>
+        <li data-s="hoursText">Every day, 7am to 7pm</li></ul></div>
+      <div><h3>Explore</h3><ul><li><a href="#services">Services</a></li><li><a href="#estimate">Get an estimate</a></li><li><a href="#faq">FAQ</a></li><li><button type="button" class="link-btn" data-open-terms>Booking terms and privacy</button></li></ul></div>
+    </div>
+    <div class="legal"><span>&copy; 2026 FreshNest Cleaning Services. All rights reserved.</span></div>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="https://wa.me/2347087596696" data-act="wa" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><svg class="i-fill" aria-hidden="true"><use href="#i-wa"/></svg></a>
+<div class="mbar" id="mbar"><a class="btn btn-ghost" href="tel:+2347087596696" data-act="call">Call</a><a class="btn btn-wa" href="https://wa.me/2347087596696" data-act="wa" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-primary" href="#estimate">Get estimate</a></div>
+
+<dialog class="reader" id="reader" aria-labelledby="readerTitle"><div id="readerBody"></div></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ==========================================================================
+   Pricing, booking rules and the room-by-room estimate.
+   One file, used by the browser (window.FNPricing) and by the server
+   (require), so the price a customer sees is the price we re-check on save.
+   Prices are in naira and are the same in every city and state.
+   ========================================================================== */
+(function (root, factory) {
+  if (typeof module === "object" && module.exports) module.exports = factory();
+  else root.FNPricing = factory();
+})(typeof self !== "undefined" ? self : this, function () {
+  "use strict";
+
+  var RULES = {
+    leadDays: 1,          /* earliest booking is today + this many days */
+    maxDaysAhead: 120,
+    termsVersion: "2026-09-30",
+    slots: [
+      { id: "morning",   label: "Morning",   time: "8am to 11am" },
+      { id: "midday",    label: "Midday",    time: "11am to 2pm" },
+      { id: "afternoon", label: "Afternoon", time: "2pm to 5pm" },
+      { id: "evening",   label: "Evening",   time: "5pm to 8pm" }
+    ]
+  };
+
+  var PRICING = {
+    callout: 5000,          /* transport, supplies and equipment for a home visit */
+    minTotal: 15000,        /* smallest home visit we take */
+    range: 0.08,            /* estimate is shown as total -8% to +8% */
+    setupMinutes: 20,
+    maxMult: 2,             /* stacked multipliers never exceed this */
+
+    service: {
+      standard:     { label: "Home cleaning",       price: 1,    time: 1   },
+      deep:         { label: "Deep cleaning",       price: 1.5,  time: 1.7 },
+      move:         { label: "Move in or move out", price: 1.15, time: 1.9 },
+      construction: { label: "Post-construction",   price: 1.4,  time: 2.4 },
+      office:       { label: "Office cleaning",     price: 1,    time: 1   },
+      windows:      { label: "Windows and glass",   price: 1,    time: 1   }
+    },
+    homeSize:  { compact: 0.9, average: 1, large: 1.2 },
+    condition: { light: 0.9, normal: 1, heavy: 1.25 },
+
+    rooms: [
+      { id: "bedroom",  label: "Bedrooms",                    single: "bedroom",               hint: "Including guest rooms",           price: 6000, min: 35, def: 2, max: 12 },
+      { id: "bathroom", label: "Bathrooms",                   single: "bathroom",              hint: "With shower or bath",             price: 2800, min: 40, def: 1, max: 10 },
+      { id: "toilet",   label: "Separate toilets",            single: "separate toilet",       hint: "Guest or visitors' toilet",       price: 1500, min: 15, def: 0, max: 8 },
+      { id: "living",   label: "Living rooms",                single: "living room",           hint: "Lounge or sitting room",          price: 5000, min: 35, def: 1, max: 5 },
+      { id: "dining",   label: "Dining areas",                single: "dining area",           hint: "Separate dining room",            price: 3000, min: 20, def: 0, max: 4 },
+      { id: "study",    label: "Study or home office",        single: "study",                 hint: "",                                price: 3500, min: 25, def: 0, max: 5 },
+      { id: "balcony",  label: "Balconies or terraces",       single: "balcony",               hint: "",                                price: 2500, min: 20, def: 0, max: 6 },
+      { id: "store",    label: "Store or laundry rooms",      single: "store or laundry room", hint: "",                                price: 2000, min: 15, def: 0, max: 5 },
+      { id: "stairs",   label: "Staircases or long hallways", single: "staircase or hallway",  hint: "For duplexes and long corridors", price: 2000, min: 20, def: 0, max: 4 }
+    ],
+    kitchen: {
+      none:     { label: "No kitchen", price: 0,    min: 0 },
+      small:    { label: "Small",      price: 4500, min: 45,  hint: "Kitchenette or compact" },
+      standard: { label: "Standard",   price: 6500, min: 70,  hint: "Typical family kitchen" },
+      large:    { label: "Large",      price: 9500, min: 100, hint: "Big, or more than one" }
+    },
+
+    office: {
+      callout: 8000, min: 40000,
+      rooms: [
+        { id: "private",     label: "Private offices", single: "private office", hint: "",                        price: 5000, min: 30, def: 3, max: 40 },
+        { id: "meeting",     label: "Meeting rooms",   single: "meeting room",   hint: "",                        price: 4000, min: 25, def: 1, max: 15 },
+        { id: "reception",   label: "Reception areas", single: "reception area", hint: "",                        price: 4000, min: 25, def: 1, max: 5 },
+        { id: "toilet",      label: "Toilets",         single: "toilet",         hint: "Each toilet or block",    price: 2800, min: 25, def: 2, max: 20 },
+        { id: "kitchenette", label: "Kitchenettes",    single: "kitchenette",    hint: "Staff kitchen or pantry", price: 4500, min: 35, def: 1, max: 6 }
+      ],
+      open: {
+        none:   { label: "None",   price: 0,     min: 0 },
+        small:  { label: "Small",  price: 8000,  min: 45,  hint: "Up to about 10 desks" },
+        medium: { label: "Medium", price: 14000, min: 80,  hint: "About 10 to 30 desks" },
+        large:  { label: "Large",  price: 22000, min: 130, hint: "More than 30 desks" }
+      }
+    },
+
+    windowEach: 6250,       /* windows service, inside and outside */
+    windowMin: 12500,
+    windowInside: 3000,     /* extra per window when added to a home clean (inside only) */
+
+    extras: {
+      oven:       { label: "Inside the oven",                price: 2500, min: 20, needs: "kitchen", for: "home" },
+      fridge:     { label: "Inside fridge and freezer",      price: 2000, min: 15, needs: "kitchen", for: "home" },
+      cabinets:   { label: "Inside kitchen cabinets",        price: 3000, min: 25, needs: "kitchen", for: "home" },
+      wardrobes:  { label: "Inside wardrobes and cupboards", price: 3000, min: 25, for: "home" },
+      carpet:     { label: "Carpet and rug cleaning",        price: 7500, min: 35, for: "all" },
+      upholstery: { label: "Sofa and upholstery",            price: 8500, min: 45, for: "all" },
+      tiles:      { label: "Tile and grout scrub",           price: 6000, min: 45, for: "all" }
+    },
+
+    freq: {
+      once:      { label: "One-off",       off: 0,    visits: 1 },
+      monthly:   { label: "Monthly",       off: 0.05, visits: 1 },
+      fortnight: { label: "Every 2 weeks", off: 0.10, visits: 2 },
+      weekly:    { label: "Weekly",        off: 0.15, visits: 4 }
+    }
+  };
+
+  function clamp(v, lo, hi) { v = parseInt(v, 10); if (isNaN(v)) v = lo; return Math.min(hi, Math.max(lo, v)); }
+  function roundTo(n, s) { return Math.round(n / s) * s; }
+  function fmt(n) { return "\u20A6" + Math.round(n).toLocaleString("en-NG"); }
+  function plural(c, d) { return c === 1 ? c + " " + d.single : c + " " + d.label.toLowerCase(); }
+
+  function estimate(sel, P) {
+    P = P || PRICING; sel = sel || {};
+    var type = P.service[sel.type] ? sel.type : "standard";
+    var svc = P.service[type];
+    var isWin = type === "windows", isOffice = type === "office";
+    var cond = P.condition[sel.cond] || 1;
+    var sizeF = (isWin || isOffice) ? 1 : (P.homeSize[sel.size] || 1);
+    var mult = Math.min(P.maxMult || 99, svc.price * cond * sizeF);
+    var lines = [], extraLines = [], rooms = 0, minutes = 0, callout = 0, adjust = [];
+
+    if (isWin) {
+      var n = clamp(sel.windows, 1, 80);
+      var base = Math.max(P.windowMin, n * P.windowEach) * cond;
+      lines.push({ label: n + (n === 1 ? " window" : " windows"), amount: base });
+      rooms = base; minutes = 30 + n * 18;
+    } else {
+      var defs = isOffice ? P.office.rooms : P.rooms;
+      var counts = sel.rooms || {};
+      defs.forEach(function (d) {
+        var c = clamp(counts[d.id] || 0, 0, d.max); if (!c) return;
+        var amt = c * d.price * mult; rooms += amt;
+        minutes += c * d.min * svc.time * cond * sizeF;
+        lines.push({ label: plural(c, d), amount: amt });
+      });
+      var tierSet = isOffice ? P.office.open : P.kitchen;
+      var tierKey = isOffice ? sel.open : sel.kitchen;
+      var tier = tierSet[tierKey];
+      if (tier && tier.price) {
+        var ta = tier.price * mult; rooms += ta;
+        minutes += tier.min * svc.time * cond * sizeF;
+        lines.push({ label: (isOffice ? "Open-plan area, " : "Kitchen, ") + tier.label.toLowerCase(), amount: ta });
+      }
+      callout = isOffice ? P.office.callout : P.callout;
+      minutes += P.setupMinutes;
+    }
+
+    if (svc.price !== 1 && !isWin) adjust.push(svc.label.toLowerCase() + " rate");
+    if (sizeF !== 1) adjust.push(sel.size + " home");
+    if (cond !== 1) adjust.push(sel.cond === "heavy" ? "very dirty space" : "lightly used space");
+
+    var extras = 0;
+    if (!isWin) {
+      var hasKitchen = !isOffice && sel.kitchen && sel.kitchen !== "none";
+      (sel.extras || []).forEach(function (k) {
+        var e = P.extras[k]; if (!e) return;
+        if (e.for === "home" && isOffice) return;
+        if (e.needs === "kitchen" && !hasKitchen) return;
+        extras += e.price; minutes += e.min; extraLines.push({ label: e.label, amount: e.price });
+      });
+      var w = clamp(sel.extraWindows || 0, 0, 40);
+      if (w) { var wa = w * P.windowInside; extras += wa; minutes += w * 6; extraLines.push({ label: w + (w === 1 ? " window, inside" : " windows, inside"), amount: wa }); }
+    }
+
+    var subtotal = callout + rooms + extras;
+    var minCharge = isOffice ? P.office.min : (isWin ? P.windowMin : P.minTotal);
+    var floorApplied = subtotal < minCharge;
+    if (floorApplied) subtotal = minCharge;
+    var freq = P.freq[sel.freq] || P.freq.once;
+    var disc = subtotal * freq.off;
+    var total = roundTo(subtotal - disc, 500);
+    var low = roundTo(total * (1 - P.range), 500), high = roundTo(total * (1 + P.range), 500);
+
+    var labour = minutes / 60;
+    var crew = labour <= 3.5 ? 1 : labour <= 8 ? 2 : labour <= 12 ? 3 : 4;
+    var hours = Math.max(1.5, Math.ceil(labour / crew * 2) / 2);
+
+    return {
+      type: type, label: svc.label, lines: lines, extraLines: extraLines, callout: callout, discount: disc,
+      subtotal: subtotal, floorApplied: floorApplied, minCharge: minCharge, adjust: adjust,
+      total: total, low: low, high: high, hours: hours, crew: crew,
+      freq: freq, freqKey: P.freq[sel.freq] ? sel.freq : "once",
+      monthly: freq.visits > 1 ? total * freq.visits : null
+    };
+  }
+
+  return { RULES: RULES, PRICING: PRICING, estimate: estimate, clamp: clamp, roundTo: roundTo, fmt: fmt };
+});
+
+</script>
+<script>
+/* Opening-hours text and live "open now" status, in Nigeria time.
+   Shared by the public site and the admin page (window.FNHours) and testable in Node. */
+(function (root, factory) {
+  if (typeof module === "object" && module.exports) module.exports = factory();
+  else root.FNHours = factory();
+})(typeof self !== "undefined" ? self : this, function () {
+  "use strict";
+  var DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var DAY_SHORT = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  var ORDER = [1, 2, 3, 4, 5, 6, 0];            /* weeks read Monday to Sunday; days[0] is Sunday */
+
+  function fmtTime(t) {
+    var h = +t.slice(0, 2), m = +t.slice(3, 5);
+    return (h % 12 || 12) + (m ? ":" + ("0" + m).slice(-2) : "") + (h >= 12 ? "pm" : "am");
+  }
+  function toMin(t) { return +t.slice(0, 2) * 60 + +t.slice(3, 5); }
+
+  function hoursText(h) {
+    var time = fmtTime(h.open) + " to " + fmtTime(h.close), runs = [], cur = null;
+    if (h.days.every(Boolean)) return "Every day, " + time;
+    ORDER.forEach(function (d, i) {
+      if (!h.days[d]) return;
+      if (cur && cur.end === i - 1) cur.end = i; else { cur = { start: i, end: i }; runs.push(cur); }
+    });
+    return runs.map(function (r) {
+      return r.start === r.end ? DAY_SHORT[ORDER[r.start]] : DAY_SHORT[ORDER[r.start]] + " to " + DAY_SHORT[ORDER[r.end]];
+    }).join(", ") + ", " + time;
+  }
+
+  function lagosNow(date) {
+    var o = {};
+    new Intl.DateTimeFormat("en-US", { timeZone: "Africa/Lagos", weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" })
+      .formatToParts(date || new Date()).forEach(function (p) { o[p.type] = p.value; });
+    return { day: DAY_SHORT.indexOf(o.weekday), min: (+o.hour) * 60 + (+o.minute) };
+  }
+
+  function openStatus(h, date) {
+    var n = lagosNow(date), o = toMin(h.open), c = toMin(h.close);
+    if (h.days[n.day] && n.min >= o && n.min < c) return { open: true, text: "Open now", detail: "until " + fmtTime(h.close) };
+    if (h.days[n.day] && n.min < o) return { open: false, text: "Closed now", detail: "opens today at " + fmtTime(h.open) };
+    for (var i = 1; i <= 7; i++) {
+      var d = (n.day + i) % 7;
+      if (h.days[d]) return { open: false, text: "Closed now", detail: "opens " + (i === 1 ? "tomorrow" : "on " + DAY_NAMES[d]) + " at " + fmtTime(h.open) };
+    }
+    return { open: false, text: "Closed", detail: "" };
+  }
+
+  return { hoursText: hoursText, openStatus: openStatus, fmtTime: fmtTime, lagosNow: lagosNow, DAY_NAMES: DAY_NAMES, DAY_SHORT: DAY_SHORT, ORDER: ORDER };
+});
+
+</script>
+<script>
+/* ==========================================================================
+   FreshNest public site: settings from the server, opening status, navigation,
+   the before/after slider, cleaning tips and projects, reviews and feedback.
+   The page still works if the server can't be reached (for example when the
+   HTML file is opened on its own): it falls back to the defaults below and to
+   WhatsApp / email links.
+   ========================================================================== */
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function (id) { return document.getElementById(id); };
+  var qsa = function (sel, ctx) { return [].slice.call((ctx || document).querySelectorAll(sel)); };
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function clone(o) { return JSON.parse(JSON.stringify(o)); }
+
+  var DEFAULTS = {
+    name: "FreshNest Cleaning Services", phone: "+2347087596696", phoneDisplay: "+234 708 759 6696", whatsapp: "2347087596696",
+    email: "freshnestcleaningservices@proton.me",
+    hours: { open: "07:00", close: "19:00", days: [true, true, true, true, true, true, true] },
+    acceptingBookings: true, announcement: "", replyNote: "We reply as soon as we can during opening hours."
+  };
+  var FN = window.FN = { reduced: reduced, esc: esc, $: $, qsa: qsa, settings: clone(DEFAULTS), api: false, reviews: [], projects: [] };
+
+  /* ---------- Small helpers shared with booking.js ---------- */
+  FN.whatsappUrl = function (text) { return "https://wa.me/" + FN.settings.whatsapp + (text ? "?text=" + encodeURIComponent(text) : ""); };
+  FN.mailtoUrl = function (subject, body) { return "mailto:" + FN.settings.email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body); };
+  FN.openLink = function (url) { var a = document.createElement("a"); a.href = url; a.target = "_blank"; a.rel = "noopener"; document.body.appendChild(a); a.click(); a.remove(); };
+  FN.post = function (url, body) {
+    return fetch(url, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, status: r.status, data: d }; }); })
+      .catch(function () { return { ok: false, status: 0, data: {} }; });
+  };
+  var toastEl = $("toast"), toastT;
+  FN.toast = function (msg) { toastEl.textContent = msg; toastEl.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(function () { toastEl.classList.remove("show"); }, 2800); };
+  FN.fmtDate = function (d) { try { return new Date(d.length > 10 ? d : d + "T12:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }); } catch (e) { return d; } };
+
+  /* ---------- Opening hours and live status (Nigeria time, see hours.js) ---------- */
+  FN.hoursText = window.FNHours.hoursText;
+  FN.openStatus = window.FNHours.openStatus;
+  function paintStatus() {
+    var st = FN.openStatus(FN.settings.hours), b = $("heroStatus"), c = $("contactStatus");
+    b.setAttribute("data-open", st.open); $("statusText").textContent = st.text; $("statusDetail").textContent = st.detail;
+    c.setAttribute("data-open", st.open); $("contactStatusText").textContent = st.text + (st.detail ? ", " + st.detail : "");
+  }
+
+  /* ---------- Apply settings to the page ---------- */
+  var listeners = [];
+  FN.onSettings = function (fn) { listeners.push(fn); fn(FN.settings); };
+  function applySettings() {
+    var s = FN.settings, view = { phoneDisplay: s.phoneDisplay, email: s.email, hoursText: FN.hoursText(s.hours), replyNote: s.replyNote };
+    qsa("[data-act=call]").forEach(function (a) { a.href = "tel:" + s.phone; });
+    qsa("[data-act=wa]").forEach(function (a) { a.href = "https://wa.me/" + s.whatsapp; });
+    qsa("[data-act=mail]").forEach(function (a) { a.href = "mailto:" + s.email; });
+    qsa("[data-s]").forEach(function (el) { var v = view[el.getAttribute("data-s")]; if (v) el.textContent = v; });
+    var an = $("announce"); an.hidden = !s.announcement; an.textContent = s.announcement;
+    paintStatus();
+    listeners.forEach(function (fn) { fn(s); });
+  }
+  setInterval(paintStatus, 60000);
+
+  /* ---------- Theme ---------- */
+  var tbtn = $("themeToggle"), metaTheme = document.querySelector('meta[name="theme-color"]');
+  function paintTheme(t) {
+    root.setAttribute("data-theme", t);
+    tbtn.setAttribute("aria-label", t === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    if (metaTheme) metaTheme.setAttribute("content", t === "dark" ? "#0A1C22" : "#F3F8F7");
+  }
+  paintTheme(root.getAttribute("data-theme") || "light");
+  tbtn.addEventListener("click", function () {
+    var t = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    paintTheme(t); try { localStorage.setItem("fn_theme", t); } catch (e) {}
+    FN.toast(t === "dark" ? "Night mode on" : "Day mode on");
+  });
+
+  /* ---------- Header, menu, floating buttons ---------- */
+  var nav = $("nav"), navToggle = $("navToggle"), header = $("header"), fab = $("fab"), mbar = $("mbar"), inEstimate = false, ticking = false;
+  function setNav(open) { nav.setAttribute("data-open", open); navToggle.setAttribute("aria-expanded", open); navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu"); }
+  navToggle.addEventListener("click", function () { setNav(nav.getAttribute("data-open") !== "true"); });
+  nav.addEventListener("click", function (e) { if (e.target.closest("a")) setNav(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setNav(false); });
+  function onScroll() {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function () {
+      var y = window.scrollY;
+      header.classList.toggle("scrolled", y > 8);
+      fab.classList.toggle("show", y > 500);
+      mbar.classList.toggle("show", y > 500 && !inEstimate);   /* never cover the booking buttons */
+      ticking = false;
+    });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (e) { inEstimate = e[0].isIntersecting; onScroll(); }, { threshold: 0.02 }).observe($("estimate"));
+  }
+  onScroll();
+
+  /* ---------- Before / after slider ---------- */
+  function wireCompare(box, input, start, end) {
+    var raf = null;
+    function setV(v) { box.style.setProperty("--v", v + "%"); }
+    function stop() { if (raf) { cancelAnimationFrame(raf); raf = null; } }
+    input.addEventListener("input", function () { stop(); setV(input.value); });
+    ["pointerdown", "keydown", "touchstart"].forEach(function (ev) { input.addEventListener(ev, stop, { passive: true }); });
+    setV(input.value);
+    if (!reduced && start !== end) {
+      var t0 = null;
+      setTimeout(function () {
+        if (+input.value !== start) return;
+        (function step(t) {
+          if (t0 === null) t0 = t;
+          var p = Math.min((t - t0) / 1900, 1), e = 1 - Math.pow(1 - p, 3), v = start + (end - start) * e;
+          input.value = v; setV(v); raf = p < 1 ? requestAnimationFrame(step) : null;
+        })(performance.now());
+      }, 900);
+    } else { input.value = end; setV(end); }
+  }
+  wireCompare($("compare"), $("cmp"), 92, 50);
+
+  /* ---------- Cleaning tips and our work ---------- */
+  var TIPS = [
+    { slug: "how-often-should-you-deep-clean", type: "tip", icon: "calendar", a: "#0E2B35", b: "#0B7E80", date: "2026-09-10",
+      title: "How often should you deep clean your home?", excerpt: "A simple schedule so the big jobs never pile up.",
+      body: "Most homes benefit from a deep clean **every 3 to 6 months**, with regular cleaning in between.\n\n## Deep clean sooner if\n- You have just moved in or out\n- Someone at home has allergies or asthma\n- You have pets or young children\n- The dusty harmattan season has just passed\n\n## Between deep cleans\n- Wipe kitchen surfaces and bathrooms weekly\n- Mop floors at least once a week\n- Wash bedding every one to two weeks\n\nA regular plan keeps the deep clean lighter, so it takes less time and costs less." },
+    { slug: "streak-free-windows", type: "tip", icon: "window", a: "#0B7E80", b: "#5FA8D3", date: "2026-08-28",
+      title: "Streak-free windows in five steps", excerpt: "The order and tools that make glass sparkle.",
+      body: "Streaks usually come from dirty cloths and cleaning in direct sun.\n\n## Steps\n- Clean on a cloudy day or when the glass is in shade\n- Dust the frame and sill first so dirt does not run onto the glass\n- Wash with warm water and a drop of dish soap\n- Squeegee from top to bottom, wiping the blade after every pass\n- Buff edges with a dry microfibre cloth\n\nUse a clean cloth for each window and avoid paper towels, which leave lint." },
+    { slug: "prepare-before-cleaners-arrive", type: "tip", icon: "check", a: "#12525C", b: "#3AA6A0", date: "2026-08-05",
+      title: "What to prepare before your cleaners arrive", excerpt: "Five quick things that help the visit go smoothly.",
+      body: "A little preparation means more time on actual cleaning.\n\n## Before we arrive\n- Put away valuables, cash and documents\n- Clear worktops and floors of loose items\n- Tell us about pets and secure them if needed\n- Make sure water and electricity are available, or let us know if they are not\n- Share gate or estate entry instructions\n\nTell us about delicate surfaces or items to avoid, and we will note it for the team." }
+  ];
+  var curFilter = "all", postsEl = $("posts"), reader = $("reader"), readerBody = $("readerBody");
+
+  function allPosts() {
+    var work = FN.projects.map(function (p) {
+      var d = [];
+      if (p.service) d.push(["Service", p.service]); if (p.property) d.push(["Property", p.property]);
+      if (p.team) d.push(["Team", p.team]); if (p.time) d.push(["Time taken", p.time]);
+      return { slug: "p-" + p.id, type: "work", icon: "sparkle", a: "#0B7E80", b: "#4CCFC9", title: p.title, date: p.date, excerpt: p.excerpt, details: d, body: p.body, photo: p.photo, before: p.before, after: p.after };
+    });
+    return work.concat(TIPS).sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+  }
+  function readMins(t) { return Math.max(1, Math.round((t || "").split(/\s+/).length / 200)); }
+  function coverStyle(p) { return "--a:" + p.a + ";--b:" + p.b; }
+  function icon(name) { return '<svg class="i" aria-hidden="true"><use href="#i-' + name + '"/></svg>'; }
+  function renderPosts() {
+    var hasWork = FN.projects.length > 0;
+    $("filters").hidden = !hasWork;
+    $("workTitle").textContent = hasWork ? "Our work and cleaning tips" : "Cleaning tips";
+    $("workSub").textContent = hasWork ? "See what we've done and pick up practical advice for keeping your space fresh." : "Practical advice for keeping your space fresh between visits.";
+    if (!hasWork) curFilter = "all";
+    var list = allPosts().filter(function (p) { return curFilter === "all" || p.type === curFilter; });
+    postsEl.innerHTML = list.map(function (p) {
+      var img = p.photo || p.after;
+      return '<button type="button" class="post" data-slug="' + esc(p.slug) + '"><div class="cover" style="' + coverStyle(p) + '">' + icon(p.icon) + (img ? '<img src="' + esc(img) + '" alt="" loading="lazy">' : "") + '<span class="kind">' + (p.type === "work" ? "Our work" : "Cleaning tip") + '</span></div><div class="info"><h3>' + esc(p.title) + '</h3><p>' + esc(p.excerpt) + '</p><div class="meta"><span>' + FN.fmtDate(p.date) + '</span>' + (p.type === "tip" ? '<span>' + readMins(p.body) + ' min read</span>' : "") + '</div></div></button>';
+    }).join("");
+  }
+  qsa("#filters button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      curFilter = b.getAttribute("data-f");
+      qsa("#filters button").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      renderPosts();
+    });
+  });
+  function md(t) {
+    var out = [], list = null;
+    function inline(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>"); }
+    function close() { if (list) { out.push("<ul>" + list.join("") + "</ul>"); list = null; } }
+    (t || "").split("\n").forEach(function (l) {
+      if (/^##\s+/.test(l)) { close(); out.push("<h4>" + inline(l.replace(/^##\s+/, "")) + "</h4>"); }
+      else if (/^-\s+/.test(l)) { (list = list || []).push("<li>" + inline(l.replace(/^-\s+/, "")) + "</li>"); }
+      else if (!l.trim()) close();
+      else { close(); out.push("<p>" + inline(l) + "</p>"); }
+    });
+    close(); return out.join("");
+  }
+  function closeReader() { if (reader.close) reader.close(); else reader.removeAttribute("open"); }
+  function showReader(head, body) {
+    readerBody.innerHTML = '<div style="position:relative">' + head + '<button type="button" class="icon-btn close" id="readerClose" aria-label="Close"><svg class="i" style="stroke-width:2.4" aria-hidden="true"><use href="#i-close"/></svg></button></div><div class="bd">' + body + "</div>";
+    if (typeof reader.showModal === "function") reader.showModal(); else reader.setAttribute("open", "");
+    $("readerClose").addEventListener("click", closeReader);
+    var c2 = $("readerClose2"); if (c2) c2.addEventListener("click", closeReader);
+    var cta = $("readerCta"); if (cta) cta.addEventListener("click", function () { closeReader(); $("estimate").scrollIntoView({ behavior: reduced ? "auto" : "smooth" }); });
+    reader.scrollTop = 0;
+  }
+  function openPost(slug) {
+    var p = allPosts().filter(function (x) { return x.slug === slug; })[0]; if (!p) return;
+    var head;
+    if (p.before && p.after) {
+      head = '<div class="compare" id="rcmp"><img class="scene" src="' + esc(p.after) + '" alt="After cleaning"><img class="scene dirty" src="' + esc(p.before) + '" alt="Before cleaning"><div class="handle" aria-hidden="true"><div class="knob"><svg class="i" style="stroke-width:2.6" aria-hidden="true"><use href="#i-arrows"/></svg></div></div><span class="tag l" aria-hidden="true">Before</span><span class="tag r" aria-hidden="true">After</span><input id="rcmpIn" type="range" min="0" max="100" value="92" aria-label="Drag to compare before and after"></div>';
+    } else {
+      head = '<div class="hd" style="' + coverStyle(p) + '">' + icon(p.icon) + ((p.photo || p.after) ? '<img src="' + esc(p.photo || p.after) + '" alt="">' : "") + "</div>";
+    }
+    var facts = p.details && p.details.length ? '<div class="facts">' + p.details.map(function (d) { return "<div><small>" + esc(d[0]) + "</small><b>" + esc(d[1]) + "</b></div>"; }).join("") + "</div>" : "";
+    showReader(head, '<div><h2 id="readerTitle">' + esc(p.title) + '</h2><p class="fine muted" style="margin-top:8px">' + FN.fmtDate(p.date) + "</p></div>" + facts + md(p.body) + '<div class="reader-actions"><button type="button" class="btn btn-primary" id="readerCta">Get my estimate</button><button type="button" class="btn btn-ghost" id="readerClose2">Close</button></div>');
+    var rc = $("rcmp"); if (rc) wireCompare(rc, $("rcmpIn"), 92, 50);
+  }
+  function openTerms() {
+    showReader('<div class="hd" style="--a:#0E2B35;--b:#0B7E80">' + icon("shield") + "</div>",
+      '<div><h2 id="readerTitle">Booking terms and privacy</h2><p class="fine muted" style="margin-top:8px">Version ' + esc(window.FNPricing.RULES.termsVersion) + '</p></div><div class="terms-doc">' + $("terms").innerHTML + '</div><div class="reader-actions"><button type="button" class="btn btn-ghost" id="readerClose2">Close</button></div>');
+  }
+  postsEl.addEventListener("click", function (e) { var c = e.target.closest(".post"); if (c) openPost(c.getAttribute("data-slug")); });
+  reader.addEventListener("click", function (e) { if (e.target === reader) closeReader(); });
+  qsa("[data-open-terms]").forEach(function (b) { b.addEventListener("click", openTerms); });
+  FN.openTerms = openTerms;
+
+  /* ---------- Reviews ---------- */
+  var STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg>';
+  var listEl = $("reviewList");
+  function starsHtml(n) { var h = '<div class="rstars" role="img" aria-label="' + n + ' out of 5 stars">'; for (var i = 1; i <= 5; i++) h += STAR.replace("<svg", '<svg class="' + (i <= n ? "on" : "") + '"'); return h + "</div>"; }
+  function renderReviews() {
+    var rs = FN.reviews;
+    if (!rs.length) {
+      listEl.innerHTML = '<div class="empty"><h3>No reviews yet</h3><p>Once customers share their feedback and allow us to show it, their reviews appear here. Had a clean with us? Tell us how it went.</p></div>';
+      return;
+    }
+    var avg = Math.round(rs.reduce(function (a, r) { return a + r.rating; }, 0) / rs.length * 10) / 10;
+    listEl.innerHTML = '<div class="rev-summary"><b>' + avg.toFixed(1) + "</b><div>" + starsHtml(Math.round(avg)) + '<span class="fine muted">' + rs.length + (rs.length === 1 ? " review" : " reviews") + "</span></div></div>" +
+      rs.map(function (r) {
+        return '<article class="rev"><div class="who"><div class="av" aria-hidden="true">' + esc((r.name || "?").charAt(0).toUpperCase()) + '</div><div><div class="nm">' + esc(r.name) + '</div><div class="mt">' + esc(r.meta) + (r.meta ? ", " : "") + FN.fmtDate(r.date) + "</div></div></div>" + starsHtml(r.rating) + "<p>" + esc(r.text) + "</p></article>";
+      }).join("");
+  }
+
+  var sh = "";
+  for (var s = 5; s >= 1; s--) sh += '<input type="radio" name="rating" id="r' + s + '" value="' + s + '"><label for="r' + s + '" title="' + s + " star" + (s > 1 ? "s" : "") + '"><span class="sr-only">' + s + " star" + (s > 1 ? "s" : "") + "</span>" + STAR + "</label>";
+  $("stars").innerHTML = sh;
+  $("fbTags").innerHTML = ["On time", "Thorough", "Friendly team", "Good value", "Easy booking"].map(function (t) { return '<label><input type="checkbox" value="' + esc(t) + '"><span>' + esc(t) + "</span></label>"; }).join("");
+  var svc = window.FNPricing.PRICING.service;
+  $("fbService").insertAdjacentHTML("beforeend", Object.keys(svc).map(function (k) { return "<option>" + esc(svc[k].label) + "</option>"; }).join(""));
+  $("fbForm").addEventListener("change", function (e) { if (e.target.name === "rating") $("rateErr").textContent = ""; });
+  $("fbForm").addEventListener("submit", function (e) { e.preventDefault(); });
+
+  function feedback(channel, btn) {
+    var sel = document.querySelector('#fbForm input[name="rating"]:checked'), st = $("fbStatus");
+    if (!sel) { $("rateErr").textContent = "Choose a star rating first."; $("r5").focus(); return; }
+    var data = {
+      rating: +sel.value, tags: qsa("#fbTags input:checked").map(function (i) { return i.value; }), text: $("fbText").value.trim(),
+      name: $("fbName").value.trim(), service: $("fbService").value, allowPublic: $("fbPublic").checked, website: $("fbWebsite").value
+    };
+    var lines = ["Feedback for " + FN.settings.name, "Rating: " + data.rating + " out of 5"];
+    if (data.service) lines.push("Service: " + data.service);
+    if (data.tags.length) lines.push("What went well: " + data.tags.join(", "));
+    if (data.text) lines.push("Comments: " + data.text);
+    if (data.name) lines.push("Name: " + data.name);
+    var message = lines.join("\n");
+    function note(text, kind) { st.hidden = false; st.className = "status" + (kind ? " is-" + kind : ""); st.textContent = text; }
+    if (channel === "whatsapp") { FN.openLink(FN.whatsappUrl(message)); note("Thank you. Press send in the WhatsApp window that opened."); return; }
+    btn.disabled = true;
+    FN.post("/api/feedback", data).then(function (r) {
+      btn.disabled = false;
+      if (r.ok) {
+        note("Thank you. Your feedback has been sent." + (data.allowPublic ? " If it passes our check, it will appear here." : ""), "ok");
+        $("fbForm").reset(); return;
+      }
+      if (r.status === 422 || r.status === 429) { note(r.data.error || "We couldn't send that. Please try again.", "error"); return; }
+      FN.openLink(FN.mailtoUrl("Feedback from " + (data.name || "a customer"), message));
+      note("We couldn't reach our server, so we opened your email app. Press send to finish.");
+    });
+  }
+  $("fbEmail").addEventListener("click", function () { feedback("email", this); });
+  $("fbWa").addEventListener("click", function () { feedback("whatsapp", this); });
+
+  /* ---------- Start ---------- */
+  applySettings(); renderPosts(); renderReviews();
+
+  fetch("/api/public", { headers: { Accept: "application/json" } })
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error("no api")); })
+    .then(function (d) {
+      FN.api = true;
+      FN.settings = Object.assign(clone(DEFAULTS), d.settings || {});
+      FN.reviews = d.reviews || []; FN.projects = d.projects || [];
+      applySettings(); renderPosts(); renderReviews();
+    })
+    .catch(function () { /* stay on the built-in defaults */ });
+})();
+
+</script>
+<script>
+/* ==========================================================================
+   Estimator and five-step booking flow.
+   - The price shown is calculated by FNPricing, the same code the server uses.
+   - The consent box stays locked until the customer has scrolled the terms
+     to the end.
+   - "Send booking request" saves the booking on our server. If the server
+     can't be reached, it falls back to the customer's email app.
+   ========================================================================== */
+(function () {
+  "use strict";
+  var F = window.FNPricing, P = F.PRICING, R = F.RULES, FN = window.FN;
+  var $ = FN.$, qsa = FN.qsa, esc = FN.esc, fmt = F.fmt, reduced = FN.reduced;
+  var form = $("quoteForm"), TOTAL = 5, stepNo = 1, maxStep = 1;
+  var TICK = '<span class="box"><svg class="i" aria-hidden="true"><use href="#i-tick"/></svg></span>';
+  var FIELD_STEP = { type: 1, date: 4, street: 4, cityState: 4, name: 5, phone: 5, email: 5, consent: 5 };
+
+  /* ---------- Build the option lists from the pricing rules ---------- */
+  var TILES = [
+    { id: "standard", name: "Home", sub: "Regular upkeep", ico: "home" },
+    { id: "deep", name: "Deep clean", sub: "Top to bottom", ico: "sparkle" },
+    { id: "move", name: "Move in or out", sub: "Empty-home clean", ico: "box" },
+    { id: "construction", name: "After building", sub: "Dust and debris", ico: "layers" },
+    { id: "office", name: "Office", sub: "Shops and workplaces", ico: "building" },
+    { id: "windows", name: "Windows", sub: "Streak-free glass", ico: "window" }
+  ];
+  $("tiles").innerHTML = TILES.map(function (t, i) {
+    return '<label class="tile"><input type="radio" name="type" value="' + t.id + '"' + (i === 0 ? " checked" : "") + '><span class="tcard"><svg class="i" aria-hidden="true"><use href="#i-' + t.ico + '"/></svg><b>' + t.name + "</b><small>" + t.sub + "</small></span></label>";
+  }).join("");
+
+  function segHtml(name, set, def) {
+    return Object.keys(set).map(function (k) {
+      return '<label><input type="radio" name="' + name + '" value="' + k + '"' + (k === def ? " checked" : "") + "><span>" + esc(set[k].label) + (set[k].hint ? "<small>" + esc(set[k].hint) + "</small>" : "") + "</span></label>";
+    }).join("");
+  }
+  $("kitchenSeg").innerHTML = segHtml("kitchen", P.kitchen, "standard");
+  $("openSeg").innerHTML = segHtml("open", P.office.open, "none");
+  $("freqSeg").innerHTML = Object.keys(P.freq).map(function (k) {
+    var f = P.freq[k];
+    return '<label><input type="radio" name="freq" value="' + k + '"' + (k === "once" ? " checked" : "") + "><span>" + esc(f.label) + (f.off ? "<small>" + Math.round(f.off * 100) + "% off</small>" : "") + "</span></label>";
+  }).join("");
+
+  function roomRow(set, d) {
+    var id = "r_" + set + "_" + d.id;
+    return '<div class="room"><div class="t">' + esc(d.label) + (d.hint ? "<small>" + esc(d.hint) + "</small>" : "") + '</div><div class="num"><button type="button" data-d="-1" data-for="' + id + '" aria-label="Fewer ' + esc(d.label.toLowerCase()) + '">&minus;</button><input id="' + id + '" name="' + id + '" data-set="' + set + '" data-room="' + d.id + '" type="number" min="0" max="' + d.max + '" value="' + d.def + '" inputmode="numeric" aria-label="' + esc(d.label) + '"><button type="button" data-d="1" data-for="' + id + '" aria-label="More ' + esc(d.label.toLowerCase()) + '">+</button></div></div>';
+  }
+  $("roomsHome").innerHTML = P.rooms.map(function (d) { return roomRow("home", d); }).join("");
+  $("roomsOffice").innerHTML = P.office.rooms.map(function (d) { return roomRow("office", d); }).join("");
+
+  $("extras").innerHTML = Object.keys(P.extras).map(function (k) {
+    var e = P.extras[k];
+    return '<label class="chk" data-for="' + e.for + '" data-needs="' + (e.needs || "") + '"><input type="checkbox" name="extras" value="' + k + '">' + TICK + '<span class="t">' + esc(e.label) + '</span><span class="p">+' + fmt(e.price) + "</span></label>";
+  }).join("");
+  $("extraWinHint").textContent = fmt(P.windowInside) + " per window";
+
+  $("slots").innerHTML = '<label class="slot"><input type="radio" name="slot" value="any" checked><span>Any time<small>We\'ll suggest</small></span></label>' + R.slots.map(function (s) {
+    return '<label class="slot"><input type="radio" name="slot" value="' + s.id + '"><span>' + esc(s.label) + "<small>" + esc(s.time) + "</small></span></label>";
+  }).join("");
+  $("focus").innerHTML = ["Kitchen", "Bathrooms", "Bedrooms", "Living areas", "Windows", "Floors", "Balcony", "Inside cupboards"].map(function (t) {
+    return '<label><input type="checkbox" name="focus" value="' + t + '"><span>' + t + "</span></label>";
+  }).join("");
+
+  /* ---------- Dates ---------- */
+  function ymd(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+  var dMin = new Date(); dMin.setDate(dMin.getDate() + R.leadDays);
+  var dMax = new Date(); dMax.setDate(dMax.getDate() + R.maxDaysAhead);
+  $("date").min = ymd(dMin); $("date").max = ymd(dMax);
+  function longDate(v) { try { return new Date(v + "T12:00:00").toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" }); } catch (e) { return v; } }
+
+  /* ---------- Read the form ---------- */
+  function val(n) { return form.elements[n] ? form.elements[n].value : ""; }
+  function checked(name) { return !!(form.elements[name] && form.elements[name].checked); }
+  function list(name) { return qsa('input[name="' + name + '"]:checked', form).map(function (i) { return i.value; }); }
+  function readSel() {
+    var type = val("type"), office = type === "office", rooms = {};
+    qsa('input[data-set="' + (office ? "office" : "home") + '"]', form).forEach(function (i) { rooms[i.getAttribute("data-room")] = F.clamp(i.value, 0, +i.max); });
+    return {
+      type: type, size: val("size"), cond: val("cond"), kitchen: val("kitchen"), open: val("open"), rooms: rooms,
+      extras: list("extras"), extraWindows: F.clamp($("extraWindows").value, 0, 40), windows: F.clamp($("windows").value, 1, 80), freq: val("freq")
+    };
+  }
+
+  /* ---------- Show or hide parts for the chosen service ---------- */
+  function syncUI() {
+    var type = val("type"), isOffice = type === "office", isWin = type === "windows", isHome = !isOffice && !isWin;
+    qsa(".only-home").forEach(function (el) { el.hidden = !isHome; });
+    qsa(".grp-home").forEach(function (el) { el.hidden = !isHome; });
+    qsa(".grp-office").forEach(function (el) { el.hidden = !isOffice; });
+    qsa(".grp-win").forEach(function (el) { el.hidden = !isWin; });
+    qsa(".grp-nonwin").forEach(function (el) { el.hidden = isWin; });
+    qsa(".grp-extras").forEach(function (el) { el.hidden = isWin; });
+    $("roomsTitle").textContent = isOffice ? "What does your office include?" : isWin ? "How many windows?" : "Which rooms need cleaning?";
+    $("roomsSub").textContent = isOffice ? "Set a room to 0 if you don't have one. Tell us about anything else below." : isWin ? "Count each window or glass panel you'd like cleaned." : "Set a room to 0 if you don't have one. Anything we've missed, tell us below.";
+    var noKitchen = isHome && val("kitchen") === "none";
+    qsa("#extras .chk").forEach(function (l) {
+      var hide = (l.getAttribute("data-for") === "home" && isOffice) || (l.getAttribute("data-needs") === "kitchen" && (isOffice || noKitchen));
+      l.hidden = hide; if (hide) l.querySelector("input").checked = false;
+    });
+    $("extrasNote").textContent = noKitchen ? "Kitchen extras appear when you have a kitchen" : "";
+    qsa(".room", form).forEach(function (r) { var i = r.querySelector("input"); r.classList.toggle("has", +i.value > 0); });
+    $("petRow").hidden = !$("pets").checked;
+  }
+
+  /* ---------- Estimate panel ---------- */
+  var shownLow = 0, shownHigh = 0, raf = null, lastKey = "";
+  function paintPrice(low, high) {
+    cancelAnimationFrame(raf);
+    var el = $("priceNum");
+    function txt(a, b) { return fmt(a) + " \u2013 " + fmt(b); }
+    if (reduced) { el.textContent = txt(low, high); shownLow = low; shownHigh = high; return; }
+    var fl = shownLow, fh = shownHigh, t0 = null;
+    raf = requestAnimationFrame(function step(t) {
+      if (t0 === null) t0 = t;
+      var p = Math.min((t - t0) / 450, 1), e = 1 - Math.pow(1 - p, 3);
+      shownLow = fl + (low - fl) * e; shownHigh = fh + (high - fh) * e;
+      el.textContent = txt(shownLow, shownHigh);
+      if (p < 1) raf = requestAnimationFrame(step); else { el.textContent = txt(low, high); shownLow = low; shownHigh = high; }
+    });
+  }
+  function row(l, v, c) { return '<li class="' + (c || "") + '"><span>' + esc(l) + "</span><span>" + v + "</span></li>"; }
+  var est = null, sel = null;
+  function render() {
+    sel = readSel(); est = F.estimate(sel, P);
+    var key = est.low + "-" + est.high;
+    if (key !== lastKey) { paintPrice(est.low, est.high); lastKey = key; }
+    $("priceSr").textContent = "Estimated price " + fmt(est.low) + " to " + fmt(est.high) + " per visit";
+    $("priceNote").textContent = est.label + (est.freqKey !== "once" ? ", " + est.freq.label.toLowerCase() : "");
+    $("pills").innerHTML = '<span class="pill">About ' + est.hours + (est.hours === 1 ? " hour" : " hours") + '</span><span class="pill">' + est.crew + (est.crew === 1 ? " cleaner" : " cleaners") + "</span>" + (est.monthly ? '<span class="pill">' + est.freq.visits + " visits a month: about " + fmt(est.monthly) + "</span>" : "");
+    var h = row("Rooms and areas", "", "head");
+    est.lines.forEach(function (l) { h += row(l.label, fmt(l.amount)); });
+    if (est.adjust.length) h += '<li class="head"><span>Includes: ' + esc(est.adjust.join(", ")) + "</span></li>";
+    if (est.callout) h += row("Call-out, transport and supplies", fmt(est.callout));
+    if (est.extraLines.length) { h += row("Extras", "", "head"); est.extraLines.forEach(function (l) { h += row(l.label, "+" + fmt(l.amount)); }); }
+    if (est.floorApplied) h += row("Minimum visit charge applies", fmt(est.minCharge));
+    if (est.discount > 1) h += row(est.freq.label + " plan", "\u2212" + fmt(est.discount), "neg");
+    h += row("Estimated total", fmt(est.total), "tot");
+    $("brkList").innerHTML = h;
+    if (stepNo === TOTAL) renderSummary();
+  }
+
+  /* ---------- Summary and message ---------- */
+  function slotText() { var v = val("slot"); if (v === "any") return "Any time"; var s = R.slots.filter(function (x) { return x.id === v; })[0]; return s ? s.label + " (" + s.time + ")" : "Any time"; }
+  function facts() {
+    var f = [];
+    if (!checked("water")) f.push("No running water on site");
+    if (!checked("power")) f.push("No electricity on site");
+    if (checked("parking")) f.push("Parking available");
+    if (checked("gate")) f.push("Gate pass or ID needed");
+    if (checked("pets")) f.push("Pets: " + (val("petType").trim() || "yes"));
+    if (sel.type === "windows" && checked("hardWindows")) f.push("Some windows are hard to reach");
+    return f;
+  }
+  function extrasText() { var t = est.extraLines.map(function (l) { return l.label; }); return t.length ? t.join(", ") : "None"; }
+  function roomsText() {
+    var t = est.lines.map(function (l) { return l.label; });
+    if (sel.type !== "office" && sel.type !== "windows" && val("kitchen") === "none") t.push("no kitchen");
+    return t.join(", ");
+  }
+  var CONDITION = { light: "Lightly used", normal: "Normal", heavy: "Very dirty" };
+  function summaryRows() {
+    var isHome = sel.type !== "office" && sel.type !== "windows";
+    var rows = [
+      ["Service", est.label + (isHome ? ": " + val("propType") + ", " + val("size") + " size" : ""), 1],
+      ["Rooms", roomsText() + (val("otherRooms").trim() ? ". Also: " + val("otherRooms").trim() : ""), 2],
+      ["Condition", CONDITION[val("cond")], 2],
+      ["Extras and plan", extrasText() + ". " + est.freq.label, 3],
+      ["When", (val("date") ? longDate(val("date")) : "Not chosen yet") + ", " + slotText() + (checked("flex") ? " (flexible)" : ""), 4],
+      ["Address", [val("street").trim(), val("cityState").trim()].filter(Boolean).join(", ") + (val("landmark").trim() ? " (near " + val("landmark").trim() + ")" : ""), 4],
+      ["Access", val("access") + ", " + val("floor").toLowerCase() + (facts().length ? ". " + facts().join(", ") : ""), 4]
+    ];
+    if (list("focus").length || val("instructions").trim()) rows.push(["Notes", [list("focus").length ? "Focus: " + list("focus").join(", ") : "", val("instructions").trim()].filter(Boolean).join(". "), 4]);
+    if (val("budget").trim()) rows.push(["Your budget", "\u20A6" + val("budget").trim().replace(/^\u20A6/, ""), 4]);
+    rows.push(["Estimate", fmt(est.low) + " to " + fmt(est.high) + " per visit, about " + est.hours + "h with " + est.crew + (est.crew === 1 ? " cleaner" : " cleaners"), 0]);
+    return rows;
+  }
+  function renderSummary() {
+    $("summary").innerHTML = summaryRows().map(function (r) {
+      return '<div class="srow"><dt>' + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd>" + (r[2] ? '<button type="button" data-goto="' + r[2] + '">Edit</button>' : "<span></span>") + "</div>";
+    }).join("");
+    $("preview").textContent = buildMessage();
+  }
+  function buildMessage() {
+    var isHome = sel.type !== "office" && sel.type !== "windows", L = [];
+    L.push("NEW BOOKING REQUEST (" + FN.settings.name + " website)", "");
+    L.push("SERVICE", "Type: " + est.label);
+    if (isHome) L.push("Property: " + val("propType") + ", " + val("size") + " size", "Kitchen: " + (val("kitchen") === "none" ? "None" : P.kitchen[val("kitchen")].label));
+    L.push("Rooms: " + (est.lines.map(function (l) { return l.label; }).join(", ") || "None listed"));
+    if (val("otherRooms").trim()) L.push("Other rooms or areas: " + val("otherRooms").trim());
+    L.push("Condition: " + CONDITION[val("cond")], "Extras: " + extrasText(), "Frequency: " + est.freq.label, "");
+    L.push("SCHEDULE", "Date: " + (val("date") ? longDate(val("date")) : "Not chosen") + (checked("flex") ? " (flexible)" : ""), "Time: " + slotText(), "");
+    L.push("LOCATION", "Address: " + [val("street").trim(), val("cityState").trim()].filter(Boolean).join(", "));
+    if (val("landmark").trim()) L.push("Landmark: " + val("landmark").trim());
+    L.push("Access: " + val("access") + "; " + val("floor"));
+    L.push("Water on site: " + (checked("water") ? "Yes" : "No"), "Electricity on site: " + (checked("power") ? "Yes" : "No"), "Parking for team: " + (checked("parking") ? "Yes" : "No"), "Gate pass or ID needed: " + (checked("gate") ? "Yes" : "No"), "Pets: " + (checked("pets") ? "Yes (" + (val("petType").trim() || "not specified") + ")" : "No"));
+    if (sel.type === "windows" && checked("hardWindows")) L.push("Hard-to-reach windows: Yes");
+    if (list("focus").length) L.push("Focus areas: " + list("focus").join(", "));
+    if (val("instructions").trim()) L.push("Instructions: " + val("instructions").trim());
+    L.push("", "ESTIMATE", "Range: " + fmt(est.low) + " to " + fmt(est.high) + " per visit (mid " + fmt(est.total) + ")", "Time: about " + est.hours + " hours with " + est.crew + (est.crew === 1 ? " cleaner" : " cleaners"));
+    if (val("budget").trim()) L.push("Customer budget: \u20A6" + val("budget").trim().replace(/^\u20A6/, ""));
+    L.push("", "CONTACT", "Name: " + val("name").trim(), "Phone: " + val("phone").trim());
+    if (val("email").trim()) L.push("Email: " + val("email").trim());
+    L.push("Prefers: " + val("pref"), "", "Terms and privacy notice read and accepted (version " + R.termsVersion + ")");
+    return L.join("\n");
+  }
+  function payload() {
+    return {
+      selection: sel,
+      details: {
+        propType: val("propType"), otherRooms: val("otherRooms"), date: val("date"), flex: checked("flex"), slot: val("slot"),
+        street: val("street"), cityState: val("cityState"), landmark: val("landmark"), access: val("access"), floor: val("floor"),
+        water: checked("water"), power: checked("power"), parking: checked("parking"), gate: checked("gate"),
+        pets: checked("pets"), petType: val("petType"), hardWindows: checked("hardWindows"),
+        focus: list("focus"), instructions: val("instructions"), budget: val("budget")
+      },
+      contact: { name: val("name"), phone: val("phone"), email: val("email"), pref: val("pref") },
+      consent: { accepted: true, version: R.termsVersion },
+      message: buildMessage(),
+      website: val("website")
+    };
+  }
+
+  /* ---------- Consent: unlock the tick box only after the terms are read ---------- */
+  var terms = $("terms"), consent = $("consent"), consentLine = $("consentLine"), consentBox = $("consentBox"), hasRead = false;
+  function unlockConsent() {
+    hasRead = true; consent.disabled = false;
+    consentLine.classList.remove("locked"); consentBox.classList.add("is-read");
+    $("readFill").style.width = "100%"; $("readText").textContent = "Thanks for reading. You can now tick the box.";
+  }
+  function updateRead() {
+    if (hasRead || !terms.clientHeight) return;               /* hidden (another step is showing) */
+    var max = terms.scrollHeight - terms.clientHeight;
+    if (max <= 4 || terms.scrollTop >= max - 6) { unlockConsent(); return; }
+    var pct = Math.round(Math.min(1, terms.scrollTop / max) * 100);
+    $("readFill").style.width = pct + "%";
+    $("readText").textContent = "Keep scrolling to unlock the tick box (" + pct + "% read)";
+  }
+  function resetConsent() {
+    hasRead = false; consent.checked = false; consent.disabled = true; terms.scrollTop = 0;
+    consentLine.classList.add("locked"); consentBox.classList.remove("is-read");
+    $("readFill").style.width = "0"; $("readText").textContent = "Scroll to read the terms"; $("consentErr").textContent = "";
+  }
+  terms.addEventListener("scroll", updateRead, { passive: true });
+  consentLine.addEventListener("click", function (e) {
+    if (hasRead) return;
+    e.preventDefault();
+    $("consentErr").textContent = "Please read the terms to the end first, then tick the box.";
+    terms.scrollIntoView({ block: "nearest", behavior: reduced ? "auto" : "smooth" }); terms.focus({ preventScroll: true });
+  });
+  consent.addEventListener("change", function () { if (this.checked) $("consentErr").textContent = ""; });
+
+  /* ---------- Validation ---------- */
+  function setErr(id, msg) {
+    var inp = $(id), el = $(id + "Err"); if (!inp || !el) return;
+    el.textContent = msg; inp.setAttribute("aria-invalid", msg ? "true" : "false");
+    if (msg) inp.setAttribute("aria-describedby", el.id); else inp.removeAttribute("aria-describedby");
+  }
+  function firstBad(ids) { for (var i = 0; i < ids.length; i++) if ($(ids[i]).getAttribute("aria-invalid") === "true") return $(ids[i]); return null; }
+  function validate(n) {
+    var ids = [];
+    if (n === 4) {
+      ids = ["date", "street", "cityState"];
+      var d = val("date");
+      setErr("date", !d ? "Choose the date you'd like us to come." : (d < $("date").min ? "Please choose " + longDate($("date").min) + " or later. For a sooner visit, call or WhatsApp us." : (d > $("date").max ? "Please choose a date within the next " + R.maxDaysAhead + " days." : "")));
+      setErr("street", val("street").trim().length < 4 ? "Enter the street address so we can find you." : "");
+      setErr("cityState", val("cityState").trim().length < 2 ? "Enter your city and state." : "");
+    }
+    if (n === 5) {
+      ids = ["name", "phone", "email"];
+      setErr("name", val("name").trim().length < 2 ? "Enter your name so we know who to reply to." : "");
+      var digits = val("phone").replace(/\D/g, "");
+      setErr("phone", digits.length < 10 || digits.length > 15 ? "Enter a phone number we can reach, for example 0801 234 5678." : "");
+      var em = val("email").trim();
+      setErr("email", em && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em) ? "That email doesn't look right. Check it or leave it blank." : "");
+    }
+    var bad = firstBad(ids);
+    if (bad) { bad.focus(); return false; }
+    if (n === 5 && !consent.checked) {
+      $("consentErr").textContent = hasRead ? "Please tick the box to agree to the terms." : "Please read the terms to the end, then tick the box.";
+      (hasRead ? consent : terms).focus(); return false;
+    }
+    return true;
+  }
+
+  /* ---------- Steps ---------- */
+  var steps = qsa(".step", form), backBtn = $("backBtn"), nextBtn = $("nextBtn"), wizLis = qsa("#wiz li");
+  function scrollToForm() {
+    var off = 88 + (window.innerWidth <= 960 ? document.querySelector(".estimate").offsetHeight + 8 : 0);
+    window.scrollTo({ top: form.getBoundingClientRect().top + window.scrollY - off, behavior: reduced ? "auto" : "smooth" });
+  }
+  function go(n, dir, focus) {
+    stepNo = n; maxStep = Math.max(maxStep, n);
+    steps.forEach(function (s) {
+      var on = +s.getAttribute("data-step") === n; s.hidden = !on;
+      if (on) { s.style.setProperty("--dx", dir >= 0 ? "24px" : "-24px"); s.classList.remove("enter"); void s.offsetWidth; if (!reduced) s.classList.add("enter"); }
+    });
+    wizLis.forEach(function (li, i) { li.classList.toggle("on", i + 1 === n); li.classList.toggle("done", i + 1 < n); if (i + 1 === n) li.setAttribute("aria-current", "step"); else li.removeAttribute("aria-current"); });
+    $("wizFill").style.width = ((n - 1) / (TOTAL - 1) * 100) + "%";
+    backBtn.hidden = n === 1; nextBtn.hidden = n === TOTAL;
+    if (n === TOTAL) { renderSummary(); requestAnimationFrame(updateRead); }
+    if (focus) { scrollToForm(); var h = steps[n - 1].querySelector("h3"); if (h) h.focus({ preventScroll: true }); }
+    saveDraft();
+  }
+  function next() { if (stepNo === 4 && !validate(4)) return; if (stepNo < TOTAL) go(stepNo + 1, 1, true); }
+  nextBtn.addEventListener("click", next);
+  backBtn.addEventListener("click", function () { if (stepNo > 1) go(stepNo - 1, -1, true); });
+  wizLis.forEach(function (li, i) { li.addEventListener("click", function () { var t = i + 1; if (t === stepNo || t > maxStep) return; go(t, t > stepNo ? 1 : -1, true); }); });
+  form.addEventListener("submit", function (e) { e.preventDefault(); if (stepNo < TOTAL) next(); });
+  $("summary").addEventListener("click", function (e) { var b = e.target.closest("[data-goto]"); if (b) go(+b.getAttribute("data-goto"), -1, true); });
+
+  /* ---------- Steppers, formatting, change handling ---------- */
+  form.addEventListener("click", function (e) {
+    var b = e.target.closest(".num button"); if (!b) return;
+    var inp = $(b.getAttribute("data-for")), min = +inp.min, max = +inp.max;
+    inp.value = Math.min(max, Math.max(min, (parseInt(inp.value, 10) || 0) + parseInt(b.getAttribute("data-d"), 10)));
+    inp.dispatchEvent(new Event("input", { bubbles: true }));
+  });
+  $("budget").addEventListener("input", function () { var d = this.value.replace(/\D/g, ""); this.value = d ? Number(d).toLocaleString("en-NG") : ""; });
+  var saveT;
+  function onChange() { syncUI(); render(); clearTimeout(saveT); saveT = setTimeout(saveDraft, 400); }
+  form.addEventListener("input", onChange); form.addEventListener("change", onChange);
+  ["name", "phone", "email", "date", "street", "cityState"].forEach(function (id) { $(id).addEventListener("input", function () { setErr(id, ""); }); });
+
+  /* ---------- Draft (kept in this browser only; consent is never saved) ---------- */
+  var KEY = "fn_draft_v3";
+  function saveDraft() {
+    try {
+      var d = { step: stepNo, v: {} };
+      qsa("input,select,textarea", form).forEach(function (el) {
+        if (!el.name || el.name === "consent" || el.name === "website") return;
+        if (el.type === "radio") { if (el.checked) d.v[el.name] = el.value; }
+        else if (el.type === "checkbox") { d.v[el.name] = d.v[el.name] || []; if (el.checked) d.v[el.name].push(el.value || "on"); }
+        else d.v[el.name] = el.value;
+      });
+      localStorage.setItem(KEY, JSON.stringify(d));
+    } catch (e) {}
+  }
+  function clearDraft() { try { localStorage.removeItem(KEY); } catch (e) {} }
+  function restoreDraft() {
+    try {
+      var d = JSON.parse(localStorage.getItem(KEY) || "null"); if (!d || !d.v) return false;
+      qsa("input,select,textarea", form).forEach(function (el) {
+        if (!el.name || el.name === "consent" || el.name === "website" || !(el.name in d.v)) return;
+        var v = d.v[el.name];
+        if (el.type === "radio") el.checked = el.value === v;
+        else if (el.type === "checkbox") el.checked = (v || []).indexOf(el.value || "on") > -1;
+        else el.value = v;
+      });
+      if ($("date").value && ($("date").value < $("date").min || $("date").value > $("date").max)) $("date").value = "";
+      return d.step || 1;
+    } catch (e) { return false; }
+  }
+
+  /* ---------- Sending ---------- */
+  var statusEl = $("status"), sendBtn = $("sendEmail"), sendLabel = sendBtn.innerHTML;
+  function note(html, kind) { statusEl.hidden = false; statusEl.className = "status" + (kind ? " is-" + kind : ""); statusEl.innerHTML = html; }
+  function validateAll() { if (!validate(4)) { go(4, -1, true); return false; } return validate(5); }
+  function subject() { return "Booking request: " + est.label + (val("date") ? ", " + val("date") : "") + " (" + val("name").trim() + ")"; }
+  function setRef(ref) { if (!ref) return; $("refCode").textContent = ref; $("successRef").hidden = false; }
+  function showSuccess(mode, ref, msg) {
+    $("formBody").hidden = true; $("wiz").hidden = true; qsa(".wbar", form)[0].hidden = true; $("success").hidden = false;
+    var wa = $("successWa"), pref = val("pref"), phone = val("phone").trim();
+    setRef(ref);
+    if (mode === "api") {
+      $("successTitle").textContent = "Request sent";
+      $("successText").textContent = "Your booking request is with us. We'll contact you on " + pref + " at " + phone + " to confirm the final price and time. We're open " + FN.hoursText(FN.settings.hours).toLowerCase() + ".";
+      wa.textContent = "Message us on WhatsApp too"; wa.href = FN.whatsappUrl("Hello, I just sent a booking request from the website" + (ref ? " (reference " + ref + ")" : "") + ". My name is " + val("name").trim() + ".");
+    } else {
+      $("successTitle").textContent = "Almost there";
+      $("successText").textContent = "We opened WhatsApp with your booking details. Press send in WhatsApp to deliver it to us. If nothing opened, use the button below.";
+      wa.textContent = "Open WhatsApp again"; wa.href = FN.whatsappUrl(msg);
+    }
+    clearDraft(); scrollToForm(); $("successTitle").focus({ preventScroll: true });
+  }
+  function copyMessage(msg) {
+    function ok() { FN.toast("Message copied"); }
+    if (navigator.clipboard) navigator.clipboard.writeText(msg).then(ok, function () { FN.toast("Select the preview text to copy"); });
+    else FN.toast("Select the preview text to copy");
+  }
+  function fallbackToEmail(msg) {
+    FN.openLink(FN.mailtoUrl(subject(), msg));
+    note('We couldn\'t reach our booking server, so we opened your email app. Press send to finish, or use WhatsApp instead. <button type="button" class="btn btn-ghost btn-sm" id="copyMsg" style="margin-top:10px">Copy message</button>');
+    $("copyMsg").addEventListener("click", function () { copyMessage(msg); });
+  }
+  function showServerError(r) {
+    var field = r.data && r.data.field, msg = r.data.error || "We couldn't send that. Please check your details.";
+    if (field && FIELD_STEP[field]) {
+      if (FIELD_STEP[field] !== stepNo) go(FIELD_STEP[field], -1, true);
+      if ($(field + "Err")) { setErr(field, msg); $(field).focus(); }
+      else if (field === "consent") $("consentErr").textContent = msg;
+    }
+    note(esc(msg), "error");
+  }
+
+  sendBtn.addEventListener("click", function () {
+    if (!FN.settings.acceptingBookings) return;
+    if (!validateAll()) return; render();
+    var msg = buildMessage();
+    sendBtn.disabled = true; sendBtn.textContent = "Sending...";
+    FN.post("/api/bookings", payload()).then(function (r) {
+      sendBtn.disabled = !FN.settings.acceptingBookings; sendBtn.innerHTML = sendLabel;
+      if (r.ok) { showSuccess("api", r.data.ref); return; }
+      if (r.status === 422 || r.status === 429 || r.status === 503) { showServerError(r); return; }
+      fallbackToEmail(msg);                                     /* network problem or server error */
+    });
+  });
+  $("sendWa").addEventListener("click", function () {
+    if (!validateAll()) return; render();
+    var msg = buildMessage(), saved = FN.post("/api/bookings", payload());   /* also keep a copy on our server */
+    FN.openLink(FN.whatsappUrl(msg)); showSuccess("whatsapp", null, msg);
+    saved.then(function (r) { if (r.ok && r.data.ref && r.data.ref !== "FN-000000-0000") setRef(r.data.ref); });
+  });
+  $("again").addEventListener("click", function () {
+    form.reset(); resetConsent(); $("success").hidden = true; $("successRef").hidden = true; $("formBody").hidden = false; $("wiz").hidden = false; qsa(".wbar", form)[0].hidden = false;
+    statusEl.hidden = true; maxStep = 1; syncUI(); render(); go(1, -1, true);
+  });
+
+  /* When the owner switches online booking off, say so and disable the send button */
+  FN.onSettings(function (s) {
+    var off = !s.acceptingBookings;
+    $("closedNotice").hidden = !off; sendBtn.disabled = off;
+  });
+
+  /* ---------- Start ---------- */
+  var saved = restoreDraft();
+  syncUI(); render();
+  $("brk").open = window.matchMedia("(min-width: 961px)").matches;
+  if (saved && saved > 1) { maxStep = saved; go(Math.min(saved, TOTAL), 1, false); FN.toast("We restored your unfinished booking"); }
+  else go(1, 1, false);
+})();
+
+</script>
+</body>
+</html>
