@@ -1,0 +1,23 @@
+{
+  "name": "FreshNest Cleaning Services",
+  "short_name": "FreshNest",
+  "description": "Cleaning for homes, offices, hostels and building sites in Ibadan, Oyo, Ogbomoso, Osogbo, Ilorin and Lagos.",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F2F8F6",
+  "theme_color": "#05342F",
+  "icons": [
+    {
+      "src": "img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
