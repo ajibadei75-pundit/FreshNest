@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<!--include:head-->
+<link rel="stylesheet" href="/css/book.css">
+<title>Get a price and book | FreshNest Cleaning Services</title>
+<meta name="description" content="Choose your service and city, set your rooms and see your price instantly. Send your booking request in about two minutes.">
+<meta property="og:title" content="Get a price and book | FreshNest Cleaning Services">
+<meta property="og:description" content="See your cleaning price instantly and send your booking request in about two minutes.">
+<meta property="og:type" content="website">
+</head>
+<body class="page-book">
+<!--include:header-->
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap" data-stagger><h1 data-reveal>Get a price and book</h1><p data-reveal>Five quick steps, about two minutes. You pay nothing until we agree the final price.</p></div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="quote-grid">
+        <form class="form" id="quoteForm" novalidate autocomplete="on">
+          <div class="status is-error" id="closedNotice" role="status" hidden style="margin-bottom:20px">We aren't taking online bookings right now. Please call or message us on WhatsApp.</div>
+          <ol class="wiz" id="wiz" aria-label="Booking steps">
+            <li class="on" data-s="1"><span>1</span><b>Service</b></li>
+            <li data-s="2"><span>2</span><b>Rooms</b></li>
+            <li data-s="3"><span>3</span><b>Extras</b></li>
+            <li data-s="4"><span>4</span><b>When and where</b></li>
+            <li data-s="5"><span>5</span><b>Send</b></li>
+          </ol>
+          <div class="wbar" aria-hidden="true"><i id="wizFill"></i></div>
+          <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" id="website" tabindex="-1" autocomplete="off"></label></div>
+
+          <div id="formBody">
+            <div class="step" data-step="1">
+              <div><h3 tabindex="-1">What do you need cleaned?</h3><p class="sub">Choose a service and your city.</p></div>
+              <div class="tiles" role="radiogroup" aria-label="Type of cleaning" id="tiles"></div>
+              <div class="row">
+                <div class="field"><label for="city">City</label><select id="city" name="city" required><option value="">Choose your city</option></select><div class="err" id="cityErr"></div></div>
+                <div class="field only-home"><label for="propType">Type of property</label>
+                  <select id="propType" name="propType"><option>Flat or apartment</option><option>Duplex or terrace</option><option>Bungalow</option><option>Detached house</option><option>Shared house</option></select></div>
+              </div>
+              <div class="field only-home"><span class="lbl" id="sizeLbl">Overall size</span>
+                <div class="seg" role="radiogroup" aria-labelledby="sizeLbl">
+                  <label><input type="radio" name="size" value="compact"><span>Compact<small>Smaller rooms</small></span></label>
+                  <label><input type="radio" name="size" value="average" checked><span>Average<small>Typical</small></span></label>
+                  <label><input type="radio" name="size" value="large"><span>Large<small>Roomy</small></span></label>
+                </div></div>
+            </div>
+
+            <div class="step" data-step="2" hidden>
+              <div><h3 tabindex="-1" id="roomsTitle">Which rooms need cleaning?</h3><p class="sub" id="roomsSub">Start with a typical layout, then adjust. Set a room to 0 if you don't have one.</p></div>
+              <div class="group"><div class="group-title">Quick start <small>Tap one, then adjust below</small></div><div class="presets" id="presets" role="group" aria-label="Typical layouts"></div></div>
+              <div class="group grp-home"><div class="group-title">Does it have a kitchen?</div><div class="seg wrap-m" role="radiogroup" aria-label="Kitchen" id="kitchenSeg"></div></div>
+              <div class="group grp-office" hidden><div class="group-title">Open-plan work area? <small>Where staff sit together</small></div><div class="seg wrap-m" role="radiogroup" aria-label="Open-plan area" id="openSeg"></div></div>
+              <div class="group grp-home"><div class="group-title">Rooms and areas</div><div class="rooms-grid" id="roomsHome"></div></div>
+              <div class="group grp-office" hidden><div class="group-title">Rooms and areas</div><div class="rooms-grid" id="roomsOffice"></div></div>
+              <div class="group grp-hostel" hidden><div class="group-title">Rooms and areas</div><div class="rooms-grid" id="roomsHostel"></div></div>
+              <div class="field"><label for="otherRooms">Other rooms or areas <span class="opt">(optional)</span></label>
+                <textarea id="otherRooms" name="otherRooms" placeholder="For example: boys' quarters, garage, gatehouse, rooftop, compound"></textarea>
+                <p class="fine muted">We'll include these when we confirm your final price.</p></div>
+              <div class="field"><span class="lbl" id="condLbl">How dirty is the space?</span>
+                <div class="seg" role="radiogroup" aria-labelledby="condLbl">
+                  <label><input type="radio" name="cond" value="light"><span>Lightly used<small>10% less</small></span></label>
+                  <label><input type="radio" name="cond" value="normal" checked><span>Normal<small>Standard</small></span></label>
+                  <label><input type="radio" name="cond" value="heavy"><span>Very dirty<small>25% more</small></span></label>
+                </div></div>
+            </div>
+
+            <div class="step" data-step="3" hidden>
+              <div><h3 tabindex="-1">Extras and how often</h3><p class="sub">Add anything special and choose a schedule. Regular plans cost less per visit.</p></div>
+              <div class="group"><div class="group-title">Extras <small id="extrasNote"></small></div><div class="chips" id="extras" role="group" aria-label="Extras"></div>
+                <div class="room" id="extraWinRow"><div class="t">Add window cleaning, inside<small id="extraWinHint"></small></div>
+                  <div class="num"><button type="button" data-d="-1" data-for="extraWindows" aria-label="Fewer windows">&minus;</button><input id="extraWindows" name="extraWindows" type="number" min="0" max="40" value="0" inputmode="numeric" aria-label="Windows to add"><button type="button" data-d="1" data-for="extraWindows" aria-label="More windows">+</button></div></div>
+              </div>
+              <div class="field"><span class="lbl" id="freqLbl">How often?</span>
+                <div class="seg wrap-m" role="radiogroup" aria-labelledby="freqLbl" id="freqSeg"></div></div>
+            </div>
+
+            <div class="step" data-step="4" hidden>
+              <div><h3 tabindex="-1">When and where?</h3><p class="sub">Online bookings start from tomorrow. For a same-day visit, call or WhatsApp us.</p></div>
+              <div class="group">
+                <div class="row">
+                  <div class="field"><label for="date">Preferred date</label><input id="date" name="date" type="date" required><div class="err" id="dateErr"></div></div>
+                  <div class="field" style="align-content:end"><label class="check-line" style="min-height:var(--ctl);align-items:center"><input type="checkbox" id="flex" name="flex"><span>My date is flexible <span class="opt">(we'll fit you in sooner)</span></span></label></div>
+                </div>
+                <div class="field"><span class="lbl" id="slotLbl">Preferred time</span><div class="slots" role="radiogroup" aria-labelledby="slotLbl" id="slots"></div></div>
+              </div>
+              <div class="group">
+                <p class="group-title">Address in <b id="cityEcho">your city</b> <small><button type="button" class="link-inline" id="changeCity">Change city</button></small></p>
+                <div class="field"><label for="street">Street address</label><input id="street" name="street" type="text" autocomplete="street-address" placeholder="House number, street and area" required><div class="err" id="streetErr"></div></div>
+                <div class="field"><label for="landmark">Landmark <span class="opt">(optional)</span></label><input id="landmark" name="landmark" type="text" placeholder="Nearest bus stop, school, church"></div>
+              </div>
+              <div class="group">
+                <div class="row">
+                  <div class="field"><label for="access">How will we get in?</label>
+                    <select id="access" name="access"><option>I will be at home</option><option>Someone else will let us in</option><option>Security or gateman has the key</option><option>Key or code will be shared</option></select></div>
+                  <div class="field"><label for="floor">Floor and access</label>
+                    <select id="floor" name="floor"><option>Ground floor</option><option>Upper floor with lift</option><option>Upper floor, stairs only</option></select></div>
+                </div>
+                <div class="chips">
+                  <label class="chk"><input type="checkbox" name="water" checked><span class="box"><svg class="i" aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t">Running water available</span></label>
+                  <label class="chk"><input type="checkbox" name="power" checked><span class="box"><svg class="i" aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t">Electricity for equipment</span></label>
+                  <label class="chk"><input type="checkbox" name="parking"><span class="box"><svg class="i" aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t">Parking for our team</span></label>
+                  <label class="chk"><input type="checkbox" name="gate"><span class="box"><svg class="i" aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t">Gate pass or ID needed</span></label>
+                  <label class="chk"><input type="checkbox" name="pets" id="pets"><span class="box"><svg class="i" aria-hidden="true"><use href="#i-tick"/></svg></span><span class="t">Pets at home</span></label>
+                </div>
+                <div class="field" id="petRow" hidden><label for="petType">What pets, and should they be kept away?</label><input id="petType" name="petType" type="text" placeholder="e.g. one friendly dog, will be in the compound"></div>
+              </div>
+              <div class="group"><div class="group-title">Where should we focus? <small>Optional</small></div><div class="tags" id="focus" role="group" aria-label="Focus areas"></div></div>
+              <div class="row">
+                <div class="field"><label for="instructions">Special instructions <span class="opt">(optional)</span></label><textarea id="instructions" name="instructions" placeholder="Delicate surfaces, products to avoid, areas to skip"></textarea></div>
+                <div class="field"><label for="budget">Your budget in naira <span class="opt">(optional)</span></label><input id="budget" name="budget" type="text" inputmode="numeric" placeholder="e.g. 30,000"><p class="fine muted">Tell us what you had in mind and we'll see what we can do.</p></div>
+              </div>
+            </div>
+
+            <div class="step" data-step="5" hidden>
+              <div><h3 tabindex="-1">Your details and review</h3><p class="sub">Check everything, read the terms, then send your request.</p></div>
+              <div class="row">
+                <div class="field"><label for="name">Full name</label><input id="name" name="name" type="text" autocomplete="name" required><div class="err" id="nameErr"></div></div>
+                <div class="field"><label for="phone">Phone or WhatsApp number</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="e.g. 0801 234 5678" required><div class="err" id="phoneErr"></div></div>
+              </div>
+              <div class="row">
+                <div class="field"><label for="email">Email <span class="opt">(so we can reply)</span></label><input id="email" name="email" type="email" autocomplete="email"><div class="err" id="emailErr"></div></div>
+                <div class="field"><span class="lbl" id="prefLbl">Best way to reach you</span>
+                  <div class="seg" role="radiogroup" aria-labelledby="prefLbl">
+                    <label><input type="radio" name="pref" value="WhatsApp" checked><span>WhatsApp</span></label>
+                    <label><input type="radio" name="pref" value="Phone call"><span>Call</span></label>
+                    <label><input type="radio" name="pref" value="Email"><span>Email</span></label>
+                  </div></div>
+              </div>
+              <div class="group"><div class="group-title">Booking summary</div><dl class="summary" id="summary"></dl></div>
+              <details class="preview"><summary>Preview the message we'll receive</summary><pre id="preview"></pre></details>
+
+              <section class="consent" id="consentBox" aria-labelledby="consentTitle">
+                <div><h4 id="consentTitle">Booking terms and privacy</h4><p class="fine muted" style="margin-top:4px">Please read to the end. The tick box unlocks when you reach the bottom. <a href="/terms" target="_blank" rel="noopener" style="color:var(--brand);font-weight:600">Open in a new page</a></p></div>
+                <div class="terms" id="terms" tabindex="0" role="region" aria-label="Booking terms and privacy notice. Scroll to read all of it."></div>
+                <div class="read-state" aria-live="polite"><div class="read-track" aria-hidden="true"><i id="readFill"></i></div><span id="readText">Scroll to read the terms</span></div>
+                <label class="check-line locked" id="consentLine"><input type="checkbox" name="consent" id="consent" disabled><span>I have read and agree to the booking terms and privacy notice.</span></label>
+                <div class="err" id="consentErr" role="alert"></div>
+              </section>
+
+              <div class="send">
+                <button class="btn btn-brand btn-lg" type="button" id="sendEmail"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>Send booking request</button>
+                <button class="btn btn-wa btn-lg" type="button" id="sendWa"><svg class="i-fill" aria-hidden="true"><use href="#i-wa"/></svg>Send on WhatsApp</button>
+              </div>
+              <div class="status" id="status" role="status" aria-live="polite" hidden></div>
+            </div>
+
+            <div class="actionbar" id="navRow">
+              <div class="ab-price"><small>Estimate per visit</small><b id="abPrice">&#8358;0</b><button type="button" id="openSheet">How is this worked out?</button></div>
+              <div class="ab-btns">
+                <button type="button" class="btn btn-ghost" id="backBtn" hidden>Back</button>
+                <button type="button" class="btn btn-primary" id="nextBtn">Continue</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="success" id="success" hidden>
+            <svg class="check-anim" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/><path d="M30 52l14 14 27-30"/></svg>
+            <h3 id="successTitle" tabindex="-1">Request sent</h3>
+            <p class="ref" id="successRef" hidden>Your reference <b id="refCode"></b></p>
+            <p class="muted" id="successText" style="max-width:46ch"></p>
+            <ol class="next-steps"><li><b>1</b><span>We review your rooms, date and address.</span></li><li><b>2</b><span>We contact you to confirm the final price and time.</span></li><li><b>3</b><span>Your cleaners arrive with everything needed.</span></li></ol>
+            <div class="hero-actions" style="justify-content:center"><a class="btn btn-wa" id="successWa" href="https://wa.me/2347087596696" target="_blank" rel="noopener">Message us on WhatsApp</a><button class="btn btn-ghost" type="button" id="again">Start another request</button><a class="btn btn-ghost" href="/">Back to home</a></div>
+          </div>
+        </form>
+
+        <aside class="estimate" aria-label="Your estimate">
+          <p class="elabel">Estimated price per visit</p>
+          <strong class="price" id="priceNum" aria-hidden="true">&#8358;0</strong>
+          <span class="sr-only" id="priceSr" role="status"></span>
+          <p class="sub" id="priceNote"></p>
+          <div class="pill-row" id="pills"></div>
+          <details class="brk" id="brk" open><summary>How it's calculated</summary><ul id="brkList"></ul></details>
+          <p class="fine">A guide, the same in all six cities. We confirm your final price before the visit, and supplies are included.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <dialog class="sheet" id="sheet" aria-labelledby="sheetTitle">
+    <div class="sheet-head"><h2 id="sheetTitle">Your estimate</h2><button type="button" class="icon-btn" id="sheetClose" aria-label="Close"><svg class="i" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="sheet-body">
+      <strong class="price" id="sheetPrice"></strong><p class="muted" id="sheetNote"></p><div class="pill-row" id="sheetPills" style="margin-top:0"></div>
+      <ul class="brk-list" id="sheetList"></ul>
+      <p class="fine muted">A guide, the same in all six cities. We confirm your final price before the visit, and supplies are included.</p>
+    </div>
+  </dialog>
+</main>
+
+<!--include:footer-->
+<!--include:scripts-->
+<script src="/js/booking.js"></script>
+</body>
+</html>

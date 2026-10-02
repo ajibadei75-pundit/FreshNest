@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<!--include:head-->
+<title>Customer reviews | FreshNest Cleaning Services</title>
+<meta name="description" content="Read what FreshNest customers say, and share your own feedback.">
+<meta property="og:title" content="Customer reviews | FreshNest Cleaning Services">
+<meta property="og:description" content="Read what FreshNest customers say, and share your own feedback.">
+<meta property="og:type" content="website">
+</head>
+<body class="page-reviews">
+<!--include:header-->
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap" data-stagger><h1 data-reveal>Customer reviews</h1><p data-reveal>We read every message. Tell us how your visit went and we will use it to get better.</p></div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="fb-grid">
+        <div class="reviews" id="reviewList" aria-live="polite"><div class="skeleton" style="min-height:140px"></div><div class="skeleton" style="min-height:140px"></div></div>
+        <form class="fb-form" id="fbForm" novalidate>
+          <h2>Share your feedback</h2>
+          <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" id="fbWebsite" tabindex="-1" autocomplete="off"></label></div>
+          <div class="field"><span class="lbl" id="rateLbl">How was your clean?</span>
+            <div class="stars" role="radiogroup" aria-labelledby="rateLbl" id="stars"></div>
+            <div class="err" id="rateErr" role="alert"></div></div>
+          <div class="field"><span class="lbl" id="tagLbl">What went well? <span class="opt">(optional)</span></span>
+            <div class="tags" role="group" aria-labelledby="tagLbl" id="fbTags"></div></div>
+          <div class="field"><label for="fbText">Your comments <span class="opt">(optional)</span></label><textarea id="fbText" placeholder="What should we keep doing? What could be better?"></textarea></div>
+          <div class="row">
+            <div class="field"><label for="fbName">Your name <span class="opt">(optional)</span></label><input id="fbName" type="text" autocomplete="name"></div>
+            <div class="field"><label for="fbService">Service <span class="opt">(optional)</span></label><select id="fbService"><option value="">Choose one</option></select></div>
+          </div>
+          <label class="check-line"><input type="checkbox" id="fbPublic"><span>You may show my review on the website with the name I gave. <span class="opt">We check every review first.</span></span></label>
+          <div class="send">
+            <button class="btn btn-brand" type="button" id="fbEmail">Send feedback</button>
+            <button class="btn btn-wa" type="button" id="fbWa">Send on WhatsApp</button>
+          </div>
+          <div class="status" id="fbStatus" role="status" aria-live="polite" hidden></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!--include:footer-->
+<!--include:scripts-->
+<script src="/js/reviews.js"></script>
+</body>
+</html>
