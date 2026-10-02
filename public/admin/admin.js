@@ -101,7 +101,7 @@
   function stopPolling() { clearInterval(pollTimer); pollTimer = null; }
 
   function renderAll() {
-    renderBadges(); renderOverview(); renderBookings(); renderReviews(); renderProjects(); renderSystem(); renderHelp();
+    renderBadges(); renderOverview(); renderBookings(); renderReviews(); renderProjects(); renderSystem();
     if (!state.settingsFilled) { fillSettings(); state.settingsFilled = true; }
   }
   function renderBadges() {
@@ -175,7 +175,7 @@
       .map((f) => '<button type="button" data-s="' + f[0] + '" aria-pressed="' + (state.bStatus === f[0]) + '">' + f[1] + " (" + counts[f[0]] + ")</button>").join("");
     const q = state.bQuery.toLowerCase().trim();
     const list = state.bookings.filter((b) => (!state.bStatus || b.status === state.bStatus) &&
-      (!q || [b.ref, b.contact.name, b.contact.phone, b.contact.email, b.details.street, b.details.city, b.estimate.label].join(" ").toLowerCase().includes(q)));
+      (!q || [b.ref, b.contact.name, b.contact.phone, b.contact.email, b.details.street, b.details.cityState, b.estimate.label].join(" ").toLowerCase().includes(q)));
     $("bookingList").innerHTML = list.length ? list.map(bookingItem).join("") : empty(state.bookings.length ? "No bookings match" : "No bookings yet", state.bookings.length ? "Try a different search or status." : "Requests sent from the website appear here.");
   }
   $("bFilter").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { state.bStatus = b.dataset.s; renderBookings(); } });
@@ -184,10 +184,10 @@
   /* ---------- Booking details ---------- */
   function openBooking(id) {
     const b = state.bookings.find((x) => x.id === id); if (!b) return;
-    const e = b.estimate, d = b.details, c = b.contact, s = b.sel, isHome = (P.service[s.type] || {}).set === "home";
+    const e = b.estimate, d = b.details, c = b.contact, s = b.sel, isHome = s.type !== "office" && s.type !== "windows";
     const wa = "https://wa.me/" + c.phone.replace(/\D/g, "") + "?text=" + encodeURIComponent("Hello " + c.name.split(" ")[0] + ", this is " + state.settings.name + " about your cleaning booking " + b.ref + " for " + fmtDay(d.date) + ".");
     const dl = (rows) => '<dl class="dl">' + rows.filter((r) => r[1] !== "" && r[1] != null).map((r) => "<dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd>").join("") + "</dl>";
-    const facts = [!d.water && "No running water", !d.power && "No electricity", d.parking && "Parking available", d.gate && "Gate pass or ID needed", d.pets && "Pets: " + (d.petType || "yes")].filter(Boolean).join(", ");
+    const facts = [!d.water && "No running water", !d.power && "No electricity", d.parking && "Parking available", d.gate && "Gate pass or ID needed", d.pets && "Pets: " + (d.petType || "yes"), d.hardWindows && "Hard-to-reach windows"].filter(Boolean).join(", ");
     const breakdown = e.lines.map((l) => "<li><span>" + esc(l.label) + "</span><span>" + fmt(l.amount) + "</span></li>").join("") +
       (e.callout ? "<li><span>Call-out, transport and supplies</span><span>" + fmt(e.callout) + "</span></li>" : "") +
       e.extraLines.map((l) => "<li><span>" + esc(l.label) + "</span><span>+" + fmt(l.amount) + "</span></li>").join("") +
@@ -200,7 +200,7 @@
       '<div class="sec"><h3>Contact</h3>' + dl([["Phone", c.phone], ["Email", c.email || "Not given"], ["Prefers", c.pref]]) +
       '<div class="contact-btns"><a class="btn btn-ghost btn-sm" href="tel:' + esc(c.phone) + '"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Call</a><a class="btn btn-wa btn-sm" href="' + esc(wa) + '" target="_blank" rel="noopener"><svg class="i-fill" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>' +
       (c.email ? '<a class="btn btn-ghost btn-sm" href="mailto:' + esc(c.email) + "?subject=" + encodeURIComponent("Your cleaning booking " + b.ref) + '"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>Email</a>' : "") + "</div></div>" +
-      '<div class="sec"><h3>Visit</h3>' + dl([["Date", fmtDay(d.date) + (d.flex ? " (flexible)" : "")], ["Time", slotLabel(d.slot)], ["City", d.city + ", " + d.state + " State"], ["Street", d.street], ["Landmark", d.landmark], ["Access", d.access + ", " + String(d.floor).toLowerCase()], ["On site", facts]]) + "</div>" +
+      '<div class="sec"><h3>Visit</h3>' + dl([["Date", fmtDay(d.date) + (d.flex ? " (flexible)" : "")], ["Time", slotLabel(d.slot)], ["Address", d.street + ", " + d.cityState], ["Landmark", d.landmark], ["Access", d.access + ", " + String(d.floor).toLowerCase()], ["On site", facts]]) + "</div>" +
       '<div class="sec"><h3>Job</h3>' + dl([["Service", e.label], ["Property", isHome ? d.propType + ", " + s.size + " size" : ""], ["Rooms", e.lines.map((l) => l.label).join(", ") || "None listed"], ["Other rooms", d.otherRooms], ["Condition", CONDITION[s.cond]], ["Extras", e.extraLines.map((l) => l.label).join(", ") || "None"], ["Frequency", e.freq], ["Focus", d.focus.join(", ")], ["Instructions", d.instructions], ["Customer budget", d.budget ? "\u20A6" + d.budget : ""]]) + "</div>" +
       '<div class="sec"><h3>Estimate <span class="muted" style="font-weight:500">' + fmt(e.low) + " to " + fmt(e.high) + ", about " + e.hours + " h with " + e.crew + (e.crew === 1 ? " cleaner" : " cleaners") + '</span></h3><details class="fold"><summary>See the breakdown</summary><ul class="bk">' + breakdown + "</ul></details></div>" +
       '<div class="sec"><h3>Consent</h3>' + dl([["Terms accepted", fmtStamp(b.consent.at)], ["Terms version", b.consent.version]]) + '<details class="fold"><summary>Message sent by the customer</summary><pre class="msg">' + esc(b.message) + '</pre><button type="button" class="btn btn-ghost btn-sm" id="bkCopy" style="margin-top:8px">Copy message</button></details></div>' +
@@ -431,60 +431,10 @@
   });
   $("alertHintBtn").addEventListener("click", () => { setTab("settings"); $("systemCard").scrollIntoView({ behavior: "smooth", block: "start" }); });
 
-  /* ---------- Help: setup checklist and access details ---------- */
-  function setupItems() {
-    const sys = state.system, base = location.origin;
-    return [
-      { done: sys.notify.channels.length > 0, title: "Booking alerts are on", fix: "Add an alert channel (phone, Telegram or email) so you hear about new bookings. See the README, then restart the server.", go: "settings" },
-      { done: !!(sys.notify.last && sys.notify.last.results.some((r) => r.ok)), title: "A test alert reached you", fix: "In Settings, Alerts and backups, tap Send a test alert.", go: "settings" },
-      { done: sys.passwordManagedByEnv || sys.passwordChanged, title: "The password is your own", fix: "You are still using the first generated password. Change it in Settings.", go: "settings" },
-      { done: /^https:\/\//.test(sys.publicUrl) || (!sys.production && base.startsWith("http://localhost")), title: "The site address is set up with https", fix: "Ask whoever manages the server to set PUBLIC_URL to your https address.", go: null },
-      { done: state.bookings.length > 0, title: "You have received a booking", fix: "Send yourself a test booking from your phone to see how it arrives.", go: null },
-      { done: !!sys.backupDownloadedAt, title: "You have downloaded a backup", fix: "In Settings, Alerts and backups, tap Download a backup.", go: "settings" },
-      { done: state.projects.length > 0, title: "You have added a project to Our work", fix: "Optional, but real before and after photos help customers trust you.", go: "projects", optional: true }
-    ];
-  }
-  function renderHelp() {
-    const sys = state.system; if (!sys) return;
-    const items = setupItems(), required = items.filter((i) => !i.optional), doneReq = required.filter((i) => i.done).length;
-    $("setupProgress").textContent = doneReq + " of " + required.length + " essentials done" + (items.some((i) => i.optional && i.done) ? ", plus the optional extras you have finished" : "") + ".";
-    $("setupBar").style.width = Math.round(doneReq / required.length * 100) + "%";
-    $("setupList").innerHTML = items.map((i, n) => '<li class="' + (i.done ? "done" : "") + '"><span class="tick" aria-hidden="true">' + (i.done ? "&#10003;" : "") + '</span><div><b>' + esc(i.title) + (i.optional ? ' <span class="muted" style="font-weight:500">(optional)</span>' : "") + "</b>" +
-      (i.done ? "" : '<p class="fine muted">' + esc(i.fix) + (i.go ? ' <button type="button" class="link-inline" data-go="' + i.go + '">Go there</button>' : "") + "</p>") + "</div></li>").join("");
-    const left = required.length - doneReq;
-    $("cnt-help").hidden = !left; $("cnt-help").textContent = left;
-    $("setupHint").hidden = !left;
-    if (left) { $("setupHintTitle").textContent = "Finish setting up: " + doneReq + " of " + required.length + " done"; $("setupHintText").textContent = required.filter((i) => !i.done).map((i) => i.title.toLowerCase()).slice(0, 2).join(", ") + (left > 2 ? " and more" : ""); }
-
-    const site = location.origin, cmd = "npm run reset-password";
-    const row = (k, v) => "<dt>" + esc(k) + "</dt><dd>" + v + "</dd>";
-    const copy = (text, label) => ' <button type="button" class="link-inline" data-copy="' + esc(text) + '">' + (label || "Copy") + "</button>";
-    let pw;
-    if (sys.passwordManagedByEnv) pw = "Set on the server with the ADMIN_PASSWORD setting. To change it, update that setting and restart the server.";
-    else if (sys.passwordChanged) pw = "You have changed it from the first generated password. Keep it somewhere safe.";
-    else pw = "Still the password printed when the server first started. Change it under Settings.";
-    $("accessList").innerHTML =
-      row("Admin address", "<b>" + esc(site) + "/admin/</b>" + copy(site + "/admin/")) +
-      row("Website", '<a href="/" target="_blank" rel="noopener">' + esc(site) + "</a>" + copy(site + "/")) +
-      row("Sign-in", "One shared password. Anyone who has it can see customers' names, phone numbers and addresses, so share it only with people you trust.") +
-      row("Password", esc(pw)) +
-      row("Stay signed in", "Up to " + sys.sessionHours + " hours on this device. Use Sign out on any shared computer.") +
-      row("Wrong tries", "After " + sys.loginAttempts + " wrong passwords from one connection, sign-in locks for " + sys.loginLockMinutes + " minutes.") +
-      row("Forgot the password", sys.passwordManagedByEnv ? "Change ADMIN_PASSWORD on your host and restart. Everyone is signed out." : "Ask whoever manages the server to stop it, run <code>" + cmd + "</code> and start it again. It prints a new password." + copy(cmd, "Copy command")) +
-      row("Alerts", sys.notify.channels.length ? esc(sys.notify.channels.map((c) => CHANNEL_NAMES[c] || c).join(", ")) : "None set up yet") +
-      row("Where data lives", "On the server, not on this device. Download a backup from Settings to keep your own copy.") +
-      row("Server", "Version " + esc(sys.version) + (sys.publicUrl ? ", address " + esc(sys.publicUrl) : ""));
-  }
-  $("panel-help").addEventListener("click", (e) => {
-    const g = e.target.closest("[data-go]"); if (g) { setTab(g.dataset.go); return; }
-    const c = e.target.closest("[data-copy]"); if (c) copyText(c.dataset.copy);
-  });
-  $("setupHintBtn").addEventListener("click", () => setTab("help"));
-
   /* ---------- Start ---------- */
   (async function init() {
     const hash = (location.hash || "").slice(1);
-    if (["overview", "bookings", "reviews", "projects", "settings", "help"].includes(hash)) state.tab = hash;
+    if (["overview", "bookings", "reviews", "projects", "settings"].includes(hash)) state.tab = hash;
     try {
       const r = await api("GET", "/api/admin/session");
       if (r.authenticated) { setTab(state.tab); showApp(); } else showLogin("");

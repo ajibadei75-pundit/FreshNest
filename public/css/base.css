@@ -6,12 +6,12 @@
 /* ---------- Tokens ---------- */
 :root {
   /* colour */
-  --bg: #F2F8F6; --surface: #FFFFFF; --surface-2: #E8F3EF; --ink: #0B2B28; --muted: #456562; --line: #D0E4DD;
-  --brand: #02766A; --brand-strong: #025E52; --on-brand: #FFFFFF; --brand-soft: #DDF3EC;
-  --sun: #FFC83D; --sun-hover: #FFD25E; --sun-ink: #0B2B28;
-  --deep: #05342F; --deep-ink: #E9F4F3; --star: #E59F00; --wa: #12803F;
+  --bg: #F3F8F7; --surface: #FFFFFF; --surface-2: #EAF3F1; --ink: #0E2B35; --muted: #476068; --line: #D3E3E1;
+  --brand: #0B7E80; --brand-strong: #096467; --on-brand: #FFFFFF; --brand-soft: #DDF0EE;
+  --sun: #FFC83D; --sun-hover: #FFD25E; --sun-ink: #0E2B35;
+  --deep: #0E2B35; --deep-ink: #E9F4F3; --star: #E59F00; --wa: #12803F;
   --error: #B3261E; --error-soft: #FBE7E5; --ok: #17794D; --ok-soft: #DDF3E8; --warn: #855400; --warn-soft: #FFF1CC;
-  --shadow: 0 24px 50px -28px rgba(5, 52, 47, .45); --shadow-sm: 0 8px 20px -14px rgba(5, 52, 47, .4);
+  --shadow: 0 24px 50px -28px rgba(14, 43, 53, .45); --shadow-sm: 0 8px 20px -14px rgba(14, 43, 53, .4);
   color-scheme: light;
 
   /* type */
@@ -33,15 +33,15 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #07201C; --surface: #0E2F2A; --surface-2: #0B2723; --ink: #E6F4F0; --muted: #9ABAB2; --line: #1D453E;
-    --brand: #2ED1A6; --brand-strong: #6AE3C4; --on-brand: #03231B; --brand-soft: #0F3A31; --deep: #041A17;
+    --bg: #0A1C22; --surface: #11303A; --surface-2: #0E2831; --ink: #E9F4F3; --muted: #9DB8BE; --line: #21434D;
+    --brand: #4CCFC9; --brand-strong: #7FE3DE; --on-brand: #062328; --brand-soft: #123A42; --deep: #06141A;
     --error: #FFB4AB; --error-soft: #3A1A18; --ok: #7FE0AE; --ok-soft: #123B2A; --warn: #FFD27A; --warn-soft: #3B2F0F;
     --shadow: 0 24px 50px -28px rgba(0, 0, 0, .8); --shadow-sm: 0 8px 20px -14px rgba(0, 0, 0, .7); color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #07201C; --surface: #0E2F2A; --surface-2: #0B2723; --ink: #E6F4F0; --muted: #9ABAB2; --line: #1D453E;
-  --brand: #2ED1A6; --brand-strong: #6AE3C4; --on-brand: #03231B; --brand-soft: #0F3A31; --deep: #041A17;
+  --bg: #0A1C22; --surface: #11303A; --surface-2: #0E2831; --ink: #E9F4F3; --muted: #9DB8BE; --line: #21434D;
+  --brand: #4CCFC9; --brand-strong: #7FE3DE; --on-brand: #062328; --brand-soft: #123A42; --deep: #06141A;
   --error: #FFB4AB; --error-soft: #3A1A18; --ok: #7FE0AE; --ok-soft: #123B2A; --warn: #FFD27A; --warn-soft: #3B2F0F;
   --shadow: 0 24px 50px -28px rgba(0, 0, 0, .8); --shadow-sm: 0 8px 20px -14px rgba(0, 0, 0, .7); color-scheme: dark;
 }
@@ -123,23 +123,9 @@ img { max-width: 100%; display: block; }
 .tagpill.ok { background: var(--ok-soft); color: var(--ok); }
 .tagpill.bad { background: var(--error-soft); color: var(--error); }
 .tagpill.plain { background: var(--surface-2); color: var(--muted); }
-/* ---------- Logo ----------
-   One component, used by the header, footer, admin page and welcome hero. --lk is the emblem's size; everything
-   else is measured from it, so the logo keeps the proportions of the original artwork at any size.
-   Each piece of text comes in a dark and a light version: the right one shows for the theme (or on dark panels). */
-.lt { display: block; } .dt { display: none; }
-:root[data-theme="dark"] .lt { display: none; } :root[data-theme="dark"] .dt { display: block; }
-.on-deep .lt { display: none !important; } .on-deep .dt { display: block !important; }
-.brand-mark { display: inline-flex; align-items: center; text-decoration: none; color: inherit; border-radius: 12px; }
-.lockup { --lk: 44px; display: inline-flex; align-items: center; gap: calc(var(--lk) * .19); }
-.lk-emblem { position: relative; flex: none; width: var(--lk); height: var(--lk); transition: width .25s var(--ease), height .25s var(--ease); }
-.lk-emblem img { position: absolute; inset: 0; width: 100%; height: 100%; transition: transform .45s var(--ease); }
-.lk-text { display: grid; row-gap: calc(var(--lk) * .038); width: calc(var(--lk) * 3.32); transition: width .25s var(--ease); }
-.lk-word, .lk-tag { display: block; }
-.lk-word img, .lk-tag img { display: block; width: 100%; height: auto; }
-.lockup.compact .lk-tag { display: none; }
-a.brand-mark:hover .lk-emblem img { transform: rotate(-8deg) scale(1.06); }
-:root[data-theme="dark"] .lk-emblem img { filter: drop-shadow(0 0 1px rgba(255, 255, 255, .35)); }
+.brand-mark { display: flex; align-items: center; gap: 10px; text-decoration: none; font: 800 1.2rem/1.05 var(--font-display); letter-spacing: -.02em; }
+.brand-mark svg { width: 38px; height: 38px; flex: none; }
+.brand-mark small { display: block; font: 500 var(--fs-xs)/1 var(--font-body); letter-spacing: 0; color: var(--muted); margin-top: 3px; }
 .toast { position: fixed; left: 50%; bottom: 90px; transform: translate(-50%, 20px); background: var(--deep); color: var(--deep-ink); padding: 12px 20px; border-radius: var(--r-ctl); font-weight: 600; font-size: var(--fs-sm); z-index: 400; opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s var(--ease); box-shadow: var(--shadow); max-width: calc(100% - 32px); text-align: center; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 .theme-toggle { position: relative; overflow: hidden; }
