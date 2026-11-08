@@ -1,16 +1,7 @@
-/* Services page: highlights the service you are reading in the jump bar. */
+/* Services page: highlight the section in view in the quick-jump bar. */
 (function () {
   "use strict";
-  var FN = window.FN, links = FN.qsa(".jump a"), cards = FN.qsa(".sd");
-  function mark(id) { links.forEach(function (a) { var on = a.getAttribute("data-k") === id; a.classList.toggle("active", on); if (on && !FN.reduced) { var bar = a.parentNode; if (bar.scrollTo) bar.scrollTo({ left: a.offsetLeft - 16, behavior: "smooth" }); } }); }
-  if ("IntersectionObserver" in window) {
-    var seen = {};
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { seen[e.target.id] = e.isIntersecting; });
-      var first = cards.filter(function (c) { return seen[c.id]; })[0];
-      if (first) mark(first.id);
-    }, { rootMargin: "-120px 0px -55% 0px" });
-    cards.forEach(function (c) { io.observe(c); });
-  }
-  if (location.hash) mark(location.hash.slice(1));
+  var links = [].slice.call(document.querySelectorAll(".jump a")), secs = [].slice.call(document.querySelectorAll(".sd")); if (!links.length || !secs.length || !("IntersectionObserver" in window)) return;
+  var io = new IntersectionObserver(function (en) { en.forEach(function (e) { if (e.isIntersecting) links.forEach(function (a) { var on = a.getAttribute("href") === "#" + e.target.id; a.classList.toggle("on", on); if (on) a.parentNode.scrollTo({ left: a.offsetLeft - 24, behavior: "smooth" }); }); }); }, { rootMargin: "-35% 0px -55% 0px" });
+  secs.forEach(function (s) { io.observe(s); });
 })();

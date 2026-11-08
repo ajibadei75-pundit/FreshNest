@@ -1,20 +1,10 @@
 {
-  "name": "freshnest",
-  "version": "2.1.0",
-  "description": "FreshNest Cleaning Services: website, booking backend and admin page. No dependencies.",
+  "name": "freshnest-cleaning",
+  "version": "1.0.0",
   "private": true,
-  "license": "UNLICENSED",
-  "engines": {
-    "node": ">=18"
-  },
-  "scripts": {
-    "start": "node server/index.js",
-    "test": "node --test",
-    "build:preview": "node scripts/build-preview.js",
-    "doctor": "node scripts/doctor.js",
-    "healthcheck": "node scripts/healthcheck.js"
-  },
-  "devDependencies": {
-    "jsdom": "^30.1.1"
-  }
+  "description": "FreshNest Cleaning Services: website, booking backend and admin dashboard",
+  "engines": { "node": ">=18" },
+  "scripts": { "dev": "netlify dev", "test": "node --test tests/core.test.mjs", "preview": "python3 scripts/make_preview.py" },
+  "dependencies": { "@netlify/blobs": "^8.1.0" },
+  "devDependencies": { "netlify-cli": "*" }
 }

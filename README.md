@@ -1,221 +1,136 @@
-# FreshNest Cleaning Services
+# FreshNest Cleaning Services: website, booking system and admin
 
-The FreshNest website, its booking backend and an admin page for the owner, in one small program.
-It has **no runtime dependencies**. It runs in two ways from the same code:
+A complete, deployable site for Netlify: a fast static website, one serverless backend, an admin dashboard, and no database to set up.
 
-- **On Vercel** (website served from its network, bookings stored in an Upstash Redis database): follow **[docs/DEPLOY-VERCEL.md](docs/DEPLOY-VERCEL.md)**.
-- **On any normal Node host** (your own server, Docker, Render, Railway; bookings stored in a file): see "Going live" below. You need [Node.js](https://nodejs.org) 22.
+**Services (8):** Residential, Office and Commercial, Deep, Hostel, Move-in and Move-out, One-time and Regular, Post-Construction, and **Fumigation and Pest Control**.
+**Cities:** Ibadan, Oyo, Ogbomoso, Osogbo, Ilorin, Lagos (same prices everywhere). Open every day, 7am to 7pm.
 
-**What it offers:** seven services (Residential, Office & Commercial, Deep, Hostel, Move-in & Move-out, One-time & Regular, Post-Construction) in six cities (Ibadan, Oyo, Ogbomoso, Osogbo, Ilorin, Lagos). Customers get an instant price, send a booking request in about two minutes, and you manage everything from the admin page.
+---
 
-## The website, page by page
+## 1. Deploy in 10 minutes
 
-| Page | Address | What it is for |
-| --- | --- | --- |
-| Home | `/` | What we do, the seven services, how it works, the six cities, one clear "Get a price" button. |
-| Services | `/services` | Each service with its checklist and extras, a jump bar, and a "Get a price for this" button. |
-| Book | `/book` | The five-step estimate and booking form. Price and Continue button stay on screen. |
-| Locations | `/locations` | The six cities, each linking to a booking in that city. |
-| Our work | `/work` | Real projects you add in admin (with before/after photos), plus cleaning tips. |
-| Reviews | `/reviews` | Approved customer reviews and the feedback form. |
-| FAQ | `/faq` | Searchable answers, grouped by topic. |
-| Contact | `/contact` | Call, WhatsApp, email, opening hours with today highlighted, and an open/closed badge. |
-| Terms | `/terms` | The booking terms and privacy notice (the same text the booking form asks customers to read). |
+1. Put this whole folder in a new GitHub repository (or GitLab/Bitbucket).
+2. On [netlify.com](https://netlify.com): **Add new site > Import an existing project**, pick the repository.
+   Netlify reads `netlify.toml`, so the defaults are right (publish folder `site`, functions in `netlify/functions`). Click **Deploy**.
+3. Open **Site configuration > Environment variables** and add the settings in the table below. Then **Deploys > Trigger deploy**.
+4. Visit `https://your-site.netlify.app/admin/` (also linked as **Staff login** in every page footer) and sign in with the username and password you set.
+5. Make a test booking from your phone and check that the emails arrive.
 
-Shortcuts: `/book?service=hostel&city=Ilorin` opens the form with those chosen and skips to the rooms step. The Services and Locations pages and the footer use these links.
+> Prefer the command line? `npm install` then `npx netlify deploy --build --prod`.
+> Netlify Drop (drag and drop) does **not** run the backend, so use Git or the CLI.
 
-## Logo and brand
+### Environment variables
 
-The logo is the file in `assets/source/FreshNest_Logo.jpg`. A JPG has a white box behind it, so the site uses transparent pieces cut from it, in `site/img/`. They are WebP, which keeps all the logo pictures a first-time visitor downloads under 30 KB (a PNG version would be about 110 KB, which matters on mobile data). Full-quality PNG masters are kept in `assets/logo/`, and `logo-full.png` / `logo-full-light.png` are ready to download for social media profiles or print.
+| Name | Required | What it does |
+|---|---|---|
+| `ADMIN_USERNAME` | Yes | Admin username (defaults to `admin` if you leave it out; set your own). |
+| `ADMIN_PASSWORD` | Yes | Admin password. Use a long one. |
+| `AUTH_SECRET` | Recommended | Any long random string; signs admin sessions. |
+| `RESEND_API_KEY` | For emails | From resend.com. Sends customer confirmations, receipts, checklists, reminders and your alerts. |
+| `EMAIL_FROM` | For emails | For example `FreshNest Cleaning <bookings@yourdomain.com>`. Must be on a domain verified in Resend. |
+| `SITE_URL` | Optional | Your public address (for email links), e.g. `https://www.yourdomain.com`. |
+| `ANTHROPIC_API_KEY` | Optional | Turns the quote assistant from a keyword reader into an AI reader (see section 4). |
+| `AI_MODEL` | Optional | Defaults to `claude-haiku-4-5-20251001`. |
 
-| File | Used for |
-| --- | --- |
-| `logo-mark-128.webp`, `logo-mark.png` | The round emblem in the header, footer and admin page (WebP, tiny), and as a PNG for search-engine data. |
-| `logo-disc.webp`, `logo-droplet.webp`, `logo-sparkle.webp` | The emblem split into three layers that line up exactly. They move separately in the welcome animation on the home page. |
-| `logo-word.webp`, `logo-tag.webp` and the `-light` versions | The "FreshNest" wordmark and the tagline. The dark version shows on light pages, the light version on night mode and on dark panels such as the footer. |
-| `favicon.ico`, `favicon-32.png`, `apple-touch-icon.png`, `icon-192.png` | The browser tab icon and the icon when someone adds the site, or the admin page, to their phone's home screen (`site.webmanifest`, `admin/admin.webmanifest`). |
-| `og-image.png` | The picture shown when a link to the site is shared on WhatsApp or Facebook. It needs `PUBLIC_URL` to be set. |
+**Email note:** Proton Mail cannot be used as the sending address. Verify a domain you own in Resend (it gives you DNS records to add), then use an address on that domain in `EMAIL_FROM`. Replies from customers go to `freshnestcleaningservices@proton.me`. Until email is set up, bookings still work and are saved; the admin page shows a notice.
 
-**The welcome animation** (home page): the disc pops in, the droplet falls into place, the wordmark wipes in, the tagline rises, the sparkle pops and keeps gently twinkling, and a glint sweeps across the emblem now and then. Click the logo to play it again. It stops completely for visitors who ask their device to reduce motion, and then they simply see the finished logo.
+---
 
-**The site's colours follow the logo:** emerald-to-deep-teal for brand and buttons, the wordmark's deep green for the footer and dark panels, and the sparkle's gold for the main buttons. They are variables at the top of `site/css/base.css`, and a test checks that the contrast stays accessible.
+## 2. What customers get
 
-**Changing the logo later:** replace `assets/source/FreshNest_Logo.jpg` with the new file (a white background works best) and run `python3 scripts/make-logo-assets.py` (needs `pip install pillow numpy scipy`; the website itself never needs Python). It rebuilds every picture above. If the new logo has a different shape, the welcome animation layers and the sizes in `partials/` may need adjusting.
+- **Booking in about two minutes**, five clear steps, a live price estimate, and a saved draft if they leave.
+- **Quote assistant:** describe the place in plain words ("3-bedroom flat in Ibadan, greasy kitchen, deep clean on Saturday") and the form fills itself. They can change anything.
+- **Written agreement:** the booking shows exactly what we will and will not do. *Everything stated is attended to; anything not stated is not done.* The same sentence is on the terms, the checklist, the receipt and the emails.
+- **Terms must be read** (scroll to the end) before the agreement box unlocks.
+- Confirmation emails, a booking tracker (reference plus phone or email), change and cancel requests, an add-to-calendar file, and a WhatsApp option.
+- Welcome screen with the animated logo, day and night mode, and a layout that fits every device. On phones there is a **bottom bar** (Home, Services, Book now, Contact, Menu) and a compact logo, so every page is one tap away.
 
-## How everything connects
+## 3. What you get in the admin (`/admin/`)
 
-```
-Customer (phone or laptop)                Server                                Owner
-  Website  ── POST /api/bookings ───────▶ checks, re-prices, saves ─── alerts ─▶ phone / Telegram / email
-  (site/)   ◀─ GET  /api/public  ──────── storage: a file (server) or Upstash Redis (Vercel)
-                                              ▲
-                                              │ /api/admin/*  (password, HTTP-only cookie)
-                                          Admin page (site/admin): overview, bookings, reviews,
-                                          projects, settings, help
-```
+Sign in with your username and password.
 
-- **Settings flow one way.** Change the phone number, hours or announcement in the admin page and every page, the "Open now" badge and the search-engine data update immediately.
-- **Prices are checked twice.** `site/js/pricing.js` is used by the browser to show the estimate and by the server to re-price every booking, so a tampered price is ignored. The same file holds the services, cities, time slots and one-tap room layouts, so the form, the server and the tests always agree.
-- **Cities are enforced.** The booking form only offers the six cities and the server refuses anything else.
-- **Consent is enforced twice.** The tick box unlocks after the terms are read; the server also refuses any booking without consent, and stores when, which terms version, and a hashed IP.
-- **Reviews are gated.** Customer feedback stays private until you publish it, and only if the customer allowed that.
-- **You hear about every booking.** Alerts go to your phone, Telegram and/or email. A failing alert never blocks a customer's booking.
+- **Overview:** new bookings, money received and still owed, bookings over time, by service, city, weekday and time, funnel and reviews.
+- **Schedule:** the next 30 days grouped by day, with jobs that have no team assigned flagged.
+- **Bookings:** confirm with a final price, assign a team, update, complete, cancel, notes and a full timeline. Alerts bell with desktop notifications.
+- **Draft quote message:** one click writes a friendly WhatsApp or email quote. The AI writes only a short friendly note; the price, date and scope lines always come from the booking.
+- **Payments and receipts:** record cash, transfer or POS payments (numbered receipts `RC-2026-0001`), then preview, print or save as PDF, or email the receipt to the client. A statement shows the balance.
+- **Checklists:** generated from the agreed scope (for fumigation it includes the safety steps). Untick items, add special requests, print or email to the client.
+- **Content:** add previous work with before and after photos (drag-to-compare), and write guides.
+- **Reviews:** approve customer feedback or add reviews you received elsewhere.
+- **Settings:** business details, cities, opening hours, closed dates, booking rules, notifications, banner, and **every price** (including fumigation pests, hostel and office rooms).
 
-```
-api/[...path].js   Vercel entry: the whole /api/* backend as one function
-server/index.js    normal-host entry: starts a Node server (also serves the website, keeps daily file backups)
-lib/               the backend, shared by both entries
-  app.js             wires everything together: createApp({ mode: 'server' | 'vercel' })
-  routes/            public.js (bookings, feedback, site data, photos) and admin.js (everything the owner does)
-  storage/           file.js (JSON file) and redis.js (Upstash), one interface, tested identical
-  limiter.js  session.js  auth.js  validate.js  notify.js  config.js  http.js  pages.js  site.js  backup.js
-site/              the website source: pages (*.html), css/, js/, img/ (logo pieces), admin/ (the owner's admin page)
-partials/          shared head, header, footer and icons (edit the menu once, here)
-scripts/           build-site.js, doctor.js, import-data.js, reset-password.js, healthcheck.js, make-logo-assets.py
-test/              automated tests (and helpers/mock-upstash.js, a stand-in for the database)
-docs/              DEPLOY-VERCEL.md, step by step for Vercel
-assets/            the original logo and PNG masters (not published)
-vercel.json  Dockerfile  docker-compose.yml  render.yaml  .env.example  deploy/
-```
+## 4. Job planner for paint, tile and stain removal (built from your field manual)
 
-## Try it on your computer
+Open **Admin > Planner**. It is a guided chat that asks the manual's pre-visit questions one at a time (area, cause and age of the stain, surface, access, occupancy, water and power, risks, who and what you can send, deadline and margin). You can answer in your own words or tap an option. It also starts from a booking: press **Plan this job** inside any booking and it reads the customer's notes first.
 
-```
-node server/index.js
-```
+For every job it produces, on four tabs:
 
-Website: http://localhost:3000 and admin: http://localhost:3000/admin/. On the first run the server prints a random admin password. **Save it then**; it is not shown again.
+- **Quotation:** a customer-ready message (copy, WhatsApp, email) and a printable quotation. It includes the price, the manual's limits wording (no guarantee on porous grout, work stops if a test shows risk), the test-patch rule and the written scope. Customers never see your costs or margin.
+- **Work procedure:** the right SOP from the manual for that stain and surface, the test-patch steps, PPE, tools and chemicals, machine steps, the quality check, stop-work conditions and the close-out list, plus a printable **job plan** with a job card.
+- **Crew and machines:** how many leads, technicians and support to send, how many days it takes, and which of your machines to use or leave out, with the reason (for example, a pressure washer is never used on glass or indoor tile). If a deadline cannot be met with the people you have, it says how many more you need.
+- **Costs:** labour, chemicals, transport, equipment-use charge, protection and waste, overhead and (only when uncertain) a contingency. Quote = cost divided by (1 minus margin), as in the manual. It also shows a per-m2 price, a day rate and the creditable test-patch fee.
 
-## The admin page
+The manual's safety rules are built in: epoxy and polyurethane coatings, acid-sensitive stone, coated or decorative glass, possible lead paint, work at height, and poor ventilation all raise STOP or CHECK flags, and the plan will tell you to pause, test first, or refer the job. The AI only helps read your answers and write a friendly opening line. **Every number comes from the calculator and your own settings, never from the AI.**
 
-Sign in at `/admin/`. It has six tabs: **Overview** (what needs attention, pause online booking), **Bookings** (search, filter, call or WhatsApp the customer, set status, final price and private notes, export to a spreadsheet), **Reviews** (publish or hide), **Our work** (add projects and photos), **Settings** (details, hours, alerts, backups, password) and **Help**.
+Set your real figures in **Admin > Settings > Job planner**: wages, how many people you have free, which machines you own (with price, resale value and lifetime hours: cost per hour uses the manual's formula), chemical cost and speed per stain, overhead, margin and minimum call-out. The starting values are only the manual's examples and my assumptions; the manual itself says to replace them with your measured figures after 5 to 10 jobs.
 
-**Help** is written for the owner, not a developer. It has a setup checklist that ticks itself off, an **Access details** card (the admin address, how sign-in works, how long you stay signed in, what happens after wrong passwords, how to recover a lost password), a daily routine, and step-by-step guides for the things that come up: a new booking, a cancellation, being fully booked, a review, adding a job, changing hours, keeping data safe, and missing alerts.
+On the customer side, when someone describes paint or tile residue in the quote assistant, it asks the manual's follow-up questions (area, wet or dry, surface type).
 
-**Access in plain terms:** there is one shared password. Anyone with it can see customers' names, phone numbers and addresses, so share it only with people you trust. You stay signed in for up to 12 hours on a device, and after 8 wrong tries from one connection sign-in locks for 15 minutes.
+## 5. The AI quote assistant
 
-**Lost the password?** Stop the server, run the command below, and start it again. It prints a new password and signs everyone else out. (If `ADMIN_PASSWORD` is set on your host, change that setting instead.)
+The assistant only **reads a description and fills in the form**. Prices always come from your fixed room-by-room rules, never from the AI, and it cannot invent a price. Everything it fills in is validated by the server.
 
-```
-npm run reset-password
-npm run reset-password -- "a password phrase you choose"
-```
+- **Without a key:** a built-in keyword reader handles common descriptions (rooms, pests, city, dates like "tomorrow" or "next Saturday").
+- **With `ANTHROPIC_API_KEY`:** the same endpoint asks Claude to read the description, and falls back to the keyword reader if the AI is unavailable. Usage is small (one short request per use, limited to 10 per visitor per hour).
 
-## Going live
+## 6. Daily reminders
 
-**Decide two things first.** (1) Where the server runs. (2) Where the data lives: it must be a **persistent disk**, because bookings are stored in `DATA_DIR`. On many hosts the normal folder is erased on every deploy, which would delete your bookings. The server warns you at start-up if this looks wrong.
+`netlify/functions/reminders.mjs` runs every day at 16:00 Nigerian time. It emails each customer with a **confirmed** job tomorrow, and sends you a digest of tomorrow's jobs. Change the schedule in that file if you like.
 
-### Configuration
+## 7. Prices
 
-Copy `.env.example` to `.env` and fill it in (or set the same names as environment variables on your host).
+Change any price in **Admin > Settings**. Cleaning prices are anchored to 2026 Nigerian guide prices. **Fumigation has no fixed Nigerian rates**, so those numbers are sensible starting values (rooms, pests, outdoor area, severity). Please review them against your real costs.
 
-| Variable | What it does |
-| --- | --- |
-| `NODE_ENV=production` | Turns on the production warnings. |
-| `PUBLIC_URL` | Your address with https, e.g. `https://www.example.ng`. Used for search engines, `robots.txt`, `sitemap.xml` and links in alerts. |
-| `ADMIN_PASSWORD` | At least 10 characters. When set it always wins, and it lets you restore access on a new server. |
-| `DATA_DIR` | Folder on the persistent disk. |
-| `TRUST_PROXY` | How many proxies are in front of the app (`1` for Render, Railway, Caddy, nginx; `2` if Cloudflare is in front of Render). The server reads the visitor's real IP from the right end of `X-Forwarded-For`, which visitors cannot fake. Detected automatically on Render, Railway, Fly, Koyeb and Heroku. Without it, all visitors would share one booking limit. |
-| `COOKIE_SECURE=1` | Always mark the sign-in cookie Secure. |
-| `PORT` | Default 3000. Hosts usually set it for you. |
+## 8. Real photos and your own content
 
-**Alerts (turn on at least one, then use "Send a test alert" in the admin page):**
+Use **Admin > Content** to add real jobs with before and after photos. Until you add work posts, the site shows only the starter guides.
 
-| Channel | Set | How |
-| --- | --- | --- |
-| Phone notification | `NOTIFY_URL` | Install the free ntfy app, subscribe to a long random topic, then `NOTIFY_URL=https://ntfy.sh/your-long-random-topic`. |
-| Telegram | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | Make a bot with @BotFather, send it a message, then open `https://api.telegram.org/bot<TOKEN>/getUpdates` to find your chat id. |
-| Email | `RESEND_API_KEY`, `NOTIFY_EMAIL` (comma-separated), `MAIL_FROM` | Free account at resend.com. Until you verify your own domain there, Resend only delivers to your own account email and `MAIL_FROM` must stay `FreshNest <onboarding@resend.dev>`. |
-
-### Check before you launch
+## 9. Try it locally, no setup
 
 ```
-npm run doctor            # checks your settings and that every page builds
-npm run doctor -- --live  # also asks the running site to prove it is up and locked down
+python3 -m http.server 8000 --directory site
 ```
+Open http://localhost:8000. With no backend running, a demo mode starts automatically and saves to the browser: nothing is sent. Demo admin login: **admin / demo1234**.
 
-### Option A: Vercel
+For the real backend locally: `npm install` then `npx netlify dev`.
 
-Full walk-through in **[docs/DEPLOY-VERCEL.md](docs/DEPLOY-VERCEL.md)**. In short: push the project to GitHub, import it in Vercel, add an **Upstash Redis** database from the Storage tab, set `ADMIN_PASSWORD` (and `PUBLIC_URL` and an alert channel) under Environment Variables, deploy, then run `npm run doctor -- --vercel --live`. **Note:** Vercel's free Hobby plan is for non-commercial use only, so a business site needs its Pro plan.
+## 10. Tests and checks
 
-### Option B: Render
+- `npm test`: 27 backend tests (bookings, validation, emails, admin, payments, receipts, checklists, fumigation, AI assistant, reminders, job planner).
+- `python3 scripts/smoke.py`: loads every page at seven screen widths and checks for errors and sideways scrolling (needs Playwright; serve `site/` on port 8766).
+- `python3 scripts/flow.py`, `python3 scripts/admin_flow.py` and `python3 scripts/planner_flow.py`: full customer, admin and job-planner journeys in a real browser.
+- `python3 scripts/make_preview.py`: builds a one-file preview of the whole site and admin running in demo mode.
 
-1. Put this folder in a GitHub repository.
-2. In Render: **New > Blueprint**, pick the repository. `render.yaml` sets the start command, the health check, a 1 GB persistent disk at `/data`, and the settings above.
-3. Fill in `PUBLIC_URL` and `ADMIN_PASSWORD` (and an alert channel) when Render asks.
-4. Add your own domain under Settings > Custom Domains if you have one, and update `PUBLIC_URL`.
-
-A persistent disk needs a paid instance type; the free tier would lose your data on every restart.
-
-### Option C: Railway, Fly.io or any Docker host
-
-Deploy the `Dockerfile` (no build step, no dependencies). Attach a **volume mounted at `/data`** and set `PUBLIC_URL`, `ADMIN_PASSWORD` and an alert channel. `DATA_DIR=/data` and `TRUST_PROXY=1` are already set in the image. The image runs as an unprivileged user and has a health check.
-
-### Option D: Your own server with automatic HTTPS
-
-On any Linux server with Docker, with your domain's DNS already pointing at it:
+## 11. Folder map
 
 ```
-cp .env.example .env      # fill it in, and add a line:  DOMAIN=www.example.ng
-docker compose up -d
+site/                 the website (HTML, css, js, img)
+  admin/index.html    admin dashboard
+  js/core.js          backend logic (runs on Netlify and in the demo)
+  js/pricing.js       prices and the estimate engine
+  js/docs.js          receipts and checklists
+  js/terms.js         booking terms and scope of work
+  js/manual.js        the stain-removal field manual as data (SOPs, safety rules, questions)
+  js/planner.js       job planner: crew, machines, time and cost calculator
+netlify/functions/    api.mjs (backend), reminders.mjs (daily reminders)
+netlify/lib/          storage (Netlify Blobs), email (Resend), AI (optional)
+tests/                backend tests
+scripts/              browser checks and the preview builder
 ```
 
-Caddy gets and renews a free HTTPS certificate on its own. Without Docker, run `node server/index.js` under systemd using `deploy/freshnest.service` and put Caddy or nginx in front.
+## 12. Good to know
 
-### After launch
-
-- Sign in at `/admin/` and work down the **Help** tab's setup checklist.
-- Place a test booking from your phone and confirm the alert arrives.
-- Add real projects under **Our work** when you have photos you may show.
-- Have a lawyer review the terms text (see below).
-
-## Backups
-
-**On Vercel** there are no daily file copies: your data is in Upstash Redis, which keeps its own copy. Click **Download a backup** in the admin page now and then; it includes the photos. Restore (or move to another host) with `npm run import-data -- backup.json`. The paragraphs below describe the normal-server setup.
-
-The server copies `db.json` into `DATA_DIR/backups` at start-up and every 6 hours, keeping the newest 14 days. That protects against mistakes, not against losing the disk, so also click **Download a backup** in the admin page now and then and keep the file somewhere else. (The download leaves out the password hash and signing secret.) Photos live in `DATA_DIR/uploads` and are not in the download; copy that folder too.
-
-To restore: stop the server, put the backup at `DATA_DIR/db.json`, start it, and sign in with `ADMIN_PASSWORD`.
-
-The data contains customers' names, phone numbers and addresses. Keep every copy private.
-
-## Changing things
-
-| To change | Where |
-| --- | --- |
-| Phone, email, opening hours, announcement, pause online booking | Admin, Settings. Updates the website immediately. |
-| Real projects and before/after photos | Admin, Our work. |
-| Approve customer reviews | Admin, Reviews. |
-| Prices, room rates, one-tap room layouts, time slots, booking window, the list of cities | `site/js/pricing.js` (read the comments at the top of each block). |
-| Service descriptions and checklists | `site/services.html` (and the cards in `site/index.html`). |
-| The menu and footer | `partials/header.html` and `partials/footer.html`: one edit updates every page. |
-| Booking terms and privacy text | `site/js/terms.js`. Change `termsVersion` in `site/js/pricing.js` whenever you edit it, because each booking stores the version the customer accepted. |
-| FAQ answers | `site/faq.html` |
-| Cleaning tips | `TIPS` in `site/js/work.js` |
-| Colours, fonts, button sizes | Variables at the top of `site/css/base.css`, shared by the site and the admin page. |
-
-**The prices for Hostel Cleaning are a starting point** (student rooms, shared bathrooms, toilets, kitchens, common rooms and corridors, with a 35,000 minimum). Check them against what you actually charge. **The terms text is a plain-language draft, not legal advice.** Have a lawyer review it, especially the cancellation, damage and data sections.
-
-## Motion and accessibility
-
-Pages fade in, content rises into view once as you scroll, cards respond to hover, the mobile menu slides in, and moving between pages cross-fades in browsers that support it. Everything stops for visitors who ask their device to reduce motion, and content never stays hidden if a script fails. Menus, dialogs, tabs and forms work with a keyboard, buttons are at least 44px tall, and colour contrast meets WCAG AA.
-
-## Tests
-
-```
-npm install     # once, for the browser-simulation tests (jsdom)
-npm test
-```
-
-The tests cover the API and security rules, the same storage checks run against both the file and the Redis backends (using a stand-in for Upstash), the real Vercel function end to end (shared limits, alerts sent before replying, photos in the database, backups, 20 simultaneous bookings), `vercel.json`, the build output, data import, (including attempts to slip scripts in through names, reviews and project titles), the logo files and how every page uses them, all seven services and six cities, alerts (against a stand-in server), backups and restore, the first-run password and reset command, proxy IP handling, compression, every page, and the real pages driven in jsdom (the booking flow and consent lock, the FAQ search, the admin page and its Help tab). The browser-simulation tests need Node 22.22+ and skip themselves if jsdom is not installed. GitHub Actions runs them on every push.
-
-## One-folder preview
-
-`npm run build:preview` writes `preview/`: the whole website as plain files with no backend. Open `index.html` by double-clicking, or upload the folder to any static host to show the design. Bookings fall back to email and WhatsApp there, and there are no reviews or projects.
-
-## Good to know
-
-- Storage is behind one interface (`lib/storage/`): a JSON file with atomic writes on a normal host, Upstash Redis on Vercel. Both are comfortable for a single small business; to use something else (Postgres, say), add one file beside `file.js` and `redis.js`.
-- On a normal host run **one** copy of the server (rate limits are kept in memory). On Vercel any number of copies is fine: limits and sessions live in the database.
-- On shutdown (a redeploy, for example) the server finishes in-flight requests and any pending save before it exits.
-- Security in place: password hashed with scrypt, HTTP-only same-site cookie, sign-in rate limit, cross-site request check, strict content-security policy, HSTS over HTTPS, upload type checks, CSV formula protection.
+- **Legal:** the terms are a plain-language starting point. Have a lawyer review them before relying on them.
+- **No online payments** by design. Payments are agreed with the customer and recorded in the admin, with a receipt for each.
+- **Storage:** bookings, posts and photos are saved in Netlify Blobs (included with Netlify). Export bookings any time with **Export CSV**.
+- **Privacy:** customers' details are used only to run the booking. The site counts anonymous visits and button taps only.

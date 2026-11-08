@@ -1,22 +1,15 @@
-/* Home page: the before/after window slider and a short reviews strip (only when real reviews exist). */
+/* Home page: animated hero logo and customer reviews. */
 (function () {
   "use strict";
-  var FN = window.FN, $ = FN.$, esc = FN.esc;
-
-  if ($("compare")) FN.wireCompare($("compare"), $("cmp"), 92, 50);
-
-  /* Click the welcome logo to watch it again */
-  var logo = $("heroLogo");
-  if (logo && !FN.reduced) logo.addEventListener("click", function () { var html = logo.innerHTML; logo.innerHTML = ""; void logo.offsetWidth; logo.innerHTML = html; });
-
-  var STAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-star"/></svg>';
-  function stars(n) { var h = '<div class="rstars" role="img" aria-label="' + n + ' out of 5 stars">'; for (var i = 1; i <= 5; i++) h += STAR.replace("<svg", '<svg class="' + (i <= n ? "on" : "") + '"'); return h + "</div>"; }
-  FN.ready(function () {
-    var list = FN.reviews.slice(0, 3), sec = $("homeReviews");
-    if (!sec || !list.length) return;
-    $("homeReviewList").innerHTML = list.map(function (r) {
-      return '<article class="rev" data-reveal><div class="who"><div class="av" aria-hidden="true">' + esc((r.name || "?").charAt(0).toUpperCase()) + '</div><div><div class="nm">' + esc(r.name) + '</div><div class="mt">' + esc(r.meta) + "</div></div></div>" + stars(r.rating) + "<p>" + esc(r.text) + "</p></article>";
-    }).join("");
-    sec.hidden = false; FN.reveal(sec);
+  var FN = window.FN, $ = FN.$, esc = FN.esc, logo = $("heroLogo");
+  if (logo) FN.afterWelcome(function () { setTimeout(function () { logo.classList.add("play"); }, 120); });
+  function stars(n) { var h = '<div class="rstars" role="img" aria-label="' + n + ' out of 5 stars">'; for (var i = 1; i <= 5; i++) h += '<span class="' + (i <= n ? "on" : "") + '">\u2605</span>'; return h + "</div>"; }
+  FN.ready.then(function () {
+    if (!FN.online || !$("homeReviewList")) return;
+    FN.api("reviews").then(function (r) {
+      var list = (r.reviews || []).slice(0, 3); if (!list.length) return;
+      $("homeReviewList").innerHTML = list.map(function (x) { return '<article class="rev"><div class="who"><div class="nm">' + esc(x.name) + (x.verified ? ' <span class="tagpill">Verified booking</span>' : "") + '</div><div class="mt">' + esc(x.meta || "") + "</div></div>" + stars(x.rating) + "<p>" + esc(x.text) + "</p></article>"; }).join("");
+      var sec = $("homeReviewList").closest("section"); if (sec) sec.hidden = false; if ($("homeReviews")) $("homeReviews").hidden = false;
+    }).catch(function () {});
   });
 })();

@@ -1,49 +1,23 @@
-/* Opening-hours text and live "open now" status, in Nigeria time.
-   Shared by the public site and the admin page (window.FNHours) and testable in Node. */
-(function (root, factory) {
-  if (typeof module === "object" && module.exports) module.exports = factory();
-  else root.FNHours = factory();
-})(typeof self !== "undefined" ? self : this, function () {
+/* Opening hours helpers (Nigerian time). */
+(function (root, factory) { if (typeof module === "object" && module.exports) module.exports = factory(); else root.FNHours = factory(); })(typeof self !== "undefined" ? self : this, function () {
   "use strict";
-  var DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  var DAY_SHORT = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  var ORDER = [1, 2, 3, 4, 5, 6, 0];            /* weeks read Monday to Sunday; days[0] is Sunday */
-
-  function fmtTime(t) {
-    var h = +t.slice(0, 2), m = +t.slice(3, 5);
-    return (h % 12 || 12) + (m ? ":" + ("0" + m).slice(-2) : "") + (h >= 12 ? "pm" : "am");
-  }
-  function toMin(t) { return +t.slice(0, 2) * 60 + +t.slice(3, 5); }
-
+  var DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  function time12(hhmm) { var p = String(hhmm || "07:00").split(":"), h = +p[0], m = +p[1] || 0, ap = h >= 12 ? "pm" : "am"; h = h % 12 || 12; return h + (m ? ":" + String(m).padStart(2, "0") : "") + ap; }
   function hoursText(h) {
-    var time = fmtTime(h.open) + " to " + fmtTime(h.close), runs = [], cur = null;
-    if (h.days.every(Boolean)) return "Every day, " + time;
-    ORDER.forEach(function (d, i) {
-      if (!h.days[d]) return;
-      if (cur && cur.end === i - 1) cur.end = i; else { cur = { start: i, end: i }; runs.push(cur); }
-    });
-    return runs.map(function (r) {
-      return r.start === r.end ? DAY_SHORT[ORDER[r.start]] : DAY_SHORT[ORDER[r.start]] + " to " + DAY_SHORT[ORDER[r.end]];
-    }).join(", ") + ", " + time;
+    var days = (h.days || []).slice().sort(), t = time12(h.open) + " to " + time12(h.close);
+    if (days.length === 7) return "Every day, " + t; if (!days.length) return "Currently closed";
+    return days.map(function (d) { return DAYS[d].slice(0, 3); }).join(", ") + ", " + t;
   }
-
-  function lagosNow(date) {
-    var o = {};
-    new Intl.DateTimeFormat("en-US", { timeZone: "Africa/Lagos", weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" })
-      .formatToParts(date || new Date()).forEach(function (p) { o[p.type] = p.value; });
-    return { day: DAY_SHORT.indexOf(o.weekday), min: (+o.hour) * 60 + (+o.minute) };
+  function openStatus(h, now) {
+    now = now || new Date(); var o = {};
+    new Intl.DateTimeFormat("en-GB", { timeZone: "Africa/Lagos", weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false }).formatToParts(now).forEach(function (p) { o[p.type] = p.value; });
+    var day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(o.weekday), mins = (+o.hour % 24) * 60 + +o.minute, days = h.days || [];
+    function toM(s) { var p = s.split(":"); return +p[0] * 60 + (+p[1] || 0); }
+    var openM = toM(h.open), closeM = toM(h.close);
+    if (days.indexOf(day) > -1 && mins >= openM && mins < closeM) return { open: true, text: "Open now", detail: "until " + time12(h.close) };
+    if (days.indexOf(day) > -1 && mins < openM) return { open: false, text: "Closed now", detail: "opens today at " + time12(h.open) };
+    for (var i = 1; i <= 7; i++) { var d = (day + i) % 7; if (days.indexOf(d) > -1) return { open: false, text: "Closed now", detail: "opens " + (i === 1 ? "tomorrow" : DAYS[d]) + " at " + time12(h.open) }; }
+    return { open: false, text: "Currently closed", detail: "" };
   }
-
-  function openStatus(h, date) {
-    var n = lagosNow(date), o = toMin(h.open), c = toMin(h.close);
-    if (h.days[n.day] && n.min >= o && n.min < c) return { open: true, text: "Open now", detail: "until " + fmtTime(h.close) };
-    if (h.days[n.day] && n.min < o) return { open: false, text: "Closed now", detail: "opens today at " + fmtTime(h.open) };
-    for (var i = 1; i <= 7; i++) {
-      var d = (n.day + i) % 7;
-      if (h.days[d]) return { open: false, text: "Closed now", detail: "opens " + (i === 1 ? "tomorrow" : "on " + DAY_NAMES[d]) + " at " + fmtTime(h.open) };
-    }
-    return { open: false, text: "Closed", detail: "" };
-  }
-
-  return { hoursText: hoursText, openStatus: openStatus, fmtTime: fmtTime, lagosNow: lagosNow, DAY_NAMES: DAY_NAMES, DAY_SHORT: DAY_SHORT, ORDER: ORDER };
+  return { DAYS: DAYS, time12: time12, hoursText: hoursText, openStatus: openStatus };
 });
